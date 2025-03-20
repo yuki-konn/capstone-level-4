@@ -1,4 +1,4 @@
-import { parseResponse } from "../modules/parseResponse.js";
+import { parseResponse } from "../modules/parseResponse";
 
 // API index.html
 export function handleClickApi(event = new Event()) {

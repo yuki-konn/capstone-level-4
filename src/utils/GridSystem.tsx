@@ -1,4 +1,4 @@
-import { Row } from "./Row.js";
+import { Row } from "./Row";
 import React from "react";
 
 export class GridSystem {

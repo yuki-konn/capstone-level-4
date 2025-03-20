@@ -1,4 +1,4 @@
-import { Column } from "./Column.js";
+import { Column } from "./Column";
 import React from "react";
 
 export class Row {

@@ -1,4 +1,4 @@
-import { viewResponse } from "./viewResponse.js";
+import { viewResponse } from "./viewResponse";
 
 // index.html
 export function parseResponse(fetchObject) {

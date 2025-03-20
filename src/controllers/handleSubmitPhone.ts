@@ -1,7 +1,7 @@
-import { parsePhoneResponse } from "../modules/Contact/parsePhoneResponse.js";
-import { PhoneObject } from "../modules/Contact/PhoneObject.js";
-import { makeRequest } from "../utils/makeRequest.js";
-import { output } from "../utils/output.js";
+import { parsePhoneResponse } from "../modules/Contact/parsePhoneResponse";
+import { PhoneObject } from "../modules/Contact/PhoneObject";
+import { makeRequest } from "../utils/makeRequest";
+import { output } from "../utils/output";
 
 // PHONE APPOINTMENT FORM SUBMIT HANDLER
 export function handleSubmitPhone(event = new Event()) {

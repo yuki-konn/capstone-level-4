@@ -1,4 +1,4 @@
-import { getServerResponse } from "../modules/Contact/getServerResponse.js";
+import { getServerResponse } from "../modules/Contact/getServerResponse";
 
 // PROMISE contact.html
 export function makeRequest(url = "") {

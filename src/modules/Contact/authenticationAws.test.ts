@@ -1,4 +1,3 @@
-import { describe, expect, it } from "@jest/globals";
 import { authenticationAws } from "./authenticationAws";
 
 describe("The authenticationAws function", () => {
