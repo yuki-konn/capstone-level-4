@@ -4,7 +4,7 @@ export default {
     // RULES ARE LIST OF WAYS TO PROCESS THE MODULES.
     rules: [
       {
-        test: /\.js/, // COMPILE JAVASCRIPT MODULES
+        test: /\.(js|jsx|ts|tsx)/, // COMPILE JAVASCRIPT MODULES
         exclude: /\.(scss|css|otf|ttf|json)/, // DON'T COMPILE STYLE MODULE.
         use: "babel-loader", // USE THIS LOADER TO COMPILE ALL OTHER MODULES.
       },
@@ -27,6 +27,7 @@ export default {
   watch: true, // WATCH FOR WEBPACK CODE CHANGES. PRESS CTRL+C TO CANCEL.
   watchOptions: { aggregateTimeout: 3000 }, // GIVES WEBPACK MORE TIME TO COMPILE.
   mode: "development", // ENABLES THE DEBUGGER.
-  devtool: "source-map", // ENABLES DEBUGGER CODE TO MATCH ACTUAL CODE.
   // THE SOURCE MAP PROVIDES INSTRUCTIONS TO CONVERT MANGLED CODE BACK TO THE ORIGINAL CODE.
+  devtool: "source-map", // ENABLES DEBUGGER CODE TO MATCH ACTUAL CODE.
+  resolve: { extensions: [".js", ".jsx", ".ts", ".tsx"] }, // WEBPACK WILL AUTOMATICALLY LOOK FOR JS AND JSX FILES WHEN EXTENSIONS AREN'T SPECIFIED.
 };
