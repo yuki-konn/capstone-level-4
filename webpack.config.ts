@@ -1,3 +1,5 @@
+import { Configuration } from "webpack";
+
 export default {
   // MODULES ARE FILES THAT ARE IMPORTED.
   module: {
@@ -35,4 +37,4 @@ export default {
     historyApiFallback: true, // Provides support for SPA's by loading in index.html on 404 errors.
     // open: true, // Automatically opens browser tab when starting webpack dev server.
   },
-};
+} as Configuration;
