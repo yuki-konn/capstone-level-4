@@ -1,0 +1,4 @@
+{
+  // CONFIGURES TYPESCRIPT TO BE LESS STRICT WITH COMPILING
+  "compilerOptions": { "jsx": "preserve", "module": "Preserve" }
+}
