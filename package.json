@@ -1,7 +1,7 @@
 {
-  "name": "capstone-project-level-3",
+  "name": "capstone-level-4",
   "version": "1.0.0",
-  "description": "Capstone Level 3 Project",
+  "description": "Capstone Level 4",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -29,6 +29,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@types/jest": "^29.5.14",
     "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
     "jest": "^29.7.0",
