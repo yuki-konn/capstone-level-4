@@ -24,10 +24,15 @@ export default {
       },
     ],
   },
-  watch: true, // WATCH FOR WEBPACK CODE CHANGES. PRESS CTRL+C TO CANCEL.
-  watchOptions: { aggregateTimeout: 3000 }, // GIVES WEBPACK MORE TIME TO COMPILE.
+  // watch: true, // WATCH FOR WEBPACK CODE CHANGES. PRESS CTRL+C TO CANCEL.
+  // watchOptions: { aggregateTimeout: 3000 }, // GIVES WEBPACK MORE TIME TO COMPILE.
   mode: "development", // ENABLES THE DEBUGGER.
   // THE SOURCE MAP PROVIDES INSTRUCTIONS TO CONVERT MANGLED CODE BACK TO THE ORIGINAL CODE.
   devtool: "source-map", // ENABLES DEBUGGER CODE TO MATCH ACTUAL CODE.
   resolve: { extensions: [".js", ".jsx", ".ts", ".tsx"] }, // WEBPACK WILL AUTOMATICALLY LOOK FOR JS AND JSX FILES WHEN EXTENSIONS AREN'T SPECIFIED.
+  devServer: {
+    // Webpack dev server for SPAs
+    historyApiFallback: true, // Provides support for SPA's by loading in index.html on 404 errors.
+    // open: true, // Automatically opens browser tab when starting webpack dev server.
+  },
 };
