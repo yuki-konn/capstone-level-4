@@ -1,0 +1,102 @@
+// CUSTOM COLORS
+$gold: gold;
+
+$body-bg: #b3b3b3;
+$body-color: black;
+$sitemap-bg: #404040;
+
+// IMAGES
+$bg-image: url("../assets/images/bgImage.png");
+$main-bg-image: url("../assets/images/bamboo1.jpg");
+
+// CUSTOM FONTS
+$primaryFont: "edosz";
+$secondaryFont: sans-serif;
+
+@font-face {
+  font-family: "edosz";
+  src: url("../assets/fonts/edosz.ttf");
+}
+
+// MIXINS
+@mixin background {
+  background-image: $bg-image;
+  background-size: contain;
+}
+@mixin mainBackground {
+  background-image: $main-bg-image;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-size: contain;
+  // background: $main-bg-image, rgba(255, 255, 255, 0.5);
+  // background-blend-mode: normal;
+}
+@mixin article-btn-animation {
+  transform: scale(1);
+  transition: transform 1s;
+
+  &:hover {
+    transform: scale(1.3);
+    transition: transform 2s;
+  }
+}
+
+// STYLES
+body {
+  @include background;
+  color: $body-color;
+  font-family: $secondaryFont;
+  margin: 0px;
+  padding: 0px;
+  align-items: center;
+  justify-content: center;
+
+  main {
+    @include mainBackground;
+
+    .cardButton {
+      @include article-btn-animation;
+    }
+  }
+
+  // MAYBE PUT IN MAIN
+  h1,
+  h2,
+  h3 {
+    font-family: $primaryFont;
+  }
+
+  // PUT IN SITEMAP.SCSS AFTER MAKING SITEMAP COMPONENT.
+  #siteMapGroup {
+    background-color: #181818;
+    text-align: center;
+    opacity: 0.9;
+    .list-group-item {
+      width: 30%;
+      background-color: $sitemap-bg;
+    }
+    .list-group {
+      font-weight: bold;
+      align-items: center;
+    }
+  }
+}
+
+// CUSTOM STYLES
+.no-bullets {
+  list-style-type: none;
+}
+.no-decor {
+  text-decoration: none;
+}
+
+.w100 {
+  width: 100%;
+}
+
+// CUSTOM BOOTSTRAP STYLES
+.border-dashed {
+  border-style: dashed !important;
+}
+.border-dotted {
+  border-style: dotted !important;
+}

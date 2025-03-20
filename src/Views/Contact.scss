@@ -1,0 +1,33 @@
+$body-bg: #b3b3b3;
+
+@mixin textShadow {
+  text-shadow: 2px 2px rgb(94, 94, 94);
+}
+
+.textShadow {
+  @include textShadow;
+}
+
+#contactMain {
+  h1 {
+    background-color: $body-bg;
+    opacity: 0.9;
+  }
+  section {
+    background-color: rgb(179, 179, 179, 0.9);
+    form {
+      div {
+        margin: 5px;
+        justify-content: space-between;
+        label {
+          text-align: left;
+        }
+      }
+      #ratingDiv {
+        input {
+          margin: 0 15px 0 3px;
+        }
+      }
+    }
+  }
+}

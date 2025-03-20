@@ -1,0 +1,24 @@
+$main-bg-image: url("../../assets/images/bamboo1.jpg");
+
+$gold: gold;
+@mixin textShadow {
+  text-shadow: 2px 2px rgba(145, 145, 145, 1);
+}
+
+.textShadow {
+  @include textShadow;
+}
+
+li a span:hover {
+  color: $gold;
+}
+
+#aboutMain {
+  #sectionLvl1,
+  #sectionLvl2,
+  #sectionLvl3 {
+    article {
+      background-color: rgb(210, 180, 140, 0.9);
+    }
+  }
+}

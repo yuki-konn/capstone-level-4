@@ -1,0 +1,15 @@
+// COLOR
+$footer-bg: #181818;
+$footer-color: rgba(255, 255, 255, 1);
+
+// STYLES
+footer {
+  color: $footer-color;
+  background-color: $footer-bg;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
