@@ -16,7 +16,7 @@ const root = createRoot(bodyTag);
 const domain = window.location.hostname;
 console.log(`Domain: ${domain}`);
 let rootpath: string;
-if (domain === "yuki-konn.github.io") rootpath = "/capstone-project-level-4";
+if (domain === "yuki-konn.github.io") rootpath = "/capstone-level-4";
 
 root.render(
   <BrowserRouter>
