@@ -1,3 +1,3 @@
-export function handleSubmitTrivia(event = new HTMLFormElement()) {
+export function handleSubmitTrivia(event: any) {
   event.preventDefault();
 }

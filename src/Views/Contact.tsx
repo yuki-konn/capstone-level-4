@@ -131,7 +131,7 @@ export function Contact() {
           <i className="bi bi-telephone"></i> Schedule a Phone Appointment
         </h2>
 
-        <form onSubmit={handleSubmitPhone}>
+        <form onSubmit={handleSubmitPhone as any}>
           <div className="row">
             <label className="col-2" htmlFor="phone-name" title="Required">
               Name *
@@ -223,7 +223,7 @@ export function Contact() {
     }
   }
 
-  function handleSubmitContact(event) {
+  function handleSubmitContact(event: any) {
     event.preventDefault();
 
     const name = event.target[0].value;

@@ -1,7 +1,7 @@
 import { output } from "../../utils/output";
 
 // PARSE RESPONSE FOR PHONE APPOINTMENT FORM contact.html
-export function parsePhoneResponse(resolveValue) {
+export function parsePhoneResponse(resolveValue: string) {
   const response = JSON.parse(resolveValue);
   const message = response.message;
   output(message, "phoneOutputTag");

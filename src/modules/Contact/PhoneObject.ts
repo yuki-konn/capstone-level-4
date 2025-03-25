@@ -1,6 +1,6 @@
 // TEMPLATE OBJECT
 export class PhoneObject {
-  name = "";
-  phoneNumber = "";
-  appointment = "";
+  name: string;
+  phoneNumber: string;
+  appointment: string;
 }

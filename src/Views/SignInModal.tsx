@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SignInContent } from "./SignInContent";
 import { handleSignIn } from "../controllers/handleSignIn";
 
-export function SignInModal(props) {
+export function SignInModal(props: { onSignIn: any }) {
   const onSignIn = props.onSignIn; // Prop from SignInArea.
 
   // ERROR MESSAGE FOR INCORRECT INPUTS
@@ -60,7 +60,7 @@ export function SignInModal(props) {
     </>
   );
 
-  function handleSubmit(event) {
+  function handleSubmit(event: any) {
     console.log("Handler: handleSignIn");
     handleSignIn(event, onSignIn, setErrorMessage);
   }

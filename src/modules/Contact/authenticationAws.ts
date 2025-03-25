@@ -6,13 +6,13 @@ import {
 } from "../../../.aws/credentials";
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 
-export async function authenticationAws(email = "", password = "") {
+export async function authenticationAws(email: string, password: string) {
   //DynamoDB CREDENTIALS
   const apiKey = {
-    region: region,
+    region: region as string,
     credentials: {
-      accessKeyId: accessKeyId,
-      secretAccessKey: secretAccessKey,
+      accessKeyId: accessKeyId as string,
+      secretAccessKey: secretAccessKey as string,
     },
   };
 

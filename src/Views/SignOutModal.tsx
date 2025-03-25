@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FormEvent } from "react";
 
-export function SignOutModal(props) {
+export function SignOutModal(props: { onSignOut: any }) {
   const onSignOut = props.onSignOut;
   return (
     <>
@@ -54,7 +54,7 @@ export function SignOutModal(props) {
   );
 
   // SIGN-OUT MODAL FORM HANDLER
-  function handleSubmit(event = new Event()) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     console.log("Handler: Sign-out Modal");
     event.preventDefault();
     //Position 1 in the array of the target property of Event

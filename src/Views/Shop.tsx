@@ -337,7 +337,7 @@ function componentDidUnmount() {
 }
 
 // PASSES PARAMETER TO A MORE SPECIFIC HANDLER
-function handleClick(event) {
+function handleClick(event: any) {
   let buttonId = event.target.id; // GETS THE ID OF BUTTON THATS CLICKED. USED THIS INSTEAD OF getElementById BECAUSE I WANTED EACH BUTTON TO GIVE ME A DIFFERENT ID.
   handleClickAddCart(event, buttonId);
 }

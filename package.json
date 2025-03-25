@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "npx webpack",
+    "start": "npx webpack server",
     "build": "npx webpack --mode=production",
     "test": "npx jest ./src/modules/Contact/getCheckedRadio.test.ts",
     "deploy": "git push"

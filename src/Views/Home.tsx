@@ -178,7 +178,7 @@ export function Home() {
   }
 
   // HANDLER FOR TRIVIA CARD BUTTON
-  function handleClickTriviaCard(event) {
+  function handleClickTriviaCard(event: any) {
     handleClickApi(event);
   }
 

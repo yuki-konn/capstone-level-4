@@ -1,10 +1,11 @@
+import { FormEvent } from "react";
 import { parsePhoneResponse } from "../modules/Contact/parsePhoneResponse";
 import { PhoneObject } from "../modules/Contact/PhoneObject";
 import { makeRequest } from "../utils/makeRequest";
 import { output } from "../utils/output";
 
 // PHONE APPOINTMENT FORM SUBMIT HANDLER
-export function handleSubmitPhone(event = new Event()) {
+export function handleSubmitPhone(event: FormEvent<HTMLFormElement>) {
   event.preventDefault();
   const form = event.target;
 

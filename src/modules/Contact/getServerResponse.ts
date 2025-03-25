@@ -1,5 +1,5 @@
 // SERVER RESPONSE contact.html
-export function getServerResponse(resolve) {
+export function getServerResponse(resolve: any) {
   // DOES activateResolve FUNCTION AFTER 5 SECONDS
   setTimeout(activateResolve, 5000);
   function activateResolve() {

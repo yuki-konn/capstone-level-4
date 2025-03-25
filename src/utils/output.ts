@@ -1,6 +1,6 @@
 // OUTPUT FUNCTION
 export function output(
-  message = "",
+  message: string,
   outputTag = "outputTag",
   shouldAppend = true
 ) {

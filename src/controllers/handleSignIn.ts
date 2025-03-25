@@ -2,9 +2,9 @@ import { authenticationAws } from "../modules/Contact/authenticationAws";
 
 // WHEN async IS CALLED IT RETURNS A NEW PROMISE, WHICH WILL BE RESOLVED BY THE VALUE RETURNED BY THE ASYNC FUNCTION.
 export async function handleSignIn(
-  event = new Event(),
-  onSignIn,
-  setErrorMessage
+  event: any,
+  onSignIn: any,
+  setErrorMessage: any
 ) {
   event.preventDefault();
 
@@ -17,7 +17,7 @@ export async function handleSignIn(
   // RESOLVE VALUE BOOLEAN
   // WAITS UNTIL PROMISE OF authenticationAws IS FULLFILLED.,
   //   THEN PLACES RESOLVE VAUE INTO isAuthenticated.
-  const isAuthenticated = await authenticationAws(email, password);
+  const isAuthenticated = (await authenticationAws(email, password)) as boolean;
   if (isAuthenticated) {
     // Closes Modal
     closeButton.click();

@@ -1,7 +1,7 @@
 import { output } from "../utils/output";
 
 // index.html
-export function viewResponse(fetchObject) {
+export function viewResponse(fetchObject: string) {
   const response = JSON.parse(fetchObject);
   const results = response.results;
   const item = results[0];

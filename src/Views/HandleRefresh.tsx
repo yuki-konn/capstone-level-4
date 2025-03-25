@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
  * This component depends on the local storage used by redirect.js
  * In redirect.js, properly set the root path.
  */
-export function HandleRefresh(props) {
+export function HandleRefresh(props: any) {
   // `props.children` is everything nested in `<HandleRefresh>` in index.js
   const children = props.children;
   // useNavigate() HOOK - GIVES FUNCTIONS THE ABILITY TO ACCESS BROWSER ROUTER.

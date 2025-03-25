@@ -1,6 +1,6 @@
 import React from "react";
 
-export function SignInContent(props) {
+export function SignInContent(props: { errorMessage: string }) {
   const errorMessage = props.errorMessage; // Prop from SignInModal
   return (
     <>

@@ -1,4 +1,6 @@
-export function getCheckedRadio(event = new Event()) {
+import { FormEvent } from "react";
+
+export function getCheckedRadio(event: FormEvent<HTMLFormElement>) {
   const fiveStar = event.target[4].ariaLabel;
   const fourStar = event.target[5].ariaLabel;
   const threeStar = event.target[6].ariaLabel;

@@ -1,7 +1,7 @@
 import { makeRequest } from "../../utils/makeRequest";
 import { parseContactResponse } from "./parseContactResponse";
 
-export function getServerFeedback() {
+export function getServerFeedback(event: any) {
   // PROMISE
   const promise = makeRequest("https://myserver.com");
   // RESPONSE FROM SERVER

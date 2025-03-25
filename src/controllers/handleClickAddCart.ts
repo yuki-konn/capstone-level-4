@@ -1,4 +1,4 @@
-export function handleClickAddCart(event = new Event(), buttonId) {
+export function handleClickAddCart(event: Event, buttonId: string) {
   // BLACK TEA
   if (buttonId === "addCartButton1") {
     let buttonClicked = false;

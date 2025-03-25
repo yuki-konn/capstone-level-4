@@ -1,7 +1,7 @@
 import { getServerResponse } from "../modules/Contact/getServerResponse";
 
 // PROMISE contact.html
-export function makeRequest(url = "") {
+export function makeRequest(url: string) {
   // CREATES NEW PROMISE
   // PROMISE IS NOT SYNCRONOUS
   return new Promise(getServerResponse);
