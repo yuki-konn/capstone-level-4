@@ -6,7 +6,7 @@ import { SignInArea } from "./SignInArea";
 export function CollapsibleNavbar() {
   const domain = window.location.hostname;
   let rootpath: string;
-  if (domain === "yuki-konn.github.io") rootpath = "/capstone-project-level-3";
+  if (domain === "yuki-konn.github.io") rootpath = "/capstone-project-level-4";
 
   return (
     <nav id="collapsibleNavbar" className="navbar navbar-expand-lg bg-dark">

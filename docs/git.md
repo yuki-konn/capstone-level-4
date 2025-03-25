@@ -26,7 +26,7 @@
 
 ---
 
-`git remote set-url origin https://github.com/yuki-konn/capstone-project-level-3.git`
+`git remote set-url origin https://github.com/yuki-konn/capstone-project-level-4.git`
 
 - Changes the value of origin to the URL
 

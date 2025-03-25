@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 export function Navbar() {
   const domain = window.location.hostname;
   let rootpath: string;
-  if (domain === "yuki-konn.github.io") rootpath = "/capstone-project-level-3";
+  if (domain === "yuki-konn.github.io") rootpath = "/capstone-project-level-4";
   return (
     <nav id="regularNavbar" className="nav nav-tabs nav-fill bg-dark">
       <NavLink

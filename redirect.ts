@@ -9,7 +9,7 @@
  **************************************************************/
 
 // 1. GITHUB REPO NAME IS `rootPath`
-const rootPath = "/capstone-project-level-3";
+const rootPath = "/capstone-project-level-4";
 // 2. CURRENT URL IS `path`
 // window.location.pathname contains current path in the url.
 const path = window.location.pathname;
