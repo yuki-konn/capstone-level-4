@@ -2,19 +2,7 @@
 
 Capstone Level 4 Project
 
-Folders with folders inside.
-
-- assets
-  - fonts
-  - images
-- src
-  - controllers
-  - modules
-    - Shop: For Shop.js specific modules
-  - utils
-  - Views
-
-Made with React JS, Bootstrap, and SASS.<br>
+Made with TypeScript, Bootstrap, and SASS.<br>
 API used [OpenTDB](https://opentdb.com/api_config.php)
 
 # NOTES
