@@ -20793,27 +20793,6 @@ function vary(res, field) {
 
 /***/ }),
 
-/***/ "./src/routes/api.ts":
-/*!***************************!*\
-  !*** ./src/routes/api.ts ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   api: () => (/* binding */ api)
-/* harmony export */ });
-function api(request, response) {
-  var data = {
-    origin: request.headers.origin,
-    query: request.query
-  };
-  response.send(data);
-}
-
-/***/ }),
-
 /***/ "./src/routes/root.ts":
 /*!****************************!*\
   !*** ./src/routes/root.ts ***!
@@ -20827,8 +20806,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function root(request, response) {
   var url = request.url;
-  response.send("<h1>Express Template</h1><p>Welcome to the backend page. Your path is ".concat(url, "</p>"));
-  // response.send({ message: "Hello world!" });
+  response.send("Backend Response: Response from http://localhost:8000".concat(url));
 }
 
 /***/ }),
@@ -21091,10 +21069,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var cors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! cors */ "./node_modules/.pnpm/cors@2.8.5/node_modules/cors/lib/index.js");
 /* harmony import */ var cors__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(cors__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _routes_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routes/root */ "./src/routes/root.ts");
-/* harmony import */ var _routes_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes/api */ "./src/routes/api.ts");
 
 
 
+// import { api } from "./routes/api";
 
 var hostname = "localhost"; // Local domain
 var port = 8000; // Common backend ports 8000, 9000, 3000
@@ -21105,8 +21083,8 @@ var app = express__WEBPACK_IMPORTED_MODULE_0___default()();
 // Allows Cross Origin Resource Sharing (cors) with the server.
 app.use(cors__WEBPACK_IMPORTED_MODULE_1___default()());
 // get method assigns the handler to the path. The handler runs when the path is visited in the URL.
-app.get("/", _routes_root__WEBPACK_IMPORTED_MODULE_2__.root);
-app.get("/api", _routes_api__WEBPACK_IMPORTED_MODULE_3__.api);
+app.get(path, _routes_root__WEBPACK_IMPORTED_MODULE_2__.root);
+// app.get("/api", api);
 // listen method runs the handler.
 app.listen(port, hostname, handleListen);
 function handleListen() {
@@ -21114,36 +21092,6 @@ function handleListen() {
   console.log("Open a new terminal and run 'npm run build'");
   console.log("To debug, start this server in a JavaScript Debug Terminal");
 }
-
-// REFERENCE FROM 3/20, BEFORE MOVING HANDLER TO NEW TS
-// import express, { Request, Response } from "express";
-// import cors from "cors";
-
-// const hostname = "localhost"; // Local domain
-// const port = 8000; // Common backend ports 8000, 9000, 3000
-// const path = "/"; // The path where server info will be rendered in a browser.
-
-// // Instantiate the Express.js object
-// const app = express();
-// // Allows Cross Origin Resource Sharing (cors) with the server.
-// app.use(cors());
-// // get method assigns the handler to the path. The handler runs when the path is visited in the URL.
-// app.get(path, handler);
-// // listen method runs the handler.
-// app.listen(port, hostname, handleListen);
-
-// function handler(request: Request, response: Response) {
-//   const { url } = request;
-//   debugger;
-//   response.send(`<h1>Hello world!</h1><p>Your path is ${url}</p>`);
-//   // response.send({ message: "Hello world!" });
-// }
-
-// function handleListen() {
-//   console.log(`Listening on http://${hostname}:${port}`);
-//   console.log(`Open a new terminal and run 'npm run build'`);
-//   console.log(`To debug, start this server in a JavaScript Debug Terminal`);
-// }
 })();
 
 /******/ })()
