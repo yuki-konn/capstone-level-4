@@ -1,11 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import "./CollapsibleNavbar.scss";
 import { SignInArea } from "./SignInArea";
 
 export function CollapsibleNavbar() {
   const domain = window.location.hostname;
-  let rootpath: string;
+  let rootpath: string = "";
   if (domain === "yuki-konn.github.io") rootpath = "/capstone-level-4";
 
   return (
@@ -46,6 +46,25 @@ export function CollapsibleNavbar() {
             </NavLink>
             <SignInArea />
           </ul>
+          <li className="nav-item dropdown">
+            <a
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="navbar-dropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Misc.
+            </a>
+            <ul className="dropdown-menu" aria-labelledby="navbar-dropdown">
+              <li>
+                <Link className="dropdown-item" to={`${rootpath}/server`}>
+                  Server
+                </Link>
+              </li>
+            </ul>
+          </li>
         </div>
       </div>
     </nav>
