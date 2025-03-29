@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { root } from "./routes/root";
-import { api } from "./routes/api";
+// import { api } from "./routes/api";
 
 const hostname = "localhost"; // Local domain
 const port = 8000; // Common backend ports 8000, 9000, 3000
@@ -12,8 +12,8 @@ const app = express();
 // Allows Cross Origin Resource Sharing (cors) with the server.
 app.use(cors());
 // get method assigns the handler to the path. The handler runs when the path is visited in the URL.
-app.get("/", root);
-app.get("/api", api);
+app.get(path, root);
+// app.get("/api", api);
 // listen method runs the handler.
 app.listen(port, hostname, handleListen);
 
