@@ -9,13 +9,14 @@ import "./index.scss";
 import { Header } from "./Views/Header";
 import { Footer } from "./Views/Footer";
 import { HandleRefresh } from "./Views/HandleRefresh";
+import { Server } from "./Views/Server";
 
 const bodyTag = document.getElementById("bodyTag");
 const root = createRoot(bodyTag);
 
 const domain = window.location.hostname;
 console.log(`Domain: ${domain}`);
-let rootpath: string;
+let rootpath: string = "";
 if (domain === "yuki-konn.github.io") rootpath = "/capstone-level-4";
 
 root.render(
@@ -27,6 +28,7 @@ root.render(
         <Route path={`${rootpath}/shop`} element={<Shop />} />
         <Route path={`${rootpath}/about`} element={<About />} />
         <Route path={`${rootpath}/contact`} element={<Contact />} />
+        <Route path={`${rootpath}/server`} element={<Server />} />
       </Routes>
       <Footer />
     </HandleRefresh>
