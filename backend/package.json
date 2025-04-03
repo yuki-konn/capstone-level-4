@@ -2,7 +2,7 @@
   "scripts": {
     "start": "npm run close-port && npm run start-server",
     "build": "npm run start-build",
-    "test": "npx jest",
+    "test": "npx jest src/modules/getTrivia.test.ts",
     "------": "---------------------------------------",
     "open-tab": "npx open-cli http://localhost:8000",
     "close-port": "npx kill-port 8000",
@@ -10,6 +10,7 @@
     "start-build": "npx webpack --watch"
   },
   "dependencies": {
+    "axios": "^1.8.4",
     "cors": "^2.8.5",
     "express": "^4.21.2"
   },
