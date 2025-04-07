@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./Server.scss";
+import { Quote } from "./Quote";
 
 export function Server() {
   const [serverResponse, setServerResponse] = useState("");
@@ -13,6 +14,9 @@ export function Server() {
         {serverResponse}
       </section>
       <br />
+      <section>
+        <Quote />
+      </section>
     </main>
   );
 

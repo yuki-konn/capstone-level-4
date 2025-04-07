@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../index.scss";
 import { HomeCarousel } from "./HomeCarousel";
 import { handleClickApi } from "../controllers/handleClickApi";
+import { Quote } from "./Quote";
 
 export function Home() {
   // STATE VARIABLES FOR CARDS
@@ -24,12 +25,15 @@ export function Home() {
       <section id="sectionAbout" className="text-center m-2">
         {linkCard1}
       </section>
-      <section id="sectionLocation" className="text-center m-2">
+      <section id="sectionQuote" className="text-center m-2">
+        <Quote />
+      </section>
+      {/* <section id="sectionLocation" className="text-center m-2">
         {linkCard2}
       </section>
       <section id="sectionHistory" className="text-center m-2">
         {linkCard3}
-      </section>
+      </section> */}
       <section id="sectionTrivia" className="text-center m-2">
         {triviaCard}
       </section>
@@ -44,7 +48,7 @@ export function Home() {
               <span>About</span>
             </a>
           </li>
-          <li className="list-group-item">
+          {/* <li className="list-group-item">
             <a className="no-decor" href="#sectionLocation">
               <span>Locations</span>
             </a>
@@ -53,7 +57,7 @@ export function Home() {
             <a className="no-decor" href="#sectionHistory">
               <span>History</span>
             </a>
-          </li>
+          </li> */}
           <li className="list-group-item">
             <a className="no-decor" href="#sectionTrivia">
               <span>Trivia</span>
