@@ -1,21 +1,21 @@
-import express from "express";
+import expressApp from "express";
 import cors from "cors";
 import { root } from "./routes/root";
-// import { api } from "./routes/api";
+import { quote } from "./routes/quote";
 
 const hostname = "localhost"; // Local domain
 const port = 8000; // Common backend ports 8000, 9000, 3000
 const path = "/"; // The path where server info will be rendered in a browser.
 
 // Instantiate the Express.js object
-const app = express();
+const express = expressApp();
 // Allows Cross Origin Resource Sharing (cors) with the server.
-app.use(cors());
+express.use(cors());
 // get method assigns the handler to the path. The handler runs when the path is visited in the URL.
-app.get(path, root);
-// app.get("/api", api);
+express.get(path, root);
+express.get("/quote", quote); // FavQ quote API path
 // listen method runs the handler.
-app.listen(port, hostname, handleListen);
+express.listen(port, hostname, handleListen);
 
 function handleListen() {
   console.log(`Listening on http://${hostname}:${port}`);
