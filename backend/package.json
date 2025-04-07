@@ -2,8 +2,10 @@
   "scripts": {
     "start": "npm run close-port && npm run start-server",
     "build": "npm run start-build",
+    "deploy": "npm run build-production",
     "test": "npx jest src/modules/getTrivia.test.ts",
     "------": "---------------------------------------",
+    "build-production": "npx webpack --mode=production",
     "open-tab": "npx open-cli http://localhost:8000",
     "close-port": "npx kill-port 8000",
     "start-server": "npx nodemon ./dist/main.js",
