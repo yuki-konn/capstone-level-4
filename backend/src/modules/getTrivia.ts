@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// Trivia API Function
 export async function getTrivia(query: {
   amount: number;
   category: number;

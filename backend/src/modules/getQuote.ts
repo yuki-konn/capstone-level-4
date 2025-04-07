@@ -1,4 +1,6 @@
 import axios from "axios";
+
+// Quote API Function
 export async function getQuote() {
   const getResponse = await axios.get("https://favqs.com/api/qotd");
 
