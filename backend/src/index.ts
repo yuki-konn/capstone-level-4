@@ -2,6 +2,7 @@ import expressApp from "express";
 import cors from "cors";
 import { root } from "./routes/root";
 import { quote } from "./routes/quote";
+import { authUser } from "./routes/authUser";
 
 const hostname = "localhost"; // Local domain
 const port = 8000; // Common backend ports 8000, 9000, 3000
@@ -14,6 +15,7 @@ express.use(cors());
 // get method assigns the handler to the path. The handler runs when the path is visited in the URL.
 express.get(path, root);
 express.get("/quote", quote); // FavQ quote API path
+express.get("/authUser", authUser); // User Authentication path
 // listen method runs the handler.
 express.listen(port, hostname, handleListen);
 
