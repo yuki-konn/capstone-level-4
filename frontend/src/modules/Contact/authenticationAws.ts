@@ -1,63 +1,49 @@
-import { DynamoDB } from "@aws-sdk/client-dynamodb";
-import {
-  accessKeyId,
-  region,
-  secretAccessKey,
-} from "../../../.aws/credentials";
-import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
+// import { DynamoDB } from "@aws-sdk/client-dynamodb";
+// import {
+//   accessKeyId,
+//   region,
+//   secretAccessKey,
+// } from "../../../.aws/credentials";
+// import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 
 // NOT IN USE
-export async function authenticationAws(email: string, password: string) {
-  //DynamoDB CREDENTIALS
-  const apiKey = {
-    region: region as string,
-    credentials: {
-      accessKeyId: accessKeyId as string,
-      secretAccessKey: secretAccessKey as string,
-    },
-  };
+// THINKING OF DELETING ONCE authenticateUser.ts works
 
-  // DynamoDB CLIENTS
-  const client = new DynamoDB(apiKey);
-  const niceClient = DynamoDBDocument.from(client);
+// export async function authenticationAws(email: string, password: string) {
+//   //DynamoDB CREDENTIALS
+//   const apiKey = {
+//     region: region as string,
+//     credentials: {
+//       accessKeyId: accessKeyId as string,
+//       secretAccessKey: secretAccessKey as string,
+//     },
+//   };
 
-  // DynamoDB REQUEST
-  const request = {
-    TableName: "capstone_logins",
-    Key: { email: email },
-  };
+//   // DynamoDB CLIENTS
+//   const client = new DynamoDB(apiKey);
+//   const niceClient = DynamoDBDocument.from(client);
 
-  // RESPONSE
-  const response = await niceClient.get(request);
-  const matchingLogin = response.Item;
+//   // DynamoDB REQUEST
+//   const request = {
+//     TableName: "capstone_logins",
+//     Key: { email: email },
+//   };
 
-  if (matchingLogin !== undefined) {
-    // ONLY AUTHENTICATES IF BOTH EMAIL AND PASSWORD IS CORRECT
-    const matchingPassword = password === matchingLogin.password;
-    const matchingEmail = email === matchingLogin.email;
-    const isAuthenticated = matchingEmail && matchingPassword;
-    //
-    return isAuthenticated;
-  }
-  //DOESN'T AUTHENTICATE matchingLogin is UNDEFINED
-  else {
-    const isAuthenticated = false;
-    return isAuthenticated;
-  }
+//   // RESPONSE
+//   const response = await niceClient.get(request);
+//   const matchingLogin = response.Item;
 
-  // if (isAuthenticated === "{}") {
-  //   debugger;
-  //   const isNotAuthenticated = false;
-  //   return isNotAuthenticated;
-  // } else return isAuthenticated;
-
-  // CHECKS IF INPUTTED PASSWORD MATCHES PASSWORD IN DATABASE.
-
-  // if (matchingEmail && matchingPassword) {
-  //   const isAuthenticated = true;
-  //   return isAuthenticated;
-  // } else {
-  //   const isAuthenticated = false;
-  //   return isAuthenticated;
-  // }
-}
+//   if (matchingLogin !== undefined) {
+//     // ONLY AUTHENTICATES IF BOTH EMAIL AND PASSWORD IS CORRECT
+//     const matchingPassword = password === matchingLogin.password;
+//     const matchingEmail = email === matchingLogin.email;
+//     const isAuthenticated = matchingEmail && matchingPassword;
+//     //
+//     return isAuthenticated;
+//   }
+//   //DOESN'T AUTHENTICATE matchingLogin is UNDEFINED
+//   else {
+//     const isAuthenticated = false;
+//     return isAuthenticated;
+//   }
+// }
