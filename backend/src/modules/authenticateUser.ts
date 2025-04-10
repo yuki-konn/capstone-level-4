@@ -1,31 +1,14 @@
-import { DynamoDB } from "@aws-sdk/client-dynamodb";
-import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
-import dotenv from "dotenv";
-
-dotenv.config();
+import { dynamoDBClient } from "./dynamoDBclient";
 
 export async function authenticateUser(email: string, password: string) {
-  // Credentials
-  const apiKey = {
-    region: process.env.region,
-    credentials: {
-      accessKeyId: process.env.accessKeyId,
-      secretAccessKey: process.env.secretAccessKey,
-    },
-  };
-
-  // DynamoDB Client
-  const client = new DynamoDB(apiKey);
-  const niceClient = DynamoDBDocument.from(client);
-
   // DynamoDB REQUEST
   const request = {
     TableName: "capstone_logins",
     Key: { email: email },
   };
 
-  // DynamoDB RESPONSE
-  const response = await niceClient.get(request);
+  // DynamoDB CLIENT AND RESPONSE
+  const response = await dynamoDBClient().get(request);
   const matchingLogin = response.Item;
 
   //DOESN'T AUTHENTICATE matchingLogin is UNDEFINED
