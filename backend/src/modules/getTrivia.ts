@@ -24,3 +24,5 @@ export async function getTrivia(query: {
   debugger;
   return result;
 }
+
+// Planning to use this in home page later to replace the trivia link card.

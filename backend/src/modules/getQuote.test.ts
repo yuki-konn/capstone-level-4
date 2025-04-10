@@ -1,7 +1,6 @@
 import { getQuote } from "./getQuote";
 
 describe("getQuote function (API response)", () => {
-  // Steps 1 to 3
   test("returns a response", async () => {
     // ARRANGE
     let response: {

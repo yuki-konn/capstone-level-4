@@ -12,3 +12,5 @@ export async function getQuote() {
   };
   return response;
 }
+
+// Not sure where to use this yet. For now is placed in home page.
