@@ -1,16 +1,16 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
-import { accessKeyId, region, secretAccessKey } from "../../.aws/credentials";
-// import dotenv from "dotenv";
-// dotenv.config();
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export async function authenticateUser(email: string, password: string) {
   // Credentials
   const apiKey = {
-    region: region as string,
+    region: process.env.region,
     credentials: {
-      accessKeyId: accessKeyId as string,
-      secretAccessKey: secretAccessKey as string,
+      accessKeyId: process.env.accessKeyId,
+      secretAccessKey: process.env.secretAccessKey,
     },
   };
 
