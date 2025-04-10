@@ -3,10 +3,14 @@ import { authenticateUser } from "../modules/authenticateUser";
 
 // ROUTE HANDLER
 export async function authUser(request: Request, response: Response) {
+  const email = request.query.email;
+  const password = request.query.password;
+
+  // USED TEMPLATE STRINGS TO CONVERT TO STRING.
+  const isAuthenticated: boolean = await authenticateUser(
+    `${email}`,
+    `${password}`
+  );
   debugger;
-  // WIP
-  const email = "inputted email from handleSignIn";
-  const password = "inputted password from handleSignIn";
-  const isAuthenticated = await authenticateUser(email, password);
   response.send(isAuthenticated);
 }
