@@ -16,12 +16,17 @@ export async function handleSignIn(
 
   const closeButton = event.target[3];
 
+  // Determines if local or GitHub Pages
+  const domain = window.location.hostname;
+  let rootpath: string = "http://localhost:8000";
+  if (domain === "yuki-konn.github.io")
+    rootpath =
+      "https://qyxgfxhby4ejikmfmdtzmkjnrq0yazfh.lambda-url.us-east-2.on.aws";
+
   // SENDS QUERY WITH EMAIL AND PASSWORD TO /authUser ROUTE IN BACKEND
-  const path = `http://localhost:8000/authUser?email=${email}&password=${password}`;
-  debugger;
+  const path: string = `${rootpath}/authUser?email=${email}&password=${password}`;
   const response = await axios.get(path);
   const isAuthenticated = response.data;
-  debugger;
 
   if (isAuthenticated) {
     // Closes Modal
