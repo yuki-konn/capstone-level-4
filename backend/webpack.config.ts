@@ -15,4 +15,5 @@ export default {
     extensions: [".js", ".ts"], // Automatically inserts file extensions in import statements
   },
   target: "node", // Bundles for nodeJS
+  output: { filename: "index.js" }, // Outputs a bundle file with the file name as index.js (default is main.js)
 } as Configuration;
