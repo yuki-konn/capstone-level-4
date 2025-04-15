@@ -1,4 +1,6 @@
 import { Configuration } from "webpack";
+import Zip from "zip-webpack-plugin";
+
 export default {
   module: {
     rules: [
@@ -21,4 +23,5 @@ export default {
       type: "commonjs", // Prevents tree shaking of unused bundle exports. Indicates that the bundle is a library.
     },
   },
+  plugins: [new Zip()], // zip-webpack-plugin zips the bundle files into one zip file in the dist folder.
 } as Configuration;
