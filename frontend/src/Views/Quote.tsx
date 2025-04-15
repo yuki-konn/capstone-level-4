@@ -36,7 +36,7 @@ export function Quote() {
       rootpath =
         "https://qyxgfxhby4ejikmfmdtzmkjnrq0yazfh.lambda-url.us-east-2.on.aws";
 
-    const response = await axios.get(`${rootpath}/`);
+    const response = await axios.get(`${rootpath}/quote`);
 
     const quote = response.data.quote;
     const author = response.data.author;
