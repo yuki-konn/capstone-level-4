@@ -1,10 +1,11 @@
 import axios from "axios";
+import { Quote } from "./Quote";
 
 // Quote API Function
-export async function getQuote() {
+export async function getQuote(): Promise<Quote> {
   const getResponse = await axios.get("https://favqs.com/api/qotd");
 
-  const response = {
+  const response: Quote = {
     author: getResponse.data.quote.author,
     quote: getResponse.data.quote.body,
     tags: getResponse.data.quote.tags,
