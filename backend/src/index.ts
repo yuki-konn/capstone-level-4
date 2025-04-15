@@ -18,7 +18,8 @@ express.get(path, root);
 express.get("/quote", quote); // FavQ quote API path
 express.get("/authUser", authUser); // User Authentication path
 // listen method runs the handler.
-express.listen(port, hostname, handleListen);
+const isRunningLocally = process.env.mode === "development";
+if (isRunningLocally) express.listen(port, hostname, handleListen);
 
 function handleListen() {
   console.log(`Listening on http://${hostname}:${port}`);
