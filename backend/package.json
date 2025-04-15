@@ -3,7 +3,7 @@
     "start": "npm run close-port && npm run start-server",
     "build": "npm run start-build",
     "deploy": "npm run build-production && npm run upload-zip",
-    "test": "npx jest src/modules/authenticateUser.test.ts",
+    "test": "npx jest getQuote",
     "------": "---------------------------------------",
     "build-production": "npx webpack --mode=production",
     "open-tab": "npx open-cli http://localhost:8000",
