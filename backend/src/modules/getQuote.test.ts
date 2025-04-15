@@ -1,14 +1,10 @@
 import { getQuote } from "./getQuote";
+import { Quote } from "./Quote";
 
 describe("getQuote function (API response)", () => {
   test("returns a response", async () => {
     // ARRANGE
-    let response: {
-      author: string;
-      quote: string;
-      tags: Array<string>;
-      url: string;
-    };
+    let response: Quote;
     // ACT
     response = await getQuote();
     // ASSERT
@@ -19,18 +15,9 @@ describe("getQuote function (API response)", () => {
   });
   test("return is not the same quote or url", async () => {
     // ARRANGE
-    let response1: {
-      author: string;
-      quote: string;
-      tags: Array<string>;
-      url: string;
-    };
-    let response2: {
-      author: string;
-      quote: string;
-      tags: Array<string>;
-      url: string;
-    };
+    let response1: Quote;
+    let response2: Quote;
+
     // ACT
     response1 = await getQuote();
     response2 = await getQuote();

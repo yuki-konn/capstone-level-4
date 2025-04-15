@@ -1,8 +1,9 @@
 import { getTrivia } from "./getTrivia";
+import { TriviaQuery, TriviaResponse } from "./Trivia";
 describe("getTrivia function (API response)", () => {
   test("accepts a query object with amount, category, difficulty and type", async () => {
     // ARRANGE
-    const query = {
+    const query: TriviaQuery = {
       amount: 1,
       category: 9,
       difficulty: "medium",
@@ -15,14 +16,14 @@ describe("getTrivia function (API response)", () => {
   });
   test("accepts a query object and returns a response", async () => {
     // ARRANGE
-    const query = {
+    const query: TriviaQuery = {
       amount: 1,
       category: 9,
       difficulty: "medium",
       type: "multiple",
     };
     // ACT
-    const result = await getTrivia(query);
+    const result: TriviaResponse = await getTrivia(query);
     const question: string = result.question;
     const choices: Array<string> = result.choices;
     const answer: string = result.answer;
