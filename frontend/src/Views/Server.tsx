@@ -25,7 +25,14 @@ export function Server() {
     getResponse();
 
     async function getResponse() {
-      const response = await axios.get("http://localhost:8000/");
+      const domain = window.location.hostname;
+      let rootpath: string = "";
+      // Determines if local or GitHub Pages
+      if (domain === "yuki-konn.github.io")
+        rootpath =
+          "https://qyxgfxhby4ejikmfmdtzmkjnrq0yazfh.lambda-url.us-east-2.on.aws";
+
+      const response = await axios.get(`${rootpath}/`);
 
       const stringified = JSON.stringify(response.data);
       const parseString = JSON.parse(stringified);
