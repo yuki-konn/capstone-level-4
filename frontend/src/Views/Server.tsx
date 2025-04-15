@@ -26,7 +26,7 @@ export function Server() {
 
     async function getResponse() {
       const domain = window.location.hostname;
-      let rootpath: string = "";
+      let rootpath: string = "http://localhost:8000";
       // Determines if local or GitHub Pages
       if (domain === "yuki-konn.github.io")
         rootpath =
