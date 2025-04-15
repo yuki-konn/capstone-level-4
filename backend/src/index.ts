@@ -3,6 +3,7 @@ import cors from "cors";
 import { root } from "./routes/root";
 import { quote } from "./routes/quote";
 import { authUser } from "./routes/authUser";
+import serverless from "serverless-http";
 
 const hostname = "localhost"; // Local domain
 const port = 8000; // Common backend ports 8000, 9000, 3000
@@ -24,3 +25,5 @@ function handleListen() {
   console.log(`Open a new terminal and run 'npm run build'`);
   console.log(`To debug, start this server in a JavaScript Debug Terminal`);
 }
+
+export const handler = serverless(express); // Convert Express app into a serverless app compatible with aws Lambda.
