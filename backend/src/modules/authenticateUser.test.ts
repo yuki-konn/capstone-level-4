@@ -9,7 +9,7 @@ describe("authenticateUser function", () => {
     const isAuthenticated = await authenticateUser(email, password);
     // ASSERT
     expect(isAuthenticated).toBe(true);
-    expect(isAuthenticated).toBeDefined;
+    expect(isAuthenticated).toBeDefined();
   });
   it("doesn't authenticate when email is in the list, but the password is incorrect", async () => {
     // ARRANGE
@@ -19,7 +19,7 @@ describe("authenticateUser function", () => {
     const isAuthenticated = await authenticateUser(email, password);
     // ASSERT
     expect(isAuthenticated).toBe(false);
-    expect(isAuthenticated).toBeUndefined;
+    expect(isAuthenticated).toBeDefined();
   });
   it("doesn't authenticate when the email is in the list, but the password is empty", async () => {
     // ARRANGE
@@ -29,7 +29,7 @@ describe("authenticateUser function", () => {
     const isAuthenticated = await authenticateUser(email, password);
     // ASSERT
     expect(isAuthenticated).toBe(false);
-    expect(isAuthenticated).toBeUndefined;
+    expect(isAuthenticated).toBeDefined();
   });
   it("doesn't authenticates when email is not in the list", async () => {
     // ARRANGE
@@ -39,6 +39,6 @@ describe("authenticateUser function", () => {
     const isAuthenticated = await authenticateUser(email, password);
     // ASSERT
     expect(isAuthenticated).toBe(false);
-    expect(isAuthenticated).toBeUndefined;
+    expect(isAuthenticated).toBeDefined();
   });
 });
