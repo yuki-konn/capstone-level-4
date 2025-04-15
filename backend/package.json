@@ -2,14 +2,15 @@
   "scripts": {
     "start": "npm run close-port && npm run start-server",
     "build": "npm run start-build",
-    "deploy": "npm run build-production",
+    "deploy": "npm run build-production && npm run upload-zip",
     "test": "npx jest src/modules/authenticateUser.test.ts",
     "------": "---------------------------------------",
     "build-production": "npx webpack --mode=production",
     "open-tab": "npx open-cli http://localhost:8000",
     "close-port": "npx kill-port 8000",
     "start-server": "npx nodemon ./dist/index.js",
-    "start-build": "npx webpack --watch"
+    "start-build": "npx webpack --watch",
+    "upload-zip": "aws lambda update-function-code --function-name capstone-level-4 --zip-file fileb://dist/index.js.zip"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.782.0",
