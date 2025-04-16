@@ -2,8 +2,12 @@
 
 Capstone Level 4 Project
 
-Made with TypeScript, Bootstrap, and SASS.<br>
-API used [OpenTDB](https://opentdb.com/api_config.php)
+Frontend: TypeScript, Bootstrap, SASS<br>
+Backend: TypeScript, Nodejs<br>
+AWS: DynamoDB, Lambda<br>
+API: [OpenTDB](https://opentdb.com/api_config.php),
+[FavQs](https://favqs.com/api)<br>
+Testing: Jest
 
 # NOTES
 
@@ -14,16 +18,14 @@ In the Home.js there is one inline style.
 
 ## Top Priority:
 
+Applying things I learned.
+
+## Medium Priority:
+
 ### Contact.js
 
 - Convert PhoneContact Form output feedback to react.
 - Put handleClickAddCart in componentDidUpdate in shop.js (Output feedback)
-
-## Medium Priority:
-
-- Update small files to jsx.
-- Create 5 more tests.
-  - tests for contactForm and PhoneForm
 
 ## Low Priority:
 
