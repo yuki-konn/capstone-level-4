@@ -7,9 +7,6 @@ export async function createAccount(newAccount: Account) {
     TableName: "capstone_logins",
     Item: newAccount,
   };
-  debugger;
-
   const response = await dynamoDBClient().put(request);
-
   return response;
 }

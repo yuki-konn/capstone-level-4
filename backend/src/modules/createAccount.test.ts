@@ -1,9 +1,10 @@
+import { Account } from "./Account";
 import { createAccount } from "./createAccount";
 
 describe("createAccount function", () => {
   it("returns httpStatusCode 200", async () => {
     // ARRANGE
-    const newAccount = {
+    const newAccount: Account = {
       email: "test3@email.com",
       password: "test3",
       userName: "testUser3",
