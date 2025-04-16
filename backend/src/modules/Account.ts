@@ -3,6 +3,6 @@ export type Account = {
   password: string;
   userName: string;
   firstName: string;
-  LastName: string;
-  phone: number;
+  lastName: string;
+  phone: number | string;
 };
