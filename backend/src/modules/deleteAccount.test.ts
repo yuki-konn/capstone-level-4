@@ -1,44 +1,79 @@
+import { Account } from "./Account";
 import { deleteAccount } from "./deleteAccount";
 
 describe("deleteAccount function", () => {
-  it("returns true when httpStatusCode is 200 and account is delete successfully", async () => {
+  it("returns true when account is delete successfully", async () => {
     // ARRANGE
-    const email = "test3@email.com";
+    const account: Account = {
+      email: "deleteTest@email.com",
+      password: "deleteTest",
+      userName: "deleteTest",
+      firstName: "deleteTest",
+      lastName: "Testing",
+      phone: 1112223333,
+    };
     // ACT
-    const result = await deleteAccount(email);
+    const result: boolean = await deleteAccount(account);
     // ASSERT
-    expect(result).toHaveProperty("$metadata.httpStatusCode", 200);
     expect(result).toBe(true);
   });
-  it.skip("returns false when email (partition key) is not in the list", async () => {
+  it("returns false when email (partition key) is not in the list", async () => {
     // ARRANGE
-    const email = "notInList@email.com";
+    const account: Account = {
+      email: "notInList@email.com",
+      password: "deleteTest",
+      userName: "deleteTest",
+      firstName: "deleteTest",
+      lastName: "Testing",
+      phone: 1112223333,
+    };
     // ACT
-    const result = await deleteAccount(email);
+    const result: boolean = await deleteAccount(account);
     // ASSERT
     expect(result).toBe(false);
   });
-  it.skip("returns false when email (partition key) is empty string", async () => {
+  it("returns false when email (partition key) is empty string", async () => {
     // ARRANGE
-    const email = "";
+    const account: Account = {
+      email: "",
+      password: "deleteTest",
+      userName: "deleteTest",
+      firstName: "deleteTest",
+      lastName: "Testing",
+      phone: 1112223333,
+    };
     // ACT
-    const result = await deleteAccount(email);
+    const result: boolean = await deleteAccount(account);
     // ASSERT
     expect(result).toBe(false);
   });
-  it.skip("returns false when email (partition key) is an object", async () => {
+  it("returns false when email (partition key) is an object", async () => {
     // ARRANGE
-    const email = {};
+    const account: Account = {
+      email: {} as any,
+      password: "deleteTest",
+      userName: "deleteTest",
+      firstName: "deleteTest",
+      lastName: "Testing",
+      phone: 1112223333,
+    };
     // ACT
-    const result = await deleteAccount(email);
+    const result: boolean = await deleteAccount(account);
     // ASSERT
     expect(result).toBe(false);
   });
-  it.skip("returns false when email (partition key) is undefined", async () => {
+  it("returns false when email (partition key) is undefined", async () => {
     // ARRANGE
-    const email = undefined;
+    const account: Account = {
+      email: undefined,
+      password: "deleteTest",
+      userName: "deleteTest",
+      firstName: "deleteTest",
+      lastName: "Testing",
+      phone: 1112223333,
+    };
     // ACT
-    const result = await deleteAccount(email);
+    const result: boolean = await deleteAccount(account);
     // ASSERT
     expect(result).toBe(false);
   });
