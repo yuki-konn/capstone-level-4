@@ -7,6 +7,7 @@ import serverless from "serverless-http";
 import { create } from "./routes/create";
 import { read } from "./routes/read";
 import { update } from "./routes/update";
+import { remove } from "./routes/remove";
 
 const hostname = "localhost"; // Local domain
 const port = 8000; // Common backend ports 8000, 9000, 3000
@@ -23,6 +24,7 @@ express.get("/authUser", authUser); // User Authentication path
 express.get("/create", create); // Account Creation path
 express.get("/read", read); // Read Account path
 express.get("/update", update); // Update Account path
+express.get("/remove", remove); // Delete Account path
 // listen method runs the handler.
 const isRunningLocally = process.env.mode === "development";
 if (isRunningLocally) express.listen(port, hostname, handleListen);
