@@ -2,7 +2,7 @@ import { Account } from "./Account";
 import { createAccount } from "./createAccount";
 
 describe("createAccount function", () => {
-  it("returns success message from backend when all inputs are provided", () => {
+  it("returns success message from backend when all inputs are provided", async () => {
     // ARRANGE
     const newAccount: Account = {
       email: "frontend@email.com",
@@ -13,11 +13,11 @@ describe("createAccount function", () => {
       phone: 1112223333,
     };
     // ACT
-    const result = createAccount(newAccount);
+    const result = await createAccount(newAccount);
     // ASSERT
     expect(result).toBe("Your account has been successfully created.");
   });
-  it.skip("returns success message from backend when only email, password, and userName are provided", () => {
+  it("returns success message from backend when only email, password, and userName are provided", async () => {
     // ARRANGE
     const newAccount: Account = {
       email: "frontend@email.com",
@@ -28,11 +28,11 @@ describe("createAccount function", () => {
       phone: "",
     };
     // ACT
-    const result = createAccount(newAccount);
+    const result = await createAccount(newAccount);
     // ASSERT
     expect(result).toBe("Your account has been successfully created.");
   });
-  it.skip("returns error message from backend when all inputs are empty", () => {
+  it("returns error message from backend when all inputs are empty", async () => {
     // ARRANGE
     const newAccount: Account = {
       email: "",
@@ -43,13 +43,13 @@ describe("createAccount function", () => {
       phone: "",
     };
     // ACT
-    const result = createAccount(newAccount);
+    const result = await createAccount(newAccount);
     // ASSERT
     expect(result).toBe(
       "Error: All input fields are empty. Unable to create account."
     );
   });
-  it.skip("returns error message from backend when email or password is empty", () => {
+  it("returns error message from backend when email or password is empty", async () => {
     // ARRANGE
     const newAccount1: Account = {
       email: "",
@@ -68,8 +68,8 @@ describe("createAccount function", () => {
       phone: 1112223333,
     };
     // ACT
-    const result1 = createAccount(newAccount1);
-    const result2 = createAccount(newAccount2);
+    const result1 = await createAccount(newAccount1);
+    const result2 = await createAccount(newAccount2);
     // ASSERT
     expect(result1).toBe(
       "Error: The email or password field is empty. Unable to create account."
@@ -78,11 +78,11 @@ describe("createAccount function", () => {
       "Error: The email or password field is empty. Unable to create account."
     );
   });
-  it.skip("returns error message from backend when object has no properties.", () => {
+  it("returns error message from backend when object has no properties.", async () => {
     // ARRANGE
-    const newAccount: any = {};
+    const newAccount = {};
     // ACT
-    const result = createAccount(newAccount);
+    const result = await createAccount(newAccount as Account);
     // ASSERT
     expect(result).toBe(
       "Error: newAccount object has no properties. Unable to create account."
