@@ -61,5 +61,12 @@ export function CreateAccountModal() {
   async function handleSubmit(event: any) {
     const response = await handleCreateAccount(event);
     setResponse(response);
+
+    setTimeout(closeModal, 3000);
+
+    function closeModal() {
+      const closeButton = event.target[7];
+      closeButton.click();
+    }
   }
 }
