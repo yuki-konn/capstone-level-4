@@ -27,13 +27,21 @@ $primaryFont: "edosz";
   }
   ul {
     margin-left: 1vw;
+    li {
+      align-items: start;
+      button {
+        margin: 10px;
+        width: 150px;
+      }
+    }
   }
   #homeNavDiv {
     a {
       font-size: 3vw;
     }
   }
-  #signInContent {
+  #signInContent,
+  #createAcountContent {
     font-family: Arial, Helvetica, sans-serif;
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router";
 import "./CollapsibleNavbar.scss";
 import { SignInArea } from "./SignInArea";
+import { CreateAccountArea } from "./CreateAccountArea";
 
 export function CollapsibleNavbar() {
   const domain = window.location.hostname;
@@ -44,7 +45,12 @@ export function CollapsibleNavbar() {
             <NavLink className="nav-item nav-link" to={`${rootpath}/contact`}>
               <i className="bi bi-messenger"></i> Contact
             </NavLink>
-            <SignInArea />
+            <li>
+              <CreateAccountArea />
+            </li>
+            <li>
+              <SignInArea />
+            </li>
           </ul>
           <li className="nav-item dropdown">
             <a
