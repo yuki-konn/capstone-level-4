@@ -38,7 +38,7 @@ describe("readAccount function", () => {
     expect(result.email).toBe(account.email);
     expect(result.password).toBe(account.password);
   });
-  it("doesn't return a result when the email is not in the list", async () => {
+  it("returns an error message when the email is not in the list", async () => {
     // ARRANGE
     const account: Account = {
       email: "not@email.com",
@@ -51,9 +51,9 @@ describe("readAccount function", () => {
     // ACT
     const response = await readAccount(account);
     // ASSERT
-    expect(response).toBeUndefined();
+    expect(response).toBe("This email is not associated with any account.");
   });
-  it("doesn't return a result when the email or password is an object", async () => {
+  it("returns an error message when the email or password is an object", async () => {
     // ARRANGE
     const account1: Account = {
       email: {} as any,
@@ -75,10 +75,10 @@ describe("readAccount function", () => {
     const response1 = await readAccount(account1);
     const response2 = await readAccount(account2);
     // ASSERT
-    expect(response1).toBeUndefined();
-    expect(response2).toBeUndefined();
+    expect(response1).toBe("Provided email or password is invalid.");
+    expect(response2).toBe("Provided email or password is invalid.");
   });
-  it("doesn't return a result when the email or password is undefined", async () => {
+  it("returns an error message when the email or password is undefined", async () => {
     // ARRANGE
     const account1: Account = {
       email: undefined as any,
@@ -100,7 +100,7 @@ describe("readAccount function", () => {
     const response1 = await readAccount(account1);
     const response2 = await readAccount(account2);
     // ASSERT
-    expect(response1).toBeUndefined();
-    expect(response2).toBeUndefined();
+    expect(response1).toBe("Provided email or password is invalid.");
+    expect(response2).toBe("Provided email or password is invalid.");
   });
 });
