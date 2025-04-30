@@ -2,7 +2,7 @@ import { Account } from "./Account";
 import { readAccount } from "./readAccount";
 
 describe("readAccount function", () => {
-  it.skip("returns email, password, userName, firstName, lastName and phone when matching email and password is provided.", async () => {
+  it("returns email, password, userName, firstName, lastName and phone when matching email and password is provided.", async () => {
     // ARRANGE
     const account: Account = {
       email: "test3@email.com",
@@ -33,12 +33,11 @@ describe("readAccount function", () => {
       phone: "",
     };
     // ACT
-    debugger;
     const result = await readAccount(account);
     // ASSERT
     expect(result).toBe("This email is not associated with any account.");
   });
-  it.skip("returns an error message when email is in the list but password doesn't match", async () => {
+  it("returns an error message when email is in the list but password doesn't match", async () => {
     // ARRANGE
     const account: Account = {
       email: "test3@email.com",
@@ -53,7 +52,7 @@ describe("readAccount function", () => {
     // ASSERT
     expect(result).toBe("The provided password is incorrect.");
   });
-  it.skip("returns an error message when email or password is an object", async () => {
+  it("returns an error message when email or password is an object", async () => {
     const account1: Account = {
       email: {} as any,
       password: "test",
@@ -77,7 +76,7 @@ describe("readAccount function", () => {
     expect(response1).toBe("Provided email or password is invalid.");
     expect(response2).toBe("Provided email or password is invalid.");
   });
-  it.skip("returns an error message when email or password is undefined", async () => {
+  it("returns an error message when email or password is undefined", async () => {
     // ARRANGE
     const account1: Account = {
       email: undefined as any,

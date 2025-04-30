@@ -1,1 +1,26 @@
-export function readAccount() {}
+import axios from "axios";
+import { Account } from "./Account";
+
+export async function readAccount(targetAccount: Account) {
+  const { email, password } = targetAccount;
+
+  const isEmailOrPasswordInvalid =
+    typeof email === "object" ||
+    typeof password === "object" ||
+    typeof email === "undefined" ||
+    typeof password === "undefined";
+  if (isEmailOrPasswordInvalid) return "Provided email or password is invalid.";
+
+  const query = `?email=${email}&password=${password}`;
+  const rootpath = "http://localhost:8000";
+  const route = "/read";
+  const url = rootpath + route + query;
+  const response = await axios.get(url);
+  const result = response.data;
+
+  const isNotMatchingPassword =
+    email === result.email && password !== result.password;
+  if (isNotMatchingPassword) return "The provided password is incorrect.";
+
+  return result;
+}
