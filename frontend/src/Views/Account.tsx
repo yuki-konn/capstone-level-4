@@ -46,11 +46,11 @@ export function Account() {
             <label>
               Email <span style={{ color: "red" }}>*</span>{" "}
             </label>
-            <input type="email" placeholder="test@email.com" required />
+            <input type="email" placeholder="test3@email.com" required />
           </div>
           <div>
             <label>Password </label>
-            <input type="password" placeholder="test" />
+            <input type="password" placeholder="test3" />
           </div>
           <div>
             <label>User Name </label>
@@ -85,13 +85,13 @@ export function Account() {
             <label>
               Email <span style={{ color: "red" }}>*</span>
             </label>
-            <input type="email" placeholder="test@email.com" required />
+            <input type="email" placeholder="delete@email.com" required />
           </div>
           <div>
             <label>
               Password <span style={{ color: "red" }}>*</span>
             </label>
-            <input type="password" placeholder="test" required />
+            <input type="password" placeholder="delete" required />
           </div>
           <input id="formSubmit" type="submit" />
         </form>
