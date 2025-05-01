@@ -68,6 +68,9 @@ export function CollapsibleNavbar() {
                 <Link className="dropdown-item" to={`${rootpath}/server`}>
                   Server
                 </Link>
+                <Link className="dropdown-item" to={`${rootpath}/account`}>
+                  My Account
+                </Link>
               </li>
             </ul>
           </li>

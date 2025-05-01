@@ -10,6 +10,7 @@ import { Header } from "./Views/Header";
 import { Footer } from "./Views/Footer";
 import { HandleRefresh } from "./Views/HandleRefresh";
 import { Server } from "./Views/Server";
+import { Account } from "./Views/Account";
 
 const bodyTag = document.getElementById("bodyTag");
 const root = createRoot(bodyTag);
@@ -29,6 +30,7 @@ root.render(
         <Route path={`${rootpath}/about`} element={<About />} />
         <Route path={`${rootpath}/contact`} element={<Contact />} />
         <Route path={`${rootpath}/server`} element={<Server />} />
+        <Route path={`${rootpath}/account`} element={<Account />} />
       </Routes>
       <Footer />
     </HandleRefresh>
