@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { handleReadAccount } from "../controllers/handleReadAccount";
 import "./Account.scss";
 import { handleUpdateAccount } from "../controllers/handleUpdateAccount";
+import { handleDeleteAccount } from "../controllers/handleDeleteAccount";
 
 // TODO: Make this page disabled in navigation and only enable after signing in.
 export function Account() {
   const [readResponse, setReadResponse] = useState(<></>);
   const [updateResponse, setUpdateResponse] = useState(<></>);
+  const [deleteResponse, setDeleteResponse] = useState(<></>);
   return (
     <main id="accountMain" className="container-lg">
       <h1>Account Information</h1>
+      <hr />
       <section id="readAccountSection" className="col-12">
         <h4>Retrieve Information</h4>
         <span>
@@ -33,7 +36,7 @@ export function Account() {
         {readResponse}
       </section>
       <hr />
-      <section id="updateAccountSection">
+      <section id="updateAccountSection" className="col-12">
         <h4>Update Information</h4>
         <span>
           Enter your email and the other fields to update your account.
@@ -72,6 +75,27 @@ export function Account() {
           <input id="formSubmit" type="submit" />
         </form>
         {updateResponse}
+      </section>
+      <hr />
+      <section id="deleteAccountSection" className="col-12">
+        <h4>Delete Account</h4>
+        <span>Enter your email and password to delete your account.</span>
+        <form onSubmit={handleSubmitDelete}>
+          <div>
+            <label>
+              Email <span style={{ color: "red" }}>*</span>
+            </label>
+            <input type="email" placeholder="test@email.com" required />
+          </div>
+          <div>
+            <label>
+              Password <span style={{ color: "red" }}>*</span>
+            </label>
+            <input type="password" placeholder="test" required />
+          </div>
+          <input id="formSubmit" type="submit" />
+        </form>
+        {deleteResponse}
       </section>
     </main>
   );
@@ -126,5 +150,13 @@ export function Account() {
     if (isUpdated)
       setUpdateResponse(<span id="updateSuccess">{response}</span>);
     else setUpdateResponse(<span id="updateFailed">{response}</span>);
+  }
+
+  async function handleSubmitDelete(event: any) {
+    const response = await handleDeleteAccount(event);
+    const isDeleted = response === "Your account has been deleted.";
+    if (isDeleted)
+      setDeleteResponse(<span id="deleteSuccess">{response}</span>);
+    else setDeleteResponse(<span id="deleteFailed">{response}</span>);
   }
 }
