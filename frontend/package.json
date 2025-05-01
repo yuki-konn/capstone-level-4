@@ -9,7 +9,7 @@
   "scripts": {
     "start": "npx webpack server",
     "build": "npx webpack --mode=production",
-    "test": "npx jest updateAccount",
+    "test": "npx jest deleteAccount",
     "deploy": "git push"
   },
   "author": "",
