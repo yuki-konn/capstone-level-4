@@ -19,13 +19,7 @@ export async function handleUpdateAccount(event: any): Promise<string> {
     lastName: targetLastName,
     phone: targetPhone,
   };
-  debugger;
 
   const response = await updateAccount(targetUpdate);
   return response;
 }
-
-// NOTE TO SELF:
-// Prevent account creation when email is not associated with an existing account.
-// - Might need to make seperate readAccount function without a password required in backend to do it.
-// - Put the seperate readAccount function before the updateAccount function.
