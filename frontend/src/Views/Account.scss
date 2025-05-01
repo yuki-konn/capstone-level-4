@@ -1,0 +1,44 @@
+$spacer: 1em;
+
+#accountMain {
+  h1 {
+    text-align: center;
+  }
+  #readAccount {
+    display: grid;
+    background-color: tan;
+    margin: auto;
+    form {
+      padding: ($spacer * 1);
+
+      div {
+        margin: 0.25em;
+        text-align: center;
+        label {
+          background-color: rgb(236, 185, 118);
+          text-align: start;
+          width: 20%;
+        }
+        input {
+          width: 20%;
+        }
+      }
+      #formSubmit {
+        margin-left: 20%;
+        width: 20%;
+      }
+    }
+    #readAccountInfo {
+      p {
+        // b {}
+        span {
+          color: green;
+        }
+      }
+    }
+    #readAccountMessage {
+      text-align: center;
+      color: red;
+    }
+  }
+}
