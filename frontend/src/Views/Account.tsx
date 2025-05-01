@@ -31,7 +31,7 @@ export function Account() {
             </label>
             <input type="password" placeholder="test" required />
           </div>
-          <input id="formSubmit" type="submit" />
+          <input id="formSubmitRead" type="submit" />
         </form>
         {readResponse}
       </section>
@@ -72,7 +72,7 @@ export function Account() {
               placeholder="##########"
             />
           </div>
-          <input id="formSubmit" type="submit" />
+          <input id="formSubmitUpdate" type="submit" />
         </form>
         {updateResponse}
       </section>
@@ -93,7 +93,7 @@ export function Account() {
             </label>
             <input type="password" placeholder="delete" required />
           </div>
-          <input id="formSubmit" type="submit" />
+          <input id="formSubmitDelete" type="submit" />
         </form>
         {deleteResponse}
       </section>

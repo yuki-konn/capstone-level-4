@@ -17,7 +17,7 @@ export function SignOutModal(props: { onSignOut: any }) {
         onSubmit={handleSubmit}
         className="modal fade"
         id="signOutModal"
-        tabIndex="-1"
+        tabIndex={-1}
         aria-labelledby="signOutModalLabel"
         aria-hidden="true"
       >
