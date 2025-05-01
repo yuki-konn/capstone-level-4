@@ -2,7 +2,7 @@ import { Account } from "./Account";
 import { deleteAccount } from "./deleteAccount";
 
 describe("deleteAccount function", () => {
-  it("returns true when account is delete successfully", async () => {
+  it("returns success message when account is delete successfully", async () => {
     // ARRANGE
     const account: Account = {
       email: "deleteTest@email.com",
@@ -13,11 +13,11 @@ describe("deleteAccount function", () => {
       phone: 1112223333,
     };
     // ACT
-    const result: boolean = await deleteAccount(account);
+    const result: string = await deleteAccount(account);
     // ASSERT
-    expect(result).toBe(true);
+    expect(result).toBe("Your account has been deleted.");
   });
-  it("returns false when email (partition key) is not in the list", async () => {
+  it("returns error message when email (partition key) is not in the list", async () => {
     // ARRANGE
     const account: Account = {
       email: "notInList@email.com",
@@ -28,11 +28,13 @@ describe("deleteAccount function", () => {
       phone: 1112223333,
     };
     // ACT
-    const result: boolean = await deleteAccount(account);
+    const result: string = await deleteAccount(account);
     // ASSERT
-    expect(result).toBe(false);
+    expect(result).toBe(
+      "Your account was unable to be deleted because the email is not associated with any account."
+    );
   });
-  it("returns false when email (partition key) is empty string", async () => {
+  it("returns error message when email (partition key) is empty string", async () => {
     // ARRANGE
     const account: Account = {
       email: "",
@@ -43,11 +45,13 @@ describe("deleteAccount function", () => {
       phone: 1112223333,
     };
     // ACT
-    const result: boolean = await deleteAccount(account);
+    const result: string = await deleteAccount(account);
     // ASSERT
-    expect(result).toBe(false);
+    expect(result).toBe(
+      "Your account was unable to be deleted because the email is empty."
+    );
   });
-  it("returns false when email (partition key) is an object", async () => {
+  it("returns error message when email (partition key) is an object", async () => {
     // ARRANGE
     const account: Account = {
       email: {} as any,
@@ -58,11 +62,13 @@ describe("deleteAccount function", () => {
       phone: 1112223333,
     };
     // ACT
-    const result: boolean = await deleteAccount(account);
+    const result: string = await deleteAccount(account);
     // ASSERT
-    expect(result).toBe(false);
+    expect(result).toBe(
+      "Your account was unable to be deleted because the email is an object."
+    );
   });
-  it("returns false when email (partition key) is undefined", async () => {
+  it("returns error message when email (partition key) is undefined", async () => {
     // ARRANGE
     const account: Account = {
       email: undefined,
@@ -73,8 +79,10 @@ describe("deleteAccount function", () => {
       phone: 1112223333,
     };
     // ACT
-    const result: boolean = await deleteAccount(account);
+    const result: string = await deleteAccount(account);
     // ASSERT
-    expect(result).toBe(false);
+    expect(result).toBe(
+      "Your account was unable to be deleted because the email is undefined."
+    );
   });
 });
