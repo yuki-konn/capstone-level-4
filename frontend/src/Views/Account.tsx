@@ -11,16 +11,21 @@ export function Account() {
     <main id="accountMain" className="container-lg">
       <h1>Account Information</h1>
       <section id="readAccountSection" className="col-12">
+        <h4>Retrieve Information</h4>
         <span>
           Enter your email and password to retrieve your account information.
         </span>
         <form onSubmit={handleSubmitRead}>
           <div>
-            <label>Email </label>
+            <label>
+              Email <span style={{ color: "red" }}>*</span>
+            </label>
             <input type="email" placeholder="test@email.com" required />
           </div>
           <div>
-            <label>Password </label>
+            <label>
+              Password <span style={{ color: "red" }}>*</span>
+            </label>
             <input type="password" placeholder="test" required />
           </div>
           <input id="formSubmit" type="submit" />
@@ -29,26 +34,24 @@ export function Account() {
       </section>
       <hr />
       <section id="updateAccountSection">
+        <h4>Update Information</h4>
         <span>
-          Enter email, password, and user name and the other fields to update
-          your account.
-        </span>
-        <span>
-          Alternatively enter new email, password, and user name and other
-          fields to create an account.
+          Enter your email and the other fields to update your account.
         </span>
         <form onSubmit={handleSubmitUpdate}>
           <div>
-            <label>Email * </label>
+            <label>
+              Email <span style={{ color: "red" }}>*</span>{" "}
+            </label>
             <input type="email" placeholder="test@email.com" required />
           </div>
           <div>
-            <label>Password * </label>
-            <input type="password" placeholder="test" required />
+            <label>Password </label>
+            <input type="password" placeholder="test" />
           </div>
           <div>
-            <label>User Name * </label>
-            <input type="text" required />
+            <label>User Name </label>
+            <input type="text" />
           </div>
           <div>
             <label>First Name </label>
