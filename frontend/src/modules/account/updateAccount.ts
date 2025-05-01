@@ -13,11 +13,6 @@ export async function updateAccount(targetAccount: Account): Promise<string> {
   if (isEmailUndefined)
     return "Your account wasn't able to update because your email is undefined.";
 
-  const isAttributeNotInList =
-    !password || !userName || !firstName || !lastName || !phone;
-  if (isAttributeNotInList)
-    return "Your account wasn't able to update because the changes made are invalid.";
-
   const isEmailObject =
     typeof email === "object" || JSON.stringify(email) === "{}";
   if (isEmailObject)
