@@ -5,7 +5,7 @@ describe("deleteAccount function", () => {
   it("returns error message when email (partition key) is in the list but password is incorrect", async () => {
     // ARRANGE
     const account: Account = {
-      email: "delete@email.com",
+      email: "delete2@email.com",
       password: "wrong",
       userName: "",
       firstName: "",
