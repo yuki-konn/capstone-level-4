@@ -11,6 +11,8 @@ import { Footer } from "./Views/Footer";
 import { HandleRefresh } from "./Views/HandleRefresh";
 import { Server } from "./Views/Server";
 import { Account } from "./Views/Account";
+import { Provider } from "react-redux";
+import { store } from "./modules/redux/store";
 
 const bodyTag = document.getElementById("bodyTag");
 const root = createRoot(bodyTag);
@@ -21,18 +23,20 @@ let rootpath: string = "";
 if (domain === "yuki-konn.github.io") rootpath = "/capstone-level-4";
 
 root.render(
-  <BrowserRouter>
-    <HandleRefresh>
-      <Header />
-      <Routes>
-        <Route path={`${rootpath}/`} element={<Home />} />
-        <Route path={`${rootpath}/shop`} element={<Shop />} />
-        <Route path={`${rootpath}/about`} element={<About />} />
-        <Route path={`${rootpath}/contact`} element={<Contact />} />
-        <Route path={`${rootpath}/server`} element={<Server />} />
-        <Route path={`${rootpath}/account`} element={<Account />} />
-      </Routes>
-      <Footer />
-    </HandleRefresh>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <HandleRefresh>
+        <Header />
+        <Routes>
+          <Route path={`${rootpath}/`} element={<Home />} />
+          <Route path={`${rootpath}/shop`} element={<Shop />} />
+          <Route path={`${rootpath}/about`} element={<About />} />
+          <Route path={`${rootpath}/contact`} element={<Contact />} />
+          <Route path={`${rootpath}/server`} element={<Server />} />
+          <Route path={`${rootpath}/account`} element={<Account />} />
+        </Routes>
+        <Footer />
+      </HandleRefresh>
+    </BrowserRouter>
+  </Provider>
 );

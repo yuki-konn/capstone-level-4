@@ -12,4 +12,4 @@ const sliceOptions: CreateSliceOptions = {
 };
 const slice = createSlice(sliceOptions);
 const storeOptions: ConfigureStoreOptions = { reducer: slice.reducer };
-const store = configureStore(storeOptions);
+export const store = configureStore(storeOptions);
