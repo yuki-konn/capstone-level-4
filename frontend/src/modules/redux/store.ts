@@ -4,7 +4,7 @@ import {
   createSlice,
   CreateSliceOptions,
 } from "@reduxjs/toolkit";
-import { stateVariables } from "./StateVariables";
+import { stateVariables } from "./stateVariables";
 
 const sliceOptions: CreateSliceOptions = {
   name: "global",
