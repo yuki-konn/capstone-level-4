@@ -4,10 +4,11 @@ import {
   createSlice,
   CreateSliceOptions,
 } from "@reduxjs/toolkit";
+import { stateVariables } from "./StateVariables";
 
 const sliceOptions: CreateSliceOptions = {
   name: "global",
-  initialState: "?",
+  initialState: stateVariables,
   reducers: "?",
 };
 const slice = createSlice(sliceOptions);
