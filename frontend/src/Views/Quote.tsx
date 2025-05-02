@@ -31,8 +31,10 @@ export function Quote() {
   async function handleClick() {
     const domain = window.location.hostname;
     let rootpath: string = "http://localhost:8000";
-    // Determines if local or GitHub Pages
-    if (domain === "yuki-konn.github.io")
+    if (
+      domain === "yuki-konn.github.io" ||
+      domain === "d1ionyqc0g9xy7.cloudfront.net"
+    )
       rootpath =
         "https://qyxgfxhby4ejikmfmdtzmkjnrq0yazfh.lambda-url.us-east-2.on.aws";
 

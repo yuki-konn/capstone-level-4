@@ -11,7 +11,10 @@ export async function createAccount(targetAccount: Account) {
   const query = `?email=${email}&password=${password}&userName=${userName}&firstName=${firstName}&lastName=${lastName}&phone=${phone}`;
   const domain = window.location.hostname;
   let rootpath: string = "http://localhost:8000";
-  if (domain === "yuki-konn.github.io")
+  if (
+    domain === "yuki-konn.github.io" ||
+    domain === "d1ionyqc0g9xy7.cloudfront.net"
+  )
     rootpath =
       "https://qyxgfxhby4ejikmfmdtzmkjnrq0yazfh.lambda-url.us-east-2.on.aws";
   const route = "/create";

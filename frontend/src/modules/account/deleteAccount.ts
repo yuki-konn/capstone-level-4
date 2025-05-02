@@ -20,7 +20,10 @@ export async function deleteAccount(targetAccount: Account): Promise<string> {
   const query = `?email=${email}&password=${password}`;
   const domain = window.location.hostname;
   let rootpath: string = "http://localhost:8000";
-  if (domain === "yuki-konn.github.io")
+  if (
+    domain === "yuki-konn.github.io" ||
+    domain === "d1ionyqc0g9xy7.cloudfront.net"
+  )
     rootpath =
       "https://qyxgfxhby4ejikmfmdtzmkjnrq0yazfh.lambda-url.us-east-2.on.aws";
   const route = "/remove";

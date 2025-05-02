@@ -1,4 +1,5 @@
 import { Account } from "./Account";
+// import { readAccount } from "./readAccount";
 import { updateAccount } from "./updateAccount";
 
 describe("updateAccount function", () => {
@@ -13,9 +14,15 @@ describe("updateAccount function", () => {
       phone: 1112223333,
     };
     // ACT
+    // const before = await readAccount(account);
     const result = await updateAccount(account);
+    // const after = await readAccount(account);
+
     // ASSERT
     expect(result).toBe("Your account has been updated.");
+
+    // expect(before).toBe("");
+    // expect(after).toBe("");
   });
   it("returns error message if email (partition key) is empty", async () => {
     // ARRANGE
