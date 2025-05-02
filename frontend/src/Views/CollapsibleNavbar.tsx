@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router";
 import "./CollapsibleNavbar.scss";
 import { SignInArea } from "./SignInArea";
@@ -8,6 +8,15 @@ export function CollapsibleNavbar() {
   const domain = window.location.hostname;
   let rootpath: string = "";
   if (domain === "yuki-konn.github.io") rootpath = "/capstone-level-4";
+
+  let myAccount = <></>;
+  const isSignedIn = true; // usually false
+  if (isSignedIn)
+    myAccount = (
+      <Link className="dropdown-item" to={`${rootpath}/account`}>
+        My Account
+      </Link>
+    );
 
   return (
     <nav id="collapsibleNavbar" className="navbar navbar-expand-lg bg-dark">
@@ -68,9 +77,10 @@ export function CollapsibleNavbar() {
                 <Link className="dropdown-item" to={`${rootpath}/server`}>
                   Server
                 </Link>
-                <Link className="dropdown-item" to={`${rootpath}/account`}>
+                {myAccount}
+                {/* <Link className="dropdown-item" to={`${rootpath}/account`}>
                   My Account
-                </Link>
+                </Link> */}
               </li>
             </ul>
           </li>
