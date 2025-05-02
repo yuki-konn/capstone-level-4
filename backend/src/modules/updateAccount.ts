@@ -31,7 +31,8 @@ export async function updateAccount(targetAccount: Account): Promise<string> {
   if (isNotInList)
     return "Your account wasn't able to update because the email is not associated with any account.";
 
-  const { email, password, userName, firstName, lastName, phone } = readAccount;
+  const { email, password, userName, firstName, lastName, phone } =
+    targetAccount;
 
   const request: UpdateCommandInput = {
     TableName: "capstone_logins",
@@ -45,6 +46,7 @@ export async function updateAccount(targetAccount: Account): Promise<string> {
     },
   };
 
+  debugger;
   const response = await dynamoDBClient().update(request);
   const isSuccessful = response.$metadata.httpStatusCode === 200;
   if (isSuccessful) return "Your account has been updated.";
