@@ -22,7 +22,7 @@ export function SignInModal(props: { onSignIn: any }) {
         onSubmit={handleSubmit}
         className="modal fade"
         id="signInModal"
-        tabIndex="-1"
+        tabIndex={-1}
         aria-labelledby="signInModalLabel"
         aria-hidden="true"
       >
