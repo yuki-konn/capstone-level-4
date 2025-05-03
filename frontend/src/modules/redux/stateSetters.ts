@@ -8,172 +8,175 @@ export const stateSetters = {
   },
 
   // Home.tsx (Page)
-  Home_didMount: function (state: StateVariables, action: ActionBoolean) {
+  homeDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.Home_didMount = newValue;
+    state.homeDidMount = newValue;
   },
-  Home_linkCard1: function (state: StateVariables, action: ActionString) {
+  homeLinkCard1: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Home_linkCard1 = newValue;
+    state.homeLinkCard1 = newValue;
   },
-  Home_linkCard2: function (state: StateVariables, action: ActionString) {
+  homeLinkCard2: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Home_linkCard2 = newValue;
+    state.homeLinkCard2 = newValue;
   },
-  Home_linkCard3: function (state: StateVariables, action: ActionString) {
+  homeLinkCard3: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Home_linkCard3 = newValue;
+    state.homeLinkCard3 = newValue;
   },
-  Home_triviaCard: function (state: StateVariables, action: ActionString) {
+  homeTriviaCard: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Home_triviaCard = newValue;
+    state.homeTriviaCard = newValue;
   },
   // HomeCarousel.tsx (Component)
-  HomeCarousel_didMount: function (
+  homeCarouselDidMount: function (
     state: StateVariables,
     action: ActionBoolean
   ) {
     const newValue = action.payload;
-    state.HomeCarousel_didMount = newValue;
+    state.homeCarouselDidMount = newValue;
   },
 
   // About.tsx (Page)
-  About_didMount: function (state: StateVariables, action: ActionBoolean) {
+  aboutDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.About_didMount = newValue;
+    state.aboutDidMount = newValue;
   },
 
   // Contact Form in Contact.tsx (Page)
-  Contact_didMount: function (state: StateVariables, action: ActionBoolean) {
+  contactDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.Contact_didMount = newValue;
+    state.contactDidMount = newValue;
   },
-  Contact_formData1: function (state: StateVariables, action: ActionString) {
+  contactFormData1: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Contact_formData1 = newValue;
+    state.contactFormData1 = newValue;
   },
-  Contact_formName: function (state: StateVariables, action: ActionString) {
+  contactFormName: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Contact_formName = newValue;
+    state.contactFormName = newValue;
   },
-  Contact_formEmail: function (state: StateVariables, action: ActionString) {
+  contactFormEmail: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Contact_formEmail = newValue;
+    state.contactFormEmail = newValue;
   },
-  Contact_commentArea: function (state: StateVariables, action: ActionString) {
+  contactCommentArea: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Contact_commentArea = newValue;
+    state.contactCommentArea = newValue;
   },
-  Contact_radioArea: function (state: StateVariables, action: ActionString) {
+  contactRadioArea: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Contact_radioArea = newValue;
+    state.contactRadioArea = newValue;
   },
   // Phone Form in Contact.tsx
-  // Contact_FormData2: "",
+  // contactFormData2: function (state: StateVariables, action: ActionString) {
+  //   const newValue = action.payload;
+  //   state.contactFormData2 = newValue;
+  // },
 
   // Shop.tsx (Page)
-  Shop_didMount: function (state: StateVariables, action: ActionBoolean) {
+  shopDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.Shop_didMount = newValue;
+    state.shopDidMount = newValue;
   },
-  Shop_sectionTeaContent: function (
+  shopSectionTeaContent: function (
     state: StateVariables,
     action: ActionString
   ) {
     const newValue = action.payload;
-    state.Shop_sectionTeaContent = newValue;
+    state.shopSectionTeaContent = newValue;
   },
 
   // SignInArea.tsx (Page)
-  SignIn_didMount: function (state: StateVariables, action: ActionBoolean) {
+  signInDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.SignIn_didMount = newValue;
+    state.signInDidMount = newValue;
   },
-  SignIn_button: function (state: StateVariables, action: ActionString) {
+  signInButton: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.SignIn_button = newValue;
+    state.signInButton = newValue;
   },
-  SignIn_isSignedIn: function (state: StateVariables, action: ActionBoolean) {
+  signInIsSignedIn: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.SignIn_isSignedIn = newValue;
+    state.signInIsSignedIn = newValue;
   },
   // SignInModal.tsx
-  SignIn_errorMessage: function (state: StateVariables, action: ActionString) {
+  signInErrorMessage: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.SignIn_errorMessage = newValue;
+    state.signInErrorMessage = newValue;
   },
 
   // CreateAccountArea.tsx (Page)
-  CreateAccount_didMount: function (
+  createAccountDidMount: function (
     state: StateVariables,
     action: ActionBoolean
   ) {
     const newValue = action.payload;
-    state.CreateAccount_didMount = newValue;
+    state.createAccountDidMount = newValue;
   },
-  CreateAccount_button: function (state: StateVariables, action: ActionString) {
+  createAccountButton: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.CreateAccount_button = newValue;
+    state.createAccountButton = newValue;
   },
   // CreateAccountModal.tsx
-  CreateAccount_response: function (
+  createAccountResponse: function (
     state: StateVariables,
     action: ActionString
   ) {
     const newValue = action.payload;
-    state.CreateAccount_response = newValue;
+    state.createAccountResponse = newValue;
   },
 
   // Server.tsx (Page)
-  Server_didMount: function (state: StateVariables, action: ActionBoolean) {
+  serverDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.Server_didMount = newValue;
+    state.serverDidMount = newValue;
   },
-  Server_response: function (state: StateVariables, action: ActionString) {
+  serverResponse: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Server_response = newValue;
+    state.serverResponse = newValue;
   },
 
   // Account.tsx (Page)
-  Account_didMount: function (state: StateVariables, action: ActionBoolean) {
+  accountDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.Account_didMount = newValue;
+    state.accountDidMount = newValue;
   },
-  Account_readResponse: function (state: StateVariables, action: ActionString) {
+  accountReadResponse: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Account_readResponse = newValue;
+    state.accountReadResponse = newValue;
   },
-  Account_updateResponse: function (
+  accountUpdateResponse: function (
     state: StateVariables,
     action: ActionString
   ) {
     const newValue = action.payload;
-    state.Account_updateResponse = newValue;
+    state.accountUpdateResponse = newValue;
   },
-  Account_deleteResponse: function (
+  accountDeleteResponse: function (
     state: StateVariables,
     action: ActionString
   ) {
     const newValue = action.payload;
-    state.Account_deleteResponse = newValue;
+    state.accountDeleteResponse = newValue;
   },
 
   // Quote.tsx (Component)
-  Quote_quote: function (state: StateVariables, action: ActionString) {
+  quoteQuote: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Quote_quote = newValue;
+    state.quoteQuote = newValue;
   },
-  Quote_author: function (state: StateVariables, action: ActionString) {
+  quoteAuthor: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Quote_author = newValue;
+    state.quoteAuthor = newValue;
   },
-  Quote_url: function (state: StateVariables, action: ActionString) {
+  quoteUrl: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Quote_url = newValue;
+    state.quoteUrl = newValue;
   },
-  Quote_tags: function (state: StateVariables, action: ActionString) {
+  quoteTags: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.Quote_tags = newValue;
+    state.quoteTags = newValue;
   },
 };
 
@@ -185,12 +188,3 @@ type ActionString = {
   payload: string;
   type: string;
 };
-
-// type ActionNumber = {
-//   payload: number;
-//   type: string;
-// };
-// type Action = {
-//   payload: any;
-//   type: string;
-// };
