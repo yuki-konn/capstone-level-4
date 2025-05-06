@@ -2,7 +2,7 @@ import { PutCommandInput } from "@aws-sdk/lib-dynamodb";
 import { Account } from "./Account";
 import { dynamoDBClient } from "./dynamoDBclient";
 
-export async function createAccount(newAccount: Account): Promise<any> {
+export async function createAccount(newAccount: Account): Promise<string> {
   const isUndefined = newAccount === undefined;
   if (isUndefined)
     return "Error: newAccount is undefined. Unable to create account.";
