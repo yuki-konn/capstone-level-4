@@ -1,19 +1,74 @@
-import React, { useEffect, useState } from "react";
+import React, { JSX, useEffect } from "react";
 import { handleClickAddCart } from "../controllers/handleClickAddCart";
-import { teaCards } from "../modules/Shop/teaCards";
-// import { createRows } from "../modules/Shop/createRows.js";
-// import { Column } from "../utils/Column.js";
-// import { GridSystem } from "../utils/GridSystem.js";
-// import { ShopCard } from "../modules/Shop/ShopCard";
 import "./Shop.scss";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectShopBlackTeaCard,
+  selectShopDidMount,
+  selectShopGreenTeaCard,
+  selectShopHerbalTeaCard,
+  selectShopMatchaTeaCard,
+  selectShopMateTeaCard,
+  selectShopOolongTeaCard,
+  selectShopPuerhTeaCard,
+  selectShopPurpleTeaCard,
+  selectShopRooibosTeaCard,
+  selectShopSectionTeaContent,
+  selectShopWhiteTeaCard,
+} from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
+import { ShopCard } from "../modules/Shop/ShopCard";
 
 export function Shop() {
-  const [didMount, setDidMount] = useState(false);
-  const [sectionTeaContent, setSectionTeaContent] = useState(<></>);
-  // const [card, setCard] = useState(<></>);
+  const didMount = useSelector(selectShopDidMount);
+  let sectionTeaContent: any = useSelector(selectShopSectionTeaContent);
+  // TeaCard Selectors
+  let blackTeaCard: any = useSelector(selectShopBlackTeaCard);
+  let greenTeaCard: any = useSelector(selectShopGreenTeaCard);
+  let whiteTeaCard: any = useSelector(selectShopWhiteTeaCard);
+  let oolongTeaCard: any = useSelector(selectShopOolongTeaCard);
+  let puerhTeaCard: any = useSelector(selectShopPuerhTeaCard);
+  let purpleTeaCard: any = useSelector(selectShopPurpleTeaCard);
+  let matchaTeaCard: any = useSelector(selectShopMatchaTeaCard);
+  let mateTeaCard: any = useSelector(selectShopMateTeaCard);
+  let herbalTeaCard: any = useSelector(selectShopHerbalTeaCard);
+  let rooibosTeaCard: any = useSelector(selectShopRooibosTeaCard);
+
   useEffect(componentDidMount, []); // MOUNT HOOK
   useEffect(componentDidUpdate, [didMount]); // UPDATE HOOK
   useEffect(componentDidUnmount, []); // UNMOUNT HOOK
+
+  const dispatch = useDispatch();
+
+  blackTeaCard = getTeaCard(blackTeaCard);
+  greenTeaCard = getTeaCard(greenTeaCard);
+  whiteTeaCard = getTeaCard(whiteTeaCard);
+  oolongTeaCard = getTeaCard(oolongTeaCard);
+  puerhTeaCard = getTeaCard(puerhTeaCard);
+  purpleTeaCard = getTeaCard(purpleTeaCard);
+  matchaTeaCard = getTeaCard(matchaTeaCard);
+  mateTeaCard = getTeaCard(mateTeaCard);
+  herbalTeaCard = getTeaCard(herbalTeaCard);
+  rooibosTeaCard = getTeaCard(rooibosTeaCard);
+
+  if (sectionTeaContent === "sectionTeaContent") {
+    sectionTeaContent = (
+      <div className="container-fluid">
+        <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5">
+          <div className="col">{blackTeaCard}</div>
+          <div className="col">{greenTeaCard}</div>
+          <div className="col">{whiteTeaCard}</div>
+          <div className="col">{oolongTeaCard}</div>
+          <div className="col">{puerhTeaCard}</div>
+          <div className="col">{purpleTeaCard}</div>
+          <div className="col">{matchaTeaCard}</div>
+          <div className="col">{mateTeaCard}</div>
+          <div className="col">{herbalTeaCard}</div>
+          <div className="col">{rooibosTeaCard}</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <main id="shopMain" className="container-lg">
@@ -22,7 +77,6 @@ export function Shop() {
           Products
         </h2>
         {sectionTeaContent}
-        {/* {card} */}
       </section>
       <br />
       <section id="sectionCart">
@@ -115,189 +169,34 @@ export function Shop() {
   // MOUNT PHASE
   function componentDidMount() {
     document.title = "Yuki Tea Shop | SHOP";
-
-    setSectionTeaContent(
-      <div className="container-fluid">
-        <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5">
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[0].id}
-                src={teaCards[0].src}
-                data-bs-title={teaCards[0].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[0].title}</h3>
-                {teaCards[0].description}
-              </div>
-            </article>
-          </div>
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[1].id}
-                src={teaCards[1].src}
-                data-bs-title={teaCards[1].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[1].title}</h3>
-                {teaCards[1].description}
-              </div>
-            </article>
-          </div>
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[2].id}
-                src={teaCards[2].src}
-                data-bs-title={teaCards[2].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[2].title}</h3>
-                {teaCards[2].description}
-              </div>
-            </article>
-          </div>
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[3].id}
-                src={teaCards[3].src}
-                data-bs-title={teaCards[3].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[3].title}</h3>
-                {teaCards[3].description}
-              </div>
-            </article>
-          </div>
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[4].id}
-                src={teaCards[4].src}
-                data-bs-title={teaCards[4].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[4].title}</h3>
-                {teaCards[4].description}
-              </div>
-            </article>
-          </div>
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[5].id}
-                src={teaCards[5].src}
-                data-bs-title={teaCards[5].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[5].title}</h3>
-                {teaCards[5].description}
-              </div>
-            </article>
-          </div>
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[6].id}
-                src={teaCards[6].src}
-                data-bs-title={teaCards[6].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[6].title}</h3>
-                {teaCards[6].description}
-              </div>
-            </article>
-          </div>
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[7].id}
-                src={teaCards[7].src}
-                data-bs-title={teaCards[7].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[7].title}</h3>
-                {teaCards[7].description}
-              </div>
-            </article>
-          </div>
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[8].id}
-                src={teaCards[8].src}
-                data-bs-title={teaCards[8].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[8].title}</h3>
-                {teaCards[8].description}
-              </div>
-            </article>
-          </div>
-          <div className="col">
-            <article className="card border border-success border-2">
-              <img
-                className="card-img-top"
-                id={teaCards[9].id}
-                src={teaCards[9].src}
-                data-bs-title={teaCards[9].tooltipTitle}
-                data-bs-toggle="tooltip"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{teaCards[9].title}</h3>
-                {teaCards[9].description}
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    );
-
-    // CONVERTS CARD ARRAY POSITIONS TO CARDS, THEN ADDS THEM TO COLUMN GROUPS.
-
-    // let position = 0;
-    // const groupColumns = [];
-    // do {
-    //   for (let count = 0; count < teaCards.length; count++) {
-    //     const teaCardProps = teaCards[position];
-    //     debugger;
-    //     const shopCard = new ShopCard(teaCardProps);
-    //     const column = new Column(shopCard);
-    //     groupColumns.push(column);
-    //     position++;
-    //   }
-    //   // groupColumns.push(columns);
-    // } while (position < teaCards.length);
-
-    // const rows = createRows(groupColumns);
-    // const gridContainer = new GridSystem();
-    // gridContainer.addRow(rows);
-    // debugger;
-    // setCard(gridContainer); MR. Rolazar said he will teach later.
-    // debugger;
-
-    setDidMount(true);
     console.log("The Shop component has mounted.");
+
+    let action = set.shopDidMount(true);
+    dispatch(action);
+
+    action = set.shopBlackTeaCard("blackTeaCard");
+    dispatch(action);
+    action = set.shopGreenTeaCard("greenTeaCard");
+    dispatch(action);
+    action = set.shopWhiteTeaCard("whiteTeaCard");
+    dispatch(action);
+    action = set.shopOolongTeaCard("oolongTeaCard");
+    dispatch(action);
+    action = set.shopPuerhTeaCard("puerhTeaCard");
+    dispatch(action);
+    action = set.shopPurpleTeaCard("purpleTeaCard");
+    dispatch(action);
+    action = set.shopMatchaTeaCard("matchaTeaCard");
+    dispatch(action);
+    action = set.shopMateTeaCard("mateTeaCard");
+    dispatch(action);
+    action = set.shopHerbalTeaCard("herbalTeaCard");
+    dispatch(action);
+    action = set.shopRooibosTeaCard("rooibosTeaCard");
+    dispatch(action);
+
+    action = set.shopSectionTeaContent("sectionTeaContent");
+    dispatch(action);
   }
 
   // UPDATE PHASE
@@ -327,17 +226,83 @@ export function Shop() {
       new bootstrap.Tooltip(img10);
     }
   }
-}
-
-// UNMOUNT PHASE
-function componentDidUnmount() {
-  return function () {
-    console.log("The Shop component has unmounted.");
-  };
+  // UNMOUNT PHASE
+  function componentDidUnmount() {
+    return function () {
+      console.log("The Shop component has unmounted.");
+      let action = set.shopDidMount(false);
+      dispatch(action);
+    };
+  }
 }
 
 // PASSES PARAMETER TO A MORE SPECIFIC HANDLER
 function handleClick(event: any) {
   let buttonId = event.target.id; // GETS THE ID OF BUTTON THATS CLICKED. USED THIS INSTEAD OF getElementById BECAUSE I WANTED EACH BUTTON TO GIVE ME A DIFFERENT ID.
   handleClickAddCart(event, buttonId);
+}
+
+// FOR NON-SERIALIZABLE STATES
+function getTeaCard(card: string): JSX.Element | string {
+  let blackTeaCard = "";
+  let greenTeaCard = "";
+  let whiteTeaCard = "";
+  let oolongTeaCard = "";
+  let puerhTeaCard = "";
+  let purpleTeaCard = "";
+  let matchaTeaCard = "";
+  let mateTeaCard = "";
+  let herbalTeaCard = "";
+  let rooibosTeaCard = "";
+  // ShopCard Class
+  if (card === "blackTeaCard") {
+    const blackTea = new ShopCard(0);
+    blackTeaCard = blackTea.cardContent;
+    return blackTeaCard;
+  }
+  if (card === "greenTeaCard") {
+    const greenTea = new ShopCard(1);
+    greenTeaCard = greenTea.cardContent;
+    return greenTeaCard;
+  }
+  if (card === "whiteTeaCard") {
+    const whiteTea = new ShopCard(2);
+    whiteTeaCard = whiteTea.cardContent;
+    return whiteTeaCard;
+  }
+  if (card === "oolongTeaCard") {
+    const oolongTea = new ShopCard(3);
+    oolongTeaCard = oolongTea.cardContent;
+    return oolongTeaCard;
+  }
+  if (card === "puerhTeaCard") {
+    const puerhTea = new ShopCard(4);
+    puerhTeaCard = puerhTea.cardContent;
+    return puerhTeaCard;
+  }
+  if (card === "purpleTeaCard") {
+    const purpleTea = new ShopCard(5);
+    purpleTeaCard = purpleTea.cardContent;
+    return purpleTeaCard;
+  }
+  if (card === "matchaTeaCard") {
+    const matchaTea = new ShopCard(6);
+    matchaTeaCard = matchaTea.cardContent;
+    return matchaTeaCard;
+  }
+  if (card === "mateTeaCard") {
+    const mateTea = new ShopCard(7);
+    mateTeaCard = mateTea.cardContent;
+    return mateTeaCard;
+  }
+  if (card === "herbalTeaCard") {
+    const herbalTea = new ShopCard(8);
+    herbalTeaCard = herbalTea.cardContent;
+    return herbalTeaCard;
+  }
+  if (card === "rooibosTeaCard") {
+    const rooibosTea = new ShopCard(9);
+    rooibosTeaCard = rooibosTea.cardContent;
+    return rooibosTeaCard;
+  }
 }
