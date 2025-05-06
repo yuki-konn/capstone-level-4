@@ -1,7 +1,7 @@
 // SERVER RESPONSE contact.html
 export function getServerResponse(resolve: any) {
   // DOES activateResolve FUNCTION AFTER 5 SECONDS
-  setTimeout(activateResolve, 5000);
+  setTimeout(activateResolve, 2500);
   function activateResolve() {
     const response = {
       message: "SUCCESSFULLY PROCESSED",
