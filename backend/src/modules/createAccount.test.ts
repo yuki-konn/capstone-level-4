@@ -13,7 +13,7 @@ describe("createAccount function", () => {
       phone: 1112223333,
     };
     // ACT
-    const result: Promise<any> = await createAccount(newAccount);
+    const result = await createAccount(newAccount);
     // ASSERT
     expect(result).toBeDefined();
     expect(result).toBe("Your account has been successfully created.");
@@ -29,7 +29,7 @@ describe("createAccount function", () => {
       phone: "",
     };
     // ACT
-    const result: Promise<any> = await createAccount(newAccount);
+    const result = await createAccount(newAccount);
     // ASSERT
     expect(newAccount.email).toBeDefined();
     expect(newAccount.password).toBeDefined();
@@ -47,7 +47,7 @@ describe("createAccount function", () => {
       phone: "",
     };
     // ACT
-    const result: Promise<any> = await createAccount(newAccount);
+    const result = await createAccount(newAccount);
     // ASSERT
     expect(result).toBeDefined();
     expect(result).toBe(
@@ -74,8 +74,8 @@ describe("createAccount function", () => {
     };
 
     // ACT
-    const result1: Promise<any> = await createAccount(newAccount1);
-    const result2: Promise<any> = await createAccount(newAccount2);
+    const result1 = await createAccount(newAccount1);
+    const result2 = await createAccount(newAccount2);
 
     // ASSERT
     expect(newAccount1.email).toBe("");
@@ -92,7 +92,7 @@ describe("createAccount function", () => {
     // ARRANGE
     const newAccount: any = {};
     // ACT
-    const result: Promise<any> = await createAccount(newAccount);
+    const result = await createAccount(newAccount);
     // ASSERT
     expect(result).toBeDefined();
     expect(result).toBe(
@@ -103,7 +103,7 @@ describe("createAccount function", () => {
     // ARRANGE
     const newAccount: Account = undefined;
     // ACT
-    const result: Promise<any> = await createAccount(newAccount);
+    const result = await createAccount(newAccount);
     // ASSERT
     expect(result).toBeDefined();
     expect(result).toBe(
