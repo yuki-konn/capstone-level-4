@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./About.scss";
 import "../index.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAboutDidMount } from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
+import { Quote } from "./Quote";
 
 export function About() {
-  const [didMount, setDidMount] = useState(false);
+  const didMount = useSelector(selectAboutDidMount);
+  const dispatch = useDispatch();
+
   useEffect(componentDidMount, []); // MOUNT HOOK
   useEffect(componentDidUpdate, [didMount]); // UPDATE HOOK
   useEffect(componentDidUnmount, []); // UNMOUNT HOOK
@@ -18,6 +24,9 @@ export function About() {
         <p>This page is to better explain the features of my project.</p>
       </div>
 
+      <section>
+        <Quote />
+      </section>
       <section id="sectionLvl3">
         <h2 className="m-2 text-center bg-warning">Level 3</h2>
         <article className="m-2 p-2">
@@ -249,8 +258,9 @@ export function About() {
   // MOUNT PHASE
   function componentDidMount() {
     document.title = "Yuki Tea Shop | ABOUT";
-    setDidMount(true);
     console.log("The About component has mounted.");
+    let action = set.aboutDidMount(true);
+    dispatch(action);
   }
 
   // UPDATE PHASE
@@ -259,11 +269,12 @@ export function About() {
       console.log("The About component has updated.");
     }
   }
-}
-
-// UNMOUNT PHASE
-function componentDidUnmount() {
-  return function () {
-    console.log("The About component has unmounted.");
-  };
+  // UNMOUNT PHASE
+  function componentDidUnmount() {
+    return function () {
+      console.log("The About component has unmounted.");
+      let action = set.aboutDidMount(false);
+      dispatch(action);
+    };
+  }
 }
