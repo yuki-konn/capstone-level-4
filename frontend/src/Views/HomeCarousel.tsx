@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import oolongtea from "../../assets/images/oolongtea.png";
 import puerhtea from "../../assets/images/puerhtea.png";
 import herbaltea from "../../assets/images/herbaltea.png";
 import "../index.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { selectHomeCarouselDidMount } from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
 
 export function HomeCarousel() {
   const goldcolor = {
@@ -13,9 +16,11 @@ export function HomeCarousel() {
     margin: "auto",
     display: "flex",
   };
-  const [didMount, setDidMount] = useState(false);
+  const didMount = useSelector(selectHomeCarouselDidMount);
+  const dispatch = useDispatch();
+
   useEffect(componentDidMount, []); // MOUNT PHASE
-  useEffect(componentDidUpdate); // UPDATE PHASE
+  useEffect(componentDidUpdate, [didMount]); // UPDATE PHASE
 
   return (
     <div className="row">
@@ -108,7 +113,8 @@ export function HomeCarousel() {
 
   function componentDidMount() {
     console.log("HomeCarousel: Mount Phase");
-    setDidMount(true);
+    let action = set.homeCarouselDidMount(true);
+    dispatch(action);
   }
 
   function componentDidUpdate() {

@@ -1,7 +1,6 @@
 import React, { JSX, useEffect } from "react";
 import "../index.scss";
 import { HomeCarousel } from "./HomeCarousel";
-import { Quote } from "./Quote";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectHomeDidMount,
@@ -39,9 +38,6 @@ export function Home() {
       <section id="sectionAbout" className="text-center m-2">
         {aboutLinkCard}
       </section>
-      <section id="sectionQuote" className="text-center m-2">
-        <Quote />
-      </section>
       <section id="sectionLocation" className="text-center m-2">
         {locationLinkCard}
       </section>
@@ -62,7 +58,7 @@ export function Home() {
               <span>About</span>
             </a>
           </li>
-          {/* <li className="list-group-item">
+          <li className="list-group-item">
             <a className="no-decor" href="#sectionLocation">
               <span>Locations</span>
             </a>
@@ -71,7 +67,7 @@ export function Home() {
             <a className="no-decor" href="#sectionHistory">
               <span>History</span>
             </a>
-          </li> */}
+          </li>
           <li className="list-group-item">
             <a className="no-decor" href="#sectionTrivia">
               <span>Trivia</span>
@@ -125,6 +121,7 @@ function getCard(card: string): JSX.Element | string {
   let locationLinkCard = "";
   let historyLinkCard = "";
   let triviaCard = "";
+  // LinkCard Class
   if (card === "aboutLinkCard") {
     const aboutCard = new LinkCard(0);
     aboutLinkCard = aboutCard.cardContent;
@@ -140,6 +137,7 @@ function getCard(card: string): JSX.Element | string {
     historyLinkCard = historyCard.cardContent;
     return historyLinkCard;
   }
+  // TriviaCard Class
   if (card === "triviaCard") {
     const triviaCardObj = new TriviaCard();
     triviaCard = triviaCardObj.cardContent;
