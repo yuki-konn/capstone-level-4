@@ -87,7 +87,7 @@ export const stateSetters = {
     state.shopSectionTeaContent = newValue;
   },
 
-  // SignInArea.tsx (Page)
+  // SignInArea.tsx (Component)
   signInDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
     state.signInDidMount = newValue;
@@ -106,7 +106,7 @@ export const stateSetters = {
     state.signInErrorMessage = newValue;
   },
 
-  // CreateAccountArea.tsx (Page)
+  // CreateAccountArea.tsx (Component)
   createAccountDidMount: function (
     state: StateVariables,
     action: ActionBoolean
@@ -118,7 +118,7 @@ export const stateSetters = {
     const newValue = action.payload;
     state.createAccountButton = newValue;
   },
-  // CreateAccountModal.tsx
+  // CreateAccountModal.tsx (Component)
   createAccountResponse: function (
     state: StateVariables,
     action: ActionString
@@ -162,6 +162,14 @@ export const stateSetters = {
   },
 
   // Quote.tsx (Component)
+  quoteDidMount: function (state: StateVariables, action: ActionBoolean) {
+    const newValue = action.payload;
+    state.quoteDidMount = newValue;
+  },
+  quoteResponse: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.quoteResponse = newValue;
+  },
   quoteQuote: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
     state.quoteQuote = newValue;

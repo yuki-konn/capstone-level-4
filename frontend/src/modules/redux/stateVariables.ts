@@ -53,6 +53,8 @@ export const stateVariables = {
   accountDeleteResponse: "",
 
   // Quote.tsx (Component)
+  quoteDidMount: false,
+  quoteResponse: "",
   quoteQuote: "",
   quoteAuthor: "",
   quoteUrl: "",

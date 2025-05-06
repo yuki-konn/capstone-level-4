@@ -138,6 +138,14 @@ export function selectAccountDeleteResponse(state: StateVariables): string {
 }
 
 // Quote.tsx (Component)
+export function selectQuoteDidMount(state: StateVariables): boolean {
+  const { quoteDidMount } = state;
+  return quoteDidMount;
+}
+export function selectQuoteResponse(state: StateVariables): string {
+  const { quoteResponse } = state;
+  return quoteResponse;
+}
 export function selectQuoteQuote(state: StateVariables): string {
   const { quoteQuote } = state;
   return quoteQuote;
