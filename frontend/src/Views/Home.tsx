@@ -28,25 +28,10 @@ export function Home() {
   useEffect(componentDidUpdate, [didMount]); // UPDATE HOOK
   useEffect(componentDidUnmount, []); // UNMOUNT HOOK
 
-  if (aboutLinkCard === "aboutLinkCard") {
-    const aboutCard = new LinkCard(0);
-    aboutLinkCard = aboutCard.cardContent;
-  }
-
-  if (locationLinkCard === "locationLinkCard") {
-    const locationCard = new LinkCard(1);
-    locationLinkCard = locationCard.cardContent;
-  }
-
-  if (historyLinkCard === "historyLinkCard") {
-    const historyCard = new LinkCard(2);
-    historyLinkCard = historyCard.cardContent;
-  }
-
-  if (triviaCard === "triviaCard") {
-    const triviaCardObj = new TriviaCard();
-    triviaCard = triviaCardObj.cardContent;
-  }
+  aboutLinkCard = getCard(aboutLinkCard);
+  locationLinkCard = getCard(locationLinkCard);
+  historyLinkCard = getCard(historyLinkCard);
+  triviaCard = getCard(triviaCard);
 
   return (
     <main id="homeMain" className="container-lg">
@@ -133,4 +118,31 @@ function componentDidUnmount() {
   return function () {
     console.log("The Home component has unmounted.");
   };
+}
+
+function getCard(card: string): JSX.Element | string {
+  let aboutLinkCard = "";
+  let locationLinkCard = "";
+  let historyLinkCard = "";
+  let triviaCard = "";
+  if (card === "aboutLinkCard") {
+    const aboutCard = new LinkCard(0);
+    aboutLinkCard = aboutCard.cardContent;
+    return aboutLinkCard;
+  }
+  if (card === "locationLinkCard") {
+    const locationCard = new LinkCard(1);
+    locationLinkCard = locationCard.cardContent;
+    return locationLinkCard;
+  }
+  if (card === "historyLinkCard") {
+    const historyCard = new LinkCard(2);
+    historyLinkCard = historyCard.cardContent;
+    return historyLinkCard;
+  }
+  if (card === "triviaCard") {
+    const triviaCardObj = new TriviaCard();
+    triviaCard = triviaCardObj.cardContent;
+    return triviaCard;
+  }
 }
