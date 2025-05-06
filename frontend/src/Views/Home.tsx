@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { JSX, useEffect } from "react";
 import "../index.scss";
 import { HomeCarousel } from "./HomeCarousel";
-import { handleClickApi } from "../controllers/handleClickApi";
 import { Quote } from "./Quote";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -12,13 +11,15 @@ import {
   selectHomeTriviaCard,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
+import { LinkCard } from "../utils/LinkCard";
+import { TriviaCard } from "../utils/TriviaCard";
 
 export function Home() {
   const didMount = useSelector(selectHomeDidMount);
   // STATE VARIABLES FOR BOOTSTRAP CARDS
-  let linkCard1: any = useSelector(selectHomeLinkCard1);
-  let linkCard2: any = useSelector(selectHomeLinkCard2);
-  let linkCard3: any = useSelector(selectHomeLinkCard3);
+  let aboutLinkCard: any = useSelector(selectHomeLinkCard1);
+  let locationLinkCard: any = useSelector(selectHomeLinkCard2);
+  let historyLinkCard: any = useSelector(selectHomeLinkCard3);
   let triviaCard: any = useSelector(selectHomeTriviaCard);
 
   const dispatch = useDispatch();
@@ -27,125 +28,40 @@ export function Home() {
   useEffect(componentDidUpdate, [didMount]); // UPDATE HOOK
   useEffect(componentDidUnmount, []); // UNMOUNT HOOK
 
-  // About Section
-  const linkCardContent1 = {
-    title: "About",
-    desc1:
-      "This is the about card of my imaginary online tea shop website. You can learn more about the different features in the project in the About section. You can get to the about section by clicking on the button below or the About tab at the top of the page.",
-    desc2: "",
-    desc3: "",
-    link: "https://yuki-konn.github.io/capstone-level-4/about", // update link
-    buttonName: "Learn More",
-  };
-  if (linkCard1 === "homeLinkCard1") {
-    linkCard1 = (
-      <article className="card">
-        <div className="card-body">
-          <h2 className="card-title">{linkCardContent1.title}</h2>
-          <p>{linkCardContent1.desc1}</p>
-          <p>{linkCardContent1.desc2}</p>
-          <p>{linkCardContent1.desc3}</p>
-          <a href={linkCardContent1.link}>
-            <button className="cardButton btn btn-success btn-sm">
-              {linkCardContent1.buttonName}
-            </button>
-          </a>
-        </div>
-      </article>
-    );
+  if (aboutLinkCard === "aboutLinkCard") {
+    const aboutCard = new LinkCard(0);
+    aboutLinkCard = aboutCard.cardContent;
   }
-  // Location Section
-  const linkCardContent2 = {
-    title: "Locations",
-    desc1:
-      "Lorem ipsum odor amet, consectetuer adipiscing elit. Tempor magnis scelerisque quam turpis sem parturient. Urna elit habitasse accumsan torquent consequat consequat. Dictum ad metus phasellus magna eleifend scelerisque sem. Magna euismod aliquam finibus conubia ad. Erat adipiscing molestie; fringilla dolor nisi suscipit pulvinar pretium? Nulla class justo sapien egestas placerat! Penatibus iaculis aliquet molestie, porta pulvinar tristique. Finibus ut nullam urna quisque mi.",
-    desc2:
-      "Duis odio facilisi ullamcorper suspendisse a vitae nibh. Inceptos aenean egestas aenean ultrices senectus massa. Tempor aliquet eleifend non porta habitasse elementum lobortis. Curae vulputate lorem cras parturient facilisi erat proin leo. Vestibulum integer litora amet quis; torquent dolor malesuada. Maximus purus elementum, cras sodales hac semper vivamus. Augue leo ultricies hendrerit; in bibendum iaculis. Porttitor penatibus at sociosqu porta rhoncus.",
-    desc3: "",
-    link: "",
-    buttonName: "Learn More",
-  };
-  if (linkCard2 === "homeLinkCard2") {
-    linkCard2 = (
-      <article className="card">
-        <div className="card-body">
-          <h2 className="card-title">{linkCardContent2.title}</h2>
-          <p>{linkCardContent2.desc1}</p>
-          <p>{linkCardContent2.desc2}</p>
-          <p>{linkCardContent2.desc3}</p>
-          <a href={linkCardContent2.link}>
-            <button className="cardButton btn btn-success btn-sm">
-              {linkCardContent2.buttonName}
-            </button>
-          </a>
-        </div>
-      </article>
-    );
+
+  if (locationLinkCard === "locationLinkCard") {
+    const locationCard = new LinkCard(1);
+    locationLinkCard = locationCard.cardContent;
   }
-  // History Section
-  const linkCardContent3 = {
-    title: "History",
-    desc1:
-      "Lorem ipsum odor amet, consectetuer adipiscing elit. Vitae torquent dictum montes enim libero nec parturient, enim neque. Malesuada nullam scelerisque conubia; porttitor semper rhoncus finibus. Dui natoque volutpat sociosqu curabitur ac nulla viverra. Curae felis ultrices aliquet ante pellentesque mollis porta. Interdum nisi consequat, neque tempus orci nostra lacus litora scelerisque. Ornare viverra dolor volutpat; potenti eleifend cubilia nostra potenti.",
-    desc2:
-      "Blandit quam fermentum enim justo mi? Per eget sem elit erat convallis in rhoncus. Faucibus duis conubia justo sagittis conubia vulputate! Erat praesent imperdiet praesent tempus gravida, senectus auctor sagittis proin. Consectetur consequat porta fusce amet nisi et commodo. Potenti nibh risus torquent a in torquent. Habitant ultricies curae vehicula ullamcorper curae nostra. Mus nibh risus neque penatibus molestie. Consequat eget magnis vulputate aliquet est arcu.",
-    desc3:
-      "Volutpat suspendisse sit pharetra at ultrices risus. Nostra aliquam facilisis metus nulla inceptos. Dictum in diam feugiat hac aenean curae. Venenatis fames curae leo magna vivamus aenean aliquet mi elementum. Tellus euismod augue torquent duis hac ex suscipit netus. Condimentum potenti euismod id ornare vestibulum. Felis habitasse turpis conubia arcu maximus.",
-    link: "",
-    buttonName: "Learn More",
-  };
-  if (linkCard3 === "homeLinkCard3") {
-    linkCard3 = (
-      <article className="card">
-        <div className="card-body">
-          <h2 className="card-title">{linkCardContent3.title}</h2>
-          <p>{linkCardContent3.desc1}</p>
-          <p>{linkCardContent3.desc2}</p>
-          <p>{linkCardContent3.desc3}</p>
-          <a href={linkCardContent3.link}>
-            <button className="cardButton btn btn-success btn-sm">
-              {linkCardContent3.buttonName}
-            </button>
-          </a>
-        </div>
-      </article>
-    );
+
+  if (historyLinkCard === "historyLinkCard") {
+    const historyCard = new LinkCard(2);
+    historyLinkCard = historyCard.cardContent;
   }
-  const triviaCardContent = {
-    title: "Random Trivia",
-    buttonName: "Brew Question",
-  };
-  if (triviaCard === "homeTriviaCard") {
-    triviaCard = (
-      <article className="card">
-        <div className="card-body">
-          <h2 className="card-title">{triviaCardContent.title}</h2>
-          <div id="outputTag" className="p-3"></div>
-          <button
-            onClick={handleClickTriviaCard}
-            className="cardButton btn btn-success btn-sm"
-          >
-            {triviaCardContent.buttonName}
-          </button>
-        </div>
-      </article>
-    );
+
+  if (triviaCard === "triviaCard") {
+    const triviaCardObj = new TriviaCard();
+    triviaCard = triviaCardObj.cardContent;
   }
 
   return (
     <main id="homeMain" className="container-lg">
       <HomeCarousel />
       <section id="sectionAbout" className="text-center m-2">
-        {linkCard1}
+        {aboutLinkCard}
       </section>
       <section id="sectionQuote" className="text-center m-2">
         <Quote />
       </section>
       <section id="sectionLocation" className="text-center m-2">
-        {linkCard2}
+        {locationLinkCard}
       </section>
       <section id="sectionHistory" className="text-center m-2">
-        {linkCard3}
+        {historyLinkCard}
       </section>
       <section id="sectionTrivia" className="text-center m-2">
         {triviaCard}
@@ -189,23 +105,17 @@ export function Home() {
     let action = set.homeDidMount(true);
     dispatch(action);
 
-    action = set.homeLinkCard1("homeLinkCard1");
+    action = set.homeLinkCard1("aboutLinkCard");
     dispatch(action);
 
-    action = set.homeLinkCard2("homeLinkCard2");
+    action = set.homeLinkCard2("locationLinkCard");
     dispatch(action);
 
-    action = set.homeLinkCard3("homeLinkCard3");
+    action = set.homeLinkCard3("historyLinkCard");
     dispatch(action);
 
-    action = set.homeTriviaCard("homeTriviaCard");
+    action = set.homeTriviaCard("triviaCard");
     dispatch(action);
-  }
-  //
-
-  // HANDLER FOR TRIVIA CARD BUTTON
-  function handleClickTriviaCard(event: any) {
-    handleClickApi(event);
   }
 
   // UPDATE PHASE
