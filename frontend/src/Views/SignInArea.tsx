@@ -1,38 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { SignInModal } from "./SignInModal";
 import { SignOutModal } from "./SignOutModal";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectSignInButton,
+  selectSignInDidMount,
+  selectSignInIsSignedIn,
+} from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
 
 export function SignInArea() {
-  const [button, setButton] = useState(<></>);
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const didMount = useSelector(selectSignInDidMount);
+  const isSignedIn = useSelector(selectSignInIsSignedIn);
+  let button: any = useSelector(selectSignInButton);
 
-  const [didMount, setDidMount] = useState(false);
+  const dispatch = useDispatch();
+
   useEffect(componentDidMount, []);
-  useEffect(componentDidUpdate, [isSignedIn]);
+  useEffect(componentDidUpdate, [didMount]);
+
+  if (button === "signInButton") {
+    if (isSignedIn) {
+      button = <SignOutModal onSignOut={handleSignOut} />;
+    } else {
+      button = <SignInModal onSignIn={handleSignIn} />;
+    }
+  }
 
   return <>{button}</>;
 
   function componentDidMount() {
     console.log("SignInArea: Mount Phase");
-    setDidMount(true);
 
-    if (isSignedIn) setButton(<SignOutModal onSignOut={handleSignOut} />);
-    else setButton(<SignInModal onSignIn={handleSignIn} />);
+    let action = set.signInButton("signInButton");
+    dispatch(action);
   }
 
   function componentDidUpdate() {
     if (didMount) {
       console.log("SignInArea: Update Phase");
-      if (isSignedIn) setButton(<SignOutModal onSignOut={handleSignOut} />);
-      else setButton(<SignInModal onSignIn={handleSignIn} />);
     }
   }
 
   function handleSignIn() {
-    setIsSignedIn(true);
+    let action = set.signInIsSignedIn(true);
+    dispatch(action);
   }
 
   function handleSignOut() {
-    setIsSignedIn(false);
+    let action = set.signInIsSignedIn(false);
+    dispatch(action);
   }
 }

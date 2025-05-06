@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { SignInContent } from "./SignInContent";
 import { handleSignIn } from "../controllers/handleSignIn";
+import { useDispatch, useSelector } from "react-redux";
+import { selectSignInErrorMessage } from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
 
 export function SignInModal(props: { onSignIn: any }) {
   const onSignIn = props.onSignIn; // Prop from SignInArea.
 
   // ERROR MESSAGE FOR INCORRECT INPUTS
-  const [errorMessage, setErrorMessage] = useState("");
+  const errorMessage = useSelector(selectSignInErrorMessage);
+  const dispatch = useDispatch();
+
   return (
     <>
       <button
@@ -60,8 +65,20 @@ export function SignInModal(props: { onSignIn: any }) {
     </>
   );
 
-  function handleSubmit(event: any) {
-    console.log("Handler: handleSignIn");
-    handleSignIn(event, onSignIn, setErrorMessage);
+  async function handleSubmit(event: any) {
+    const response = await handleSignIn(event, onSignIn);
+
+    if (response === false) {
+      let action = set.signInErrorMessage(
+        "The email or password is incorrect."
+      );
+      dispatch(action);
+    }
+    setTimeout(resetErrorMessage, 5000);
+
+    function resetErrorMessage() {
+      let action = set.signInErrorMessage("");
+      dispatch(action);
+    }
   }
 }
