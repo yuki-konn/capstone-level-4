@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { CreateAccountContent } from "./CreateAccountContent";
 import { handleCreateAccount } from "../controllers/handleCreateAccount";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCreateAccountResponse } from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
 
 export function CreateAccountModal() {
-  const [response, setResponse] = useState("");
+  const response = useSelector(selectCreateAccountResponse);
+  const dispatch = useDispatch();
   return (
     <>
       <button
@@ -59,8 +63,10 @@ export function CreateAccountModal() {
   );
 
   async function handleSubmit(event: any) {
-    const response = await handleCreateAccount(event);
-    setResponse(response);
+    const response: Promise<string> = await handleCreateAccount(event);
+
+    let action = set.createAccountResponse(response);
+    dispatch(action);
 
     setTimeout(closeModal, 3000);
 

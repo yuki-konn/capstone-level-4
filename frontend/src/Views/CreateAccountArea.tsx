@@ -1,18 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { CreateAccountModal } from "./CreateAccountModal";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectCreateAccountButton,
+  selectCreateAccountDidMount,
+} from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
 
 export function CreateAccountArea() {
-  const [button, setButton] = useState(<></>);
+  const didMount = useSelector(selectCreateAccountDidMount);
+  let button: any = useSelector(selectCreateAccountButton);
+  const dispatch = useDispatch();
 
-  const [didMount, setDidMount] = useState(false);
   useEffect(componentDidMount, []);
+
+  if (button === "createAccountModal") button = <CreateAccountModal />;
 
   return <>{button}</>;
 
   function componentDidMount() {
     console.log("CreateAccountArea: Mount Phase");
-    setDidMount(true);
+    let action = set.createAccountDidMount(true);
+    dispatch(action);
 
-    setButton(<CreateAccountModal />);
+    action = set.createAccountButton("createAccountModal");
+    dispatch(action);
   }
 }
