@@ -78,6 +78,46 @@ export function selectShopSectionTeaContent(state: StateVariables): string {
   const { shopSectionTeaContent } = state;
   return shopSectionTeaContent;
 }
+export function selectShopBlackTeaCard(state: StateVariables): string {
+  const { shopBlackTeaCard } = state;
+  return shopBlackTeaCard;
+}
+export function selectShopGreenTeaCard(state: StateVariables): string {
+  const { shopGreenTeaCard } = state;
+  return shopGreenTeaCard;
+}
+export function selectShopWhiteTeaCard(state: StateVariables): string {
+  const { shopWhiteTeaCard } = state;
+  return shopWhiteTeaCard;
+}
+export function selectShopOolongTeaCard(state: StateVariables): string {
+  const { shopOolongTeaCard } = state;
+  return shopOolongTeaCard;
+}
+export function selectShopPuerhTeaCard(state: StateVariables): string {
+  const { shopPuerhTeaCard } = state;
+  return shopPuerhTeaCard;
+}
+export function selectShopPurpleTeaCard(state: StateVariables): string {
+  const { shopPurpleTeaCard } = state;
+  return shopPurpleTeaCard;
+}
+export function selectShopMatchaTeaCard(state: StateVariables): string {
+  const { shopMatchaTeaCard } = state;
+  return shopMatchaTeaCard;
+}
+export function selectShopMateTeaCard(state: StateVariables): string {
+  const { shopMateTeaCard } = state;
+  return shopMateTeaCard;
+}
+export function selectShopHerbalTeaCard(state: StateVariables): string {
+  const { shopHerbalTeaCard } = state;
+  return shopHerbalTeaCard;
+}
+export function selectShopRooibosTeaCard(state: StateVariables): string {
+  const { shopRooibosTeaCard } = state;
+  return shopRooibosTeaCard;
+}
 
 // SignInArea.tsx (Component)
 export function selectSignInDidMount(state: StateVariables): boolean {

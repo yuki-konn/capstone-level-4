@@ -90,6 +90,46 @@ export const stateSetters = {
     const newValue = action.payload;
     state.shopSectionTeaContent = newValue;
   },
+  shopBlackTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopBlackTeaCard = newValue;
+  },
+  shopGreenTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopGreenTeaCard = newValue;
+  },
+  shopWhiteTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopWhiteTeaCard = newValue;
+  },
+  shopOolongTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopOolongTeaCard = newValue;
+  },
+  shopPuerhTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopPuerhTeaCard = newValue;
+  },
+  shopPurpleTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopPurpleTeaCard = newValue;
+  },
+  shopMatchaTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopMatchaTeaCard = newValue;
+  },
+  shopMateTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopMateTeaCard = newValue;
+  },
+  shopHerbalTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopHerbalTeaCard = newValue;
+  },
+  shopRooibosTeaCard: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.shopRooibosTeaCard = newValue;
+  },
 
   // SignInArea.tsx (Component)
   signInDidMount: function (state: StateVariables, action: ActionBoolean) {

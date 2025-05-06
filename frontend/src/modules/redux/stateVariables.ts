@@ -29,6 +29,16 @@ export const stateVariables = {
   // Shop.tsx (Page)
   shopDidMount: false,
   shopSectionTeaContent: "",
+  shopBlackTeaCard: "",
+  shopGreenTeaCard: "",
+  shopWhiteTeaCard: "",
+  shopOolongTeaCard: "",
+  shopPuerhTeaCard: "",
+  shopPurpleTeaCard: "",
+  shopMatchaTeaCard: "",
+  shopMateTeaCard: "",
+  shopHerbalTeaCard: "",
+  shopRooibosTeaCard: "",
 
   // SignInArea.tsx (Page)
   signInDidMount: false,
