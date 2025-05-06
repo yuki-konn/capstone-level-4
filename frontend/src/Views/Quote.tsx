@@ -1,13 +1,22 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import "./Quote.scss";
-import { Link } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectQuoteAuthor,
+  selectQuoteQuote,
+  selectQuoteTags,
+  selectQuoteUrl,
+} from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
 
 export function Quote() {
-  const [quote, setQuote] = useState("");
-  const [author, setAuthor] = useState("");
-  const [url, setUrl] = useState("");
-  const [tags, setTags] = useState("");
+  let quote: any = useSelector(selectQuoteQuote);
+  let author: any = useSelector(selectQuoteAuthor);
+  let url: any = useSelector(selectQuoteUrl);
+  let tags: any = useSelector(selectQuoteTags);
+
+  const dispatch = useDispatch();
 
   return (
     <div id="quote-module">
@@ -19,9 +28,9 @@ export function Quote() {
         <blockquote id="quote">{quote}</blockquote>
         <blockquote id="author">{author}</blockquote>
         <p id="url">
-          <Link to={url} target="_blank">
+          <a href={url} target="_blank">
             {url}
-          </Link>
+          </a>
         </p>
         <p id="tags">{tags}</p>
       </div>
@@ -44,9 +53,17 @@ export function Quote() {
     const author = response.data.author;
     const url = response.data.url;
     const tags = response.data.tags;
-    setQuote(`"${quote}"`);
-    setAuthor(`~ ${author}`);
-    setUrl("Link: " + `${url}`);
-    setTags("Quote Tags: " + `${tags}`);
+
+    let action = set.quoteQuote(`"${quote}"`);
+    dispatch(action);
+
+    action = set.quoteAuthor(`~ ${author}`);
+    dispatch(action);
+
+    action = set.quoteUrl(`~ ${url}`);
+    dispatch(action);
+
+    action = set.quoteTags(`~ ${tags}`);
+    dispatch(action);
   }
 }
