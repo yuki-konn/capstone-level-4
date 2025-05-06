@@ -20,8 +20,9 @@ export const stateVariables = {
   contactFormName: "",
   contactFormEmail: "",
   contactCommentArea: "",
-  contactRadioArea:
-    "<b style={{ color: 'gold' }}>Processing contact form...</b>",
+  contactRadioArea: "",
+  contactResponse: "Processing contact form...",
+  // "<b style={{ color: 'gold' }}>Processing contact form...</b>",
   // Phone Form in Contact.tsx
   // contactFormData2: "",
 

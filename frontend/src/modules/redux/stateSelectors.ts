@@ -59,6 +59,10 @@ export function selectContactRadioArea(state: StateVariables): string {
   const { contactRadioArea } = state;
   return contactRadioArea;
 }
+export function selectContactResponse(state: StateVariables): string {
+  const { contactResponse } = state;
+  return contactResponse;
+}
 // // Phone Form in Contact.tsx
 // export function selectContactFormData2(state: StateVariables) {
 //   const { contactFormData2 } = state;

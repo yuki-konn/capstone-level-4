@@ -68,6 +68,10 @@ export const stateSetters = {
     const newValue = action.payload;
     state.contactRadioArea = newValue;
   },
+  contactResponse: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.contactResponse = newValue;
+  },
   // Phone Form in Contact.tsx
   // contactFormData2: function (state: StateVariables, action: ActionString) {
   //   const newValue = action.payload;
