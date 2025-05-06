@@ -2,9 +2,18 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./Server.scss";
 import { Quote } from "./Quote";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectServerDidMount,
+  selectServerResponse,
+} from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
 
 export function Server() {
-  const [serverResponse, setServerResponse] = useState("");
+  const didMount = useSelector(selectServerDidMount);
+  const serverResponse = useSelector(selectServerResponse);
+  const dispatch = useDispatch();
+
   useEffect(componentDidMount, []);
   return (
     <main>
@@ -22,6 +31,8 @@ export function Server() {
 
   // CONNECT TO BACKEND WITH AXIOS AND ASYNC/AWAIT
   function componentDidMount() {
+    let action = set.serverDidMount(true);
+    dispatch(action);
     getResponse();
 
     async function getResponse() {
@@ -36,7 +47,9 @@ export function Server() {
 
       const stringified = JSON.stringify(response.data);
       const parseString = JSON.parse(stringified);
-      setServerResponse(parseString);
+
+      let action = set.serverResponse(parseString);
+      dispatch(action);
     }
   }
 }
