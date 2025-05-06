@@ -1,22 +1,45 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import "./Quote.scss";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectQuoteAuthor,
+  selectQuoteDidMount,
   selectQuoteQuote,
+  selectQuoteResponse,
   selectQuoteTags,
   selectQuoteUrl,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 
 export function Quote() {
-  let quote: any = useSelector(selectQuoteQuote);
-  let author: any = useSelector(selectQuoteAuthor);
-  let url: any = useSelector(selectQuoteUrl);
-  let tags: any = useSelector(selectQuoteTags);
+  let didMount = useSelector(selectQuoteDidMount);
+  let quote = useSelector(selectQuoteQuote);
+  let author = useSelector(selectQuoteAuthor);
+  let url = useSelector(selectQuoteUrl);
+  let tags = useSelector(selectQuoteTags);
+  let response: any = useSelector(selectQuoteResponse);
 
   const dispatch = useDispatch();
+
+  if (response === "quoteResponse")
+    response = (
+      <div id="quote-display">
+        <blockquote id="quote">"{quote}"</blockquote>
+        <blockquote id="author">~ {author}</blockquote>
+        <p id="url">
+          Quote URL:{" "}
+          <a href={url} target="_blank">
+            {url}
+          </a>
+        </p>
+        <p id="tags">Quote Tags: {tags}</p>
+      </div>
+    );
+
+  useEffect(componentDidMount, []); // MOUNT HOOK
+  useEffect(componentDidUpdate, [didMount]); // UPDATE HOOK
+  useEffect(componentDidUnmount, []); // UNMOUNT HOOK
 
   return (
     <div id="quote-module">
@@ -24,18 +47,29 @@ export function Quote() {
       <button className="btn btn-success btn-sm" onClick={handleClick}>
         Brew Quote
       </button>
-      <div id="quote-display">
-        <blockquote id="quote">{quote}</blockquote>
-        <blockquote id="author">{author}</blockquote>
-        <p id="url">
-          <a href={url} target="_blank">
-            {url}
-          </a>
-        </p>
-        <p id="tags">{tags}</p>
-      </div>
+      {response}
     </div>
   );
+
+  function componentDidMount() {
+    console.log("The Quote component has mounted.");
+    let action = set.quoteDidMount(true);
+    dispatch(action);
+  }
+
+  function componentDidUpdate() {
+    if (didMount) {
+      console.log("The Quote component has updated.");
+    }
+  }
+
+  function componentDidUnmount() {
+    return function () {
+      console.log("The Quote component has unmounted.");
+      let action = set.quoteDidMount(false);
+      dispatch(action);
+    };
+  }
 
   async function handleClick() {
     const domain = window.location.hostname;
@@ -54,16 +88,19 @@ export function Quote() {
     const url = response.data.url;
     const tags = response.data.tags;
 
-    let action = set.quoteQuote(`"${quote}"`);
+    let action = set.quoteQuote(`${quote}`);
     dispatch(action);
 
-    action = set.quoteAuthor(`~ ${author}`);
+    action = set.quoteAuthor(`${author}`);
     dispatch(action);
 
-    action = set.quoteUrl(`~ ${url}`);
+    action = set.quoteUrl(`${url}`);
     dispatch(action);
 
-    action = set.quoteTags(`~ ${tags}`);
+    action = set.quoteTags(`${tags}`);
+    dispatch(action);
+
+    action = set.quoteResponse("quoteResponse");
     dispatch(action);
   }
 }
