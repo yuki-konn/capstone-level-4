@@ -8,7 +8,7 @@ export async function authenticateUser(email: string, password: string) {
   };
 
   // DynamoDB CLIENT AND RESPONSE
-  const response = await dynamoDBClient().get(request);
+  const response = await dynamoDBClient.get(request);
   const matchingLogin = response.Item;
 
   //DOESN'T AUTHENTICATE matchingLogin is UNDEFINED

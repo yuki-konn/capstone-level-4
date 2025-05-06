@@ -4,8 +4,10 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+export const dynamoDBClient: DynamoDBDocument = getDynamoDBClient();
+
 // DynamoDB Client function that returns DynamoDBDocument.
-export function dynamoDBClient(): DynamoDBDocument {
+function getDynamoDBClient(): DynamoDBDocument {
   const apiKey = {
     region: process.env.region,
     credentials: {

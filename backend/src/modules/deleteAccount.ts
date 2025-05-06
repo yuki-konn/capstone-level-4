@@ -26,7 +26,7 @@ export async function deleteAccount(account: Account): Promise<string> {
     Key: { email: email },
   };
 
-  const readResponse = await dynamoDBClient().get(readRequest);
+  const readResponse = await dynamoDBClient.get(readRequest);
   let targetAccount = readResponse.Item;
 
   const isNotInList = targetAccount === undefined;
@@ -46,7 +46,7 @@ export async function deleteAccount(account: Account): Promise<string> {
     Key: { email: targetEmail },
   };
 
-  const response: DeleteCommandOutput = await dynamoDBClient().delete(request);
+  const response: DeleteCommandOutput = await dynamoDBClient.delete(request);
 
   const isSuccessful = response.$metadata.httpStatusCode === 200;
   if (isSuccessful) return "Your account has been deleted.";

@@ -19,7 +19,7 @@ export async function readAccount(
     Key: { email: targetEmail },
   };
 
-  const response = await dynamoDBClient().get(request);
+  const response = await dynamoDBClient.get(request);
 
   let account = response.Item as Account;
   const isNotInList = account === undefined;

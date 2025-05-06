@@ -32,7 +32,7 @@ export async function createAccount(newAccount: Account): Promise<any> {
       TableName: "capstone_logins",
       Item: newAccount,
     };
-    const response = await dynamoDBClient().put(request);
+    const response = await dynamoDBClient.put(request);
     const isSuccessful = response.$metadata.httpStatusCode === 200;
     if (isSuccessful) return "Your account has been successfully created.";
   }
