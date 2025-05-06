@@ -49,9 +49,9 @@ describe("readAccount function", () => {
       phone: "",
     };
     // ACT
-    const response = await readAccount(account);
+    const result = await readAccount(account);
     // ASSERT
-    expect(response).toBe("This email is not associated with any account.");
+    expect(result).toBe("This email is not associated with any account.");
   });
   it("returns an error message when the email or password is an object", async () => {
     // ARRANGE
@@ -72,11 +72,11 @@ describe("readAccount function", () => {
       phone: "",
     };
     // ACT
-    const response1 = await readAccount(account1);
-    const response2 = await readAccount(account2);
+    const result1 = await readAccount(account1);
+    const result2 = await readAccount(account2);
     // ASSERT
-    expect(response1).toBe("Provided email or password is invalid.");
-    expect(response2).toBe("Provided email or password is invalid.");
+    expect(result1).toBe("Provided email or password is invalid.");
+    expect(result2).toBe("Provided email or password is invalid.");
   });
   it("returns an error message when the email or password is undefined", async () => {
     // ARRANGE
@@ -97,10 +97,10 @@ describe("readAccount function", () => {
       phone: "",
     };
     // ACT
-    const response1 = await readAccount(account1);
-    const response2 = await readAccount(account2);
+    const result1 = await readAccount(account1);
+    const result2 = await readAccount(account2);
     // ASSERT
-    expect(response1).toBe("Provided email or password is invalid.");
-    expect(response2).toBe("Provided email or password is invalid.");
+    expect(result1).toBe("Provided email or password is invalid.");
+    expect(result2).toBe("Provided email or password is invalid.");
   });
 });

@@ -4,7 +4,7 @@ import { dynamoDBClient } from "./dynamoDBclient";
 
 export async function readAccount(
   targetAccount: Account
-): Promise<Account | any> {
+): Promise<Account | string> {
   const { email, password } = targetAccount;
   const targetEmail = email;
 
