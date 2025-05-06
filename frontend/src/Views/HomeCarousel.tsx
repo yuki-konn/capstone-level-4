@@ -21,6 +21,7 @@ export function HomeCarousel() {
 
   useEffect(componentDidMount, []); // MOUNT PHASE
   useEffect(componentDidUpdate, [didMount]); // UPDATE PHASE
+  useEffect(componentDidUnmount, []); // UNMOUNT PHASE
 
   return (
     <div className="row">
@@ -121,5 +122,12 @@ export function HomeCarousel() {
     if (didMount) {
       console.log("HomeCarousel: Update Phase");
     }
+  }
+  function componentDidUnmount() {
+    return function () {
+      console.log("HomeCarousel: Unmount Phase");
+      let action = set.homeCarouselDidMount(false);
+      dispatch(action);
+    };
   }
 }

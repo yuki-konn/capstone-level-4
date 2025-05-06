@@ -105,15 +105,17 @@ export function Home() {
       console.log("The Home component has updated.");
     }
   }
-}
 
-// UNMOUNT PHASE
-function componentDidUnmount() {
-  // - TO UNMOUNT REACT REQUIRES YOU TO RETURN A CALLBACK.
-  // - A CONDITION CAN ALSO CAUSE A COMPONENT TO UNMOUNT.
-  return function () {
-    console.log("The Home component has unmounted.");
-  };
+  // UNMOUNT PHASE
+  function componentDidUnmount() {
+    // - TO UNMOUNT REACT REQUIRES YOU TO RETURN A CALLBACK.
+    // - A CONDITION CAN ALSO CAUSE A COMPONENT TO UNMOUNT.
+    return function () {
+      console.log("The Home component has unmounted.");
+      let action = set.homeDidMount(false);
+      dispatch(action);
+    };
+  }
 }
 
 function getCard(card: string): JSX.Element | string {
