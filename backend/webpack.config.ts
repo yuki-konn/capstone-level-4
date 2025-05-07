@@ -23,5 +23,5 @@ export default {
       type: "commonjs", // Prevents tree shaking of unused bundle exports. Indicates that the bundle is a library.
     },
   },
-  plugins: [new Zip()], // zip-webpack-plugin zips the bundle files into one zip file in the dist folder.
+  plugins: [new Zip({ include: /^index.js$/ })], // zip-webpack-plugin zips the bundle files into one zip file in the dist folder. Then regular expression (regex) is looking for an exact file name match.
 } as Configuration;
