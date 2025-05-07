@@ -1,14 +1,80 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { handleReadAccount } from "../controllers/handleReadAccount";
 import "./Account.scss";
 import { handleUpdateAccount } from "../controllers/handleUpdateAccount";
 import { handleDeleteAccount } from "../controllers/handleDeleteAccount";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectAccountDeleteResponse,
+  selectAccountDidMount,
+  selectAccountReadResponse,
+  selectAccountResponseArray,
+  selectAccountResponseString,
+  selectAccountUpdateResponse,
+} from "../modules/redux/stateSelectors";
+import { set } from "../modules/redux/store";
 
 // TODO: Make this page disabled in navigation and only enable after signing in.
 export function Account() {
-  const [readResponse, setReadResponse] = useState(<></>);
-  const [updateResponse, setUpdateResponse] = useState(<></>);
-  const [deleteResponse, setDeleteResponse] = useState(<></>);
+  const didMount = useSelector(selectAccountDidMount);
+  let readResponse: any = useSelector(selectAccountReadResponse);
+  let updateResponse: any = useSelector(selectAccountUpdateResponse);
+  let deleteResponse: any = useSelector(selectAccountDeleteResponse);
+  let responseAccount: any = useSelector(selectAccountResponseArray);
+  let responseMessage: any = useSelector(selectAccountResponseString);
+
+  const dispatch = useDispatch();
+
+  useEffect(componentDidMount, []);
+  useEffect(componentDidUpdate, [didMount]);
+
+  if (readResponse === "readResponseObj") {
+    readResponse = (
+      <div id="readAccountInfo">
+        <h4>
+          <u>Retrieved Information</u>
+        </h4>
+        <p>
+          <b>Email: </b>
+          <span>{responseAccount[0]}</span>
+        </p>
+        <p>
+          <b>password: </b>
+          <span>{responseAccount[1]}</span>
+        </p>
+        <p>
+          <b>User Name: </b>
+          <span>{responseAccount[2]}</span>
+        </p>
+        <p>
+          <b>First Name: </b>
+          <span>{responseAccount[3]}</span>
+        </p>
+        <p>
+          <b>Last Name: </b>
+          <span>{responseAccount[4]}</span>
+        </p>
+        <p>
+          <b>Phone #: </b>
+          <span>{responseAccount[5]}</span>
+        </p>
+      </div>
+    );
+  }
+  if (readResponse === "readResponseString") {
+    readResponse = <span id="readAccountMessage">{responseMessage}</span>;
+  }
+
+  if (updateResponse === "updateSuccess")
+    updateResponse = <span id="updateSuccess">{responseMessage}</span>;
+  if (updateResponse === "updateFailed")
+    updateResponse = <span id="updateFailed">{responseMessage}</span>;
+
+  if (deleteResponse === "deleteSuccess")
+    deleteResponse = <span id="deleteSuccess">{responseMessage}</span>;
+  if (deleteResponse === "deleteFailed")
+    deleteResponse = <span id="deleteFailed">{responseMessage}</span>;
+
   return (
     <main id="accountMain" className="container-lg">
       <h1>Account Information</h1>
@@ -100,6 +166,17 @@ export function Account() {
     </main>
   );
 
+  function componentDidMount() {
+    console.log("The Account component has mounted.");
+    let action = set.accountDidMount(true);
+    dispatch(action);
+  }
+
+  function componentDidUpdate() {
+    if (didMount) {
+    }
+  }
+
   async function handleSubmitRead(event: any) {
     const response = await handleReadAccount(event);
 
@@ -107,56 +184,50 @@ export function Account() {
     if (isAccount) {
       const { email, password, userName, firstName, lastName, phone } =
         response;
-      setReadResponse(
-        <div id="readAccountInfo">
-          <h4>
-            <u>Retrieved Information</u>
-          </h4>
-          <p>
-            <b>Email: </b>
-            <span>{email}</span>
-          </p>
-          <p>
-            <b>password: </b>
-            <span>{password}</span>
-          </p>
-          <p>
-            <b>User Name: </b>
-            <span>{userName}</span>
-          </p>
-          <p>
-            <b>First Name: </b>
-            <span>{firstName}</span>
-          </p>
-          <p>
-            <b>Last Name: </b>
-            <span>{lastName}</span>
-          </p>
-          <p>
-            <b>Phone #: </b>
-            <span>{phone}</span>
-          </p>
-        </div>
-      );
+      let action = set.accountReadResponse("readResponseObj");
+      dispatch(action);
+
+      action = set.accountResponseArray([
+        email,
+        password,
+        userName,
+        firstName,
+        lastName,
+        phone,
+      ]);
+      dispatch(action);
     }
     const isMessage = typeof response === "string";
-    if (isMessage)
-      setReadResponse(<span id="readAccountMessage">{response}</span>);
+    if (isMessage) {
+      let action = set.accountReadResponse("readResponseString");
+      dispatch(action);
+
+      action = set.accountResponseString(response);
+      dispatch(action);
+    }
   }
 
   async function handleSubmitUpdate(event: any) {
     const response = await handleUpdateAccount(event);
     const isUpdated = response === "Your account has been updated.";
-    if (isUpdated)
-      setUpdateResponse(<span id="updateSuccess">{response}</span>);
-    else setUpdateResponse(<span id="updateFailed">{response}</span>);
+    if (isUpdated) {
+      let action = set.accountUpdateResponse("updateSuccess");
+      dispatch(action);
+    } else {
+      let action = set.accountUpdateResponse("updateFailed");
+      dispatch(action);
+    }
   }
 
   async function handleSubmitDelete(event: any) {
     const response = await handleDeleteAccount(event);
     const isDeleted = response === "Your account has been deleted.";
-    if (isDeleted)
-      setDeleteResponse(<span id="deleteSuccess">{response}</span>);
-    else setDeleteResponse(<span id="deleteFailed">{response}</span>);
+    if (isDeleted) {
+      let action = set.accountDeleteResponse("deleteSuccess");
+      dispatch(action);
+    } else {
+      let action = set.accountDeleteResponse("deleteFailed");
+      dispatch(action);
+    }
   }
 }
