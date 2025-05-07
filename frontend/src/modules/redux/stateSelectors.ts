@@ -180,6 +180,16 @@ export function selectAccountDeleteResponse(state: StateVariables): string {
   const { accountDeleteResponse } = state;
   return accountDeleteResponse;
 }
+export function selectAccountResponseArray(
+  state: StateVariables
+): Array<string> {
+  const { accountResponseArray } = state;
+  return accountResponseArray;
+}
+export function selectAccountResponseString(state: StateVariables): string {
+  const { accountResponseString } = state;
+  return accountResponseString;
+}
 
 // Quote.tsx (Component)
 export function selectQuoteDidMount(state: StateVariables): boolean {

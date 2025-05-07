@@ -204,6 +204,17 @@ export const stateSetters = {
     const newValue = action.payload;
     state.accountDeleteResponse = newValue;
   },
+  accountResponseArray: function (state: StateVariables, action: ActionArray) {
+    const newValue = action.payload;
+    state.accountResponseArray = newValue;
+  },
+  accountResponseString: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.accountResponseString = newValue;
+  },
 
   // Quote.tsx (Component)
   quoteDidMount: function (state: StateVariables, action: ActionBoolean) {
@@ -238,5 +249,9 @@ type ActionBoolean = {
 };
 type ActionString = {
   payload: string;
+  type: string;
+};
+type ActionArray = {
+  payload: Array<string>;
   type: string;
 };

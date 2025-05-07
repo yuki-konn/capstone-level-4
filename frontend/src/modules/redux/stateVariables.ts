@@ -62,6 +62,8 @@ export const stateVariables = {
   accountReadResponse: "",
   accountUpdateResponse: "",
   accountDeleteResponse: "",
+  accountResponseArray: [],
+  accountResponseString: "",
 
   // Quote.tsx (Component)
   quoteDidMount: false,
