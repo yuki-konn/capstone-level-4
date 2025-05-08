@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 import { parsePhoneResponse } from "../modules/Contact/parsePhoneResponse";
-import { PhoneObject } from "../modules/Contact/PhoneObject";
+import { PhoneObject } from "../models/PhoneObject";
 import { makeRequest } from "../utils/makeRequest";
 import { output } from "../utils/output";
 
