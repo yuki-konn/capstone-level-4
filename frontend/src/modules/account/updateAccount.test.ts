@@ -1,5 +1,4 @@
 import { Account } from "../../models/Account";
-// import { readAccount } from "./readAccount";
 import { updateAccount } from "./updateAccount";
 
 describe("updateAccount function", () => {
