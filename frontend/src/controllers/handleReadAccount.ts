@@ -1,4 +1,4 @@
-import { Account } from "../modules/account/Account";
+import { Account } from "../models/Account";
 import { readAccount } from "../modules/account/readAccount";
 
 export async function handleReadAccount(event: any): Promise<Account | string> {

@@ -1,4 +1,4 @@
-import { Account } from "../modules/account/Account";
+import { Account } from "../models/Account";
 import { deleteAccount } from "../modules/account/deleteAccount";
 
 export async function handleDeleteAccount(event: any): Promise<string> {

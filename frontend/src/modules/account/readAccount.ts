@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Account } from "./Account";
+import { Account } from "../../models/Account";
 
 export async function readAccount(targetAccount: Account) {
   const { email, password } = targetAccount;

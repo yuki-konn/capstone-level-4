@@ -1,4 +1,4 @@
-import { Account } from "../modules/account/Account";
+import { Account } from "../models/Account";
 import { createAccount } from "../modules/account/createAccount";
 
 export async function handleCreateAccount(event: any) {
