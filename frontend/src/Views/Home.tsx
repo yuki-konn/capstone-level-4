@@ -10,8 +10,8 @@ import {
   selectHomeTriviaCard,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
-import { LinkCard } from "../utils/LinkCard";
-import { TriviaCard } from "../utils/TriviaCard";
+import { LinkCard } from "../modules/LinkCard";
+import { TriviaCard } from "../modules/TriviaCard";
 
 export function Home() {
   const didMount = useSelector(selectHomeDidMount);
