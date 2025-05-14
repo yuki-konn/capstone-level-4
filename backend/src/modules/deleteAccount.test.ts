@@ -1,4 +1,5 @@
 import { Account } from "./Account";
+import { createAccount } from "./createAccount";
 import { deleteAccount } from "./deleteAccount";
 
 describe("deleteAccount function", () => {
@@ -106,5 +107,16 @@ describe("deleteAccount function", () => {
     const result: string = await deleteAccount(account);
     // ASSERT
     expect(result).toBe("Your account has been deleted.");
+
+    // CLEAN UP
+    const newAccount = {
+      email: "delete@email.com",
+      password: "delete",
+      userName: "delete",
+      firstName: "",
+      lastName: "",
+      phone: "",
+    };
+    await createAccount(newAccount);
   });
 });
