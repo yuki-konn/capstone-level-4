@@ -24,6 +24,6 @@ export async function deleteAccount(targetAccount: Account): Promise<string> {
   const url = rootpath + route;
 
   const response = await axios.post(url, data);
-  const result = response.data;
+  const result: string = response.data;
   return result;
 }

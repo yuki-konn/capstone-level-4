@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import { SignInContent } from "./SignInContent";
 import { handleSignIn } from "../controllers/handleSignIn";
 import { useDispatch, useSelector } from "react-redux";
@@ -65,7 +65,7 @@ export function SignInModal(props: { onSignIn: any }) {
     </>
   );
 
-  async function handleSubmit(event: any) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     const response = await handleSignIn(event, onSignIn);
 
     if (response === false) {
