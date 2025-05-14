@@ -38,7 +38,13 @@ export function AppEngine() {
     getServerDemo();
 
     async function getServerDemo() {
+      const domain = window.location.hostname;
       let rootpath: string = "http://localhost:9000";
+      if (
+        domain === "yuki-konn.github.io" ||
+        domain === "d1ionyqc0g9xy7.cloudfront.net"
+      )
+        rootpath = "https://capstone-level-4-050825.uc.r.appspot.com";
       const response = await axios.get(`${rootpath}/`);
       const data = response.data;
       action = set.appEngineResponse(data);
