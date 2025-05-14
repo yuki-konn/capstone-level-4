@@ -204,16 +204,12 @@ export const stateSetters = {
     const newValue = action.payload;
     state.accountDeleteResponse = newValue;
   },
-  accountResponseArray: function (state: StateVariables, action: ActionArray) {
-    const newValue = action.payload;
-    state.accountResponseArray = newValue;
-  },
-  accountResponseString: function (
+  accountResponseMessage: function (
     state: StateVariables,
     action: ActionString
   ) {
     const newValue = action.payload;
-    state.accountResponseString = newValue;
+    state.accountResponseMessage = newValue;
   },
 
   // Quote.tsx (Component)

@@ -8,8 +8,7 @@ import {
   selectAccountDeleteResponse,
   selectAccountDidMount,
   selectAccountReadResponse,
-  selectAccountResponseArray,
-  selectAccountResponseString,
+  selectAccountResponseMessage,
   selectAccountUpdateResponse,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
@@ -20,15 +19,14 @@ export function Account() {
   let readResponse: any = useSelector(selectAccountReadResponse);
   let updateResponse: any = useSelector(selectAccountUpdateResponse);
   let deleteResponse: any = useSelector(selectAccountDeleteResponse);
-  let responseAccount: any = useSelector(selectAccountResponseArray);
-  let responseMessage: any = useSelector(selectAccountResponseString);
+  const responseMessage = useSelector(selectAccountResponseMessage);
 
   const dispatch = useDispatch();
 
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate, [didMount]);
 
-  if (readResponse === "readResponseObj") {
+  if (typeof readResponse === "object") {
     readResponse = (
       <div id="readAccountInfo">
         <h4>
@@ -36,32 +34,32 @@ export function Account() {
         </h4>
         <p>
           <b>Email: </b>
-          <span>{responseAccount[0]}</span>
+          <span>{readResponse.email}</span>
         </p>
         <p>
           <b>password: </b>
-          <span>{responseAccount[1]}</span>
+          <span>{readResponse.password}</span>
         </p>
         <p>
           <b>User Name: </b>
-          <span>{responseAccount[2]}</span>
+          <span>{readResponse.userName}</span>
         </p>
         <p>
           <b>First Name: </b>
-          <span>{responseAccount[3]}</span>
+          <span>{readResponse.firstName}</span>
         </p>
         <p>
           <b>Last Name: </b>
-          <span>{responseAccount[4]}</span>
+          <span>{readResponse.lastName}</span>
         </p>
         <p>
           <b>Phone #: </b>
-          <span>{responseAccount[5]}</span>
+          <span>{readResponse.phone}</span>
         </p>
       </div>
     );
   }
-  if (readResponse === "readResponseString") {
+  if (typeof readResponse === "string") {
     readResponse = <span id="readAccountMessage">{responseMessage}</span>;
   }
 
@@ -182,27 +180,14 @@ export function Account() {
 
     const isAccount = typeof response === "object";
     if (isAccount) {
-      const { email, password, userName, firstName, lastName, phone } =
-        response;
-      let action = set.accountReadResponse("readResponseObj");
-      dispatch(action);
-
-      action = set.accountResponseArray([
-        email,
-        password,
-        userName,
-        firstName,
-        lastName,
-        phone,
-      ]);
+      let action = set.accountReadResponse(response);
       dispatch(action);
     }
     const isMessage = typeof response === "string";
     if (isMessage) {
-      let action = set.accountReadResponse("readResponseString");
+      let action = set.accountResponseMessage(response);
       dispatch(action);
-
-      action = set.accountResponseString(response);
+      action = set.accountReadResponse(response);
       dispatch(action);
     }
   }
