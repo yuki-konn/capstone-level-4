@@ -21,7 +21,6 @@ describe("readAccount function", () => {
     expect(result).toHaveProperty("firstName");
     expect(result).toHaveProperty("lastName");
     expect(result).toHaveProperty("phone");
-    // NOTE: Doesn't work with jest, but works when testing with Postman or on live site.
   });
   it("returns a email and password when given email and password are correct", async () => {
     // ARRANGE
@@ -34,7 +33,7 @@ describe("readAccount function", () => {
       phone: "",
     };
     // ACT
-    const result = await readAccount(account);
+    const result = (await readAccount(account)) as Account;
     // ASSERT
     expect(result.email).toBe(account.email);
     expect(result.password).toBe(account.password);
