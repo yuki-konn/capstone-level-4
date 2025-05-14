@@ -24,7 +24,7 @@ express.post(path, root);
 express.get("/quote", quote); // FavQ quote API path
 express.post("/authUser", authUser); // User Authentication path
 express.get("/create", create); // Account Creation path
-express.get("/read", read); // Read Account path
+express.post("/read", read); // Read Account path
 express.get("/update", update); // Update Account path
 express.get("/remove", remove); // Delete Account path
 // listen method runs the handler.

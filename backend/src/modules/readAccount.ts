@@ -22,8 +22,13 @@ export async function readAccount(
   const response = await dynamoDBClient.get(request);
 
   let account = response.Item as Account;
+
   const isNotInList = account === undefined;
   if (isNotInList) return "This email is not associated with any account.";
+
+  const isPasswordIncorrect =
+    account.email === email && account.password !== password;
+  if (isPasswordIncorrect) return "Provided password is inccorect.";
 
   return account;
 }
