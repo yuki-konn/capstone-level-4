@@ -29,8 +29,6 @@ Applying things I learned.
 
 ## Low Priority:
 
-- Make handleSubmitTrivia.js do something. Currently disabled in viewResponse.js
-
 ## Working but can improve:
 
 ### Contact.js
