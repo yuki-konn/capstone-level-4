@@ -46,7 +46,6 @@ export async function updateAccount(targetAccount: Account): Promise<string> {
     },
   };
 
-  debugger;
   const response = await dynamoDBClient.update(request);
   const isSuccessful = response.$metadata.httpStatusCode === 200;
   if (isSuccessful) return "Your account has been updated.";
