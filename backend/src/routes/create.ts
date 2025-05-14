@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { createAccount } from "../modules/createAccount";
-import { Account } from "../modules/Account";
+import { Account } from "../models/Account";
 
 export async function create(request: Request, response: Response) {
   const query = request.body;

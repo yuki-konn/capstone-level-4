@@ -4,7 +4,7 @@ import {
   GetCommandInput,
 } from "@aws-sdk/lib-dynamodb";
 import { dynamoDBClient } from "./dynamoDBclient";
-import { Account } from "./Account";
+import { Account } from "../models/Account";
 
 export async function deleteAccount(account: Account): Promise<string> {
   const isAccountUndefined = account === undefined;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TriviaQuery, TriviaResponse } from "./Trivia";
+import { TriviaQuery, TriviaResponse } from "../models/Trivia";
 
 // Trivia API Function
 export async function getTrivia(query: TriviaQuery): Promise<TriviaResponse> {

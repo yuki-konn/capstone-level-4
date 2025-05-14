@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { deleteAccount } from "../modules/deleteAccount";
-import { Account } from "../modules/Account";
+import { Account } from "../models/Account";
 
 export async function remove(request: Request, response: Response) {
   const query = request.body;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Quote } from "./Quote";
+import { Quote } from "../models/Quote";
 
 // Quote API Function
 export async function getQuote(): Promise<Quote> {

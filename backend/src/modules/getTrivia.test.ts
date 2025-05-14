@@ -1,5 +1,5 @@
 import { getTrivia } from "./getTrivia";
-import { TriviaQuery, TriviaResponse } from "./Trivia";
+import { TriviaQuery, TriviaResponse } from "../models/Trivia";
 describe("getTrivia function (API response)", () => {
   test("accepts a query object with amount, category, difficulty and type", async () => {
     // ARRANGE

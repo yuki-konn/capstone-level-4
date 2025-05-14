@@ -1,4 +1,4 @@
-import { Account } from "./Account";
+import { Account } from "../models/Account";
 import { updateAccount } from "./updateAccount";
 
 describe("updateAccount function", () => {

@@ -1,5 +1,5 @@
 import { getQuote } from "./getQuote";
-import { Quote } from "./Quote";
+import { Quote } from "../models/Quote";
 
 describe("getQuote function (API response)", () => {
   test("returns a response", async () => {

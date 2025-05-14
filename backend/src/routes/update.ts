@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Account } from "../modules/Account";
+import { Account } from "../models/Account";
 import { updateAccount } from "../modules/updateAccount";
 
 export async function update(request: Request, response: Response) {
