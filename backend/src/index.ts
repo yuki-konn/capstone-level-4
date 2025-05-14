@@ -1,4 +1,4 @@
-import expressApp from "express";
+import expressApp, { json, urlencoded } from "express";
 import cors from "cors";
 import { root } from "./routes/root";
 import { quote } from "./routes/quote";
@@ -15,10 +15,12 @@ const path = "/"; // The path where server info will be rendered in a browser.
 
 // Instantiate the Express.js object
 const express = expressApp();
-// Allows Cross Origin Resource Sharing (cors) with the server.
-express.use(cors());
-// get method assigns the handler to the path. The handler runs when the path is visited in the URL.
-express.get(path, root);
+
+express.use(cors()); // Allows Cross Origin Resource Sharing (cors) with the server.
+express.use(urlencoded()); // Allows data to be received from Postman through x-www-form-urlencoded.
+express.use(json()); // Allows data to be received by axios through JSON parameters.
+
+express.post(path, root);
 express.get("/quote", quote); // FavQ quote API path
 express.get("/authUser", authUser); // User Authentication path
 express.get("/create", create); // Account Creation path
