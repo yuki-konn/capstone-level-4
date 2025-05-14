@@ -72,6 +72,11 @@ export const stateVariables = {
   quoteAuthor: "",
   quoteUrl: "",
   quoteTags: "",
+
+  // AppEngine.tsx (Component)
+  appEngineDidMount: false,
+  appEngineServerDemo: "",
+  appEngineResponse: {},
 };
 
 export type StateVariables = typeof stateVariables;

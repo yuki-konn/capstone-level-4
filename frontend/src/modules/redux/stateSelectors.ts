@@ -216,3 +216,17 @@ export function selectQuoteTags(state: StateVariables): string {
   const { quoteTags } = state;
   return quoteTags;
 }
+
+// AppEngine.tsx (Component)
+export function selectAppEngineDidMount(state: StateVariables): boolean {
+  const { appEngineDidMount } = state;
+  return appEngineDidMount;
+}
+export function selectAppEngineServerDemo(state: StateVariables): string {
+  const { appEngineServerDemo } = state;
+  return appEngineServerDemo;
+}
+export function selectAppEngineResponse(state: StateVariables): Object {
+  const { appEngineResponse } = state;
+  return appEngineResponse;
+}

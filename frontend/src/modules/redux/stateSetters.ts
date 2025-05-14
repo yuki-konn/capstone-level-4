@@ -241,6 +241,20 @@ export const stateSetters = {
     const newValue = action.payload;
     state.quoteTags = newValue;
   },
+
+  // AppEngine.tsx (Component)
+  appEngineDidMount: function (state: StateVariables, action: ActionBoolean) {
+    const newValue = action.payload;
+    state.appEngineDidMount = newValue;
+  },
+  appEngineServerDemo: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.appEngineServerDemo = newValue;
+  },
+  appEngineResponse: function (state: StateVariables, action: ActionObject) {
+    const newValue = action.payload;
+    state.appEngineResponse = newValue;
+  },
 };
 
 type ActionBoolean = {
@@ -253,5 +267,9 @@ type ActionString = {
 };
 type ActionArray = {
   payload: Array<string>;
+  type: string;
+};
+type ActionObject = {
+  payload: Object;
   type: string;
 };
