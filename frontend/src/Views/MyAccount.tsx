@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { handleReadAccount } from "../controllers/handleReadAccount";
-import "./Account.scss";
+import "./MyAccount.scss";
 import { handleUpdateAccount } from "../controllers/handleUpdateAccount";
 import { handleDeleteAccount } from "../controllers/handleDeleteAccount";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,9 +12,10 @@ import {
   selectAccountUpdateResponse,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
+import { Account } from "../models/Account";
 
 // TODO: Make this page disabled in navigation and only enable after signing in.
-export function Account() {
+export function MyAccount() {
   const didMount = useSelector(selectAccountDidMount);
   let readResponse: any = useSelector(selectAccountReadResponse);
   let updateResponse: any = useSelector(selectAccountUpdateResponse);
@@ -176,7 +177,7 @@ export function Account() {
   }
 
   async function handleSubmitRead(event: any) {
-    const response = await handleReadAccount(event);
+    const response: string | Account = await handleReadAccount(event);
 
     const isAccount = typeof response === "object";
     if (isAccount) {
@@ -193,7 +194,7 @@ export function Account() {
   }
 
   async function handleSubmitUpdate(event: any) {
-    const response = await handleUpdateAccount(event);
+    const response: string = await handleUpdateAccount(event);
     const isUpdated = response === "Your account has been updated.";
     if (isUpdated) {
       let action = set.accountUpdateResponse("updateSuccess");
@@ -205,7 +206,7 @@ export function Account() {
   }
 
   async function handleSubmitDelete(event: any) {
-    const response = await handleDeleteAccount(event);
+    const response: string = await handleDeleteAccount(event);
     const isDeleted = response === "Your account has been deleted.";
     if (isDeleted) {
       let action = set.accountDeleteResponse("deleteSuccess");
