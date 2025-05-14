@@ -23,7 +23,7 @@ express.use(json()); // Allows data to be received by axios through JSON paramet
 express.post(path, root);
 express.get("/quote", quote); // FavQ quote API path
 express.post("/authUser", authUser); // User Authentication path
-express.get("/create", create); // Account Creation path
+express.post("/create", create); // Account Creation path
 express.post("/read", read); // Read Account path
 express.get("/update", update); // Update Account path
 express.get("/remove", remove); // Delete Account path
