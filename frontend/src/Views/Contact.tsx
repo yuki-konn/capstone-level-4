@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { handleSubmitPhone } from "../controllers/handleSubmitPhone";
 import "./Contact.scss";
 import { getCheckedRadio } from "../modules/Contact/getCheckedRadio";

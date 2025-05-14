@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router";
 import "./CollapsibleNavbar.scss";
 import { SignInArea } from "./SignInArea";

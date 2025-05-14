@@ -203,7 +203,6 @@ export function Shop() {
   function componentDidUpdate() {
     if (didMount) {
       console.log("The Shop component has updated.");
-      // BOOTSTRAP TOOLTIPS
       const img1 = document.getElementById("img1");
       new bootstrap.Tooltip(img1);
       const img2 = document.getElementById("img2");

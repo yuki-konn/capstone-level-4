@@ -23,9 +23,9 @@ export function Home() {
 
   const dispatch = useDispatch();
 
-  useEffect(componentDidMount, []); // MOUNT HOOK
-  useEffect(componentDidUpdate, [didMount]); // UPDATE HOOK
-  useEffect(componentDidUnmount, []); // UNMOUNT HOOK
+  useEffect(componentDidMount, []);
+  useEffect(componentDidUpdate, [didMount]);
+  useEffect(componentDidUnmount, []);
 
   aboutLinkCard = getCard(aboutLinkCard);
   locationLinkCard = getCard(locationLinkCard);

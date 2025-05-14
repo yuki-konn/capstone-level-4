@@ -57,9 +57,7 @@ export function SignOutModal(props: { onSignOut: any }) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     console.log("Handler: Sign-out Modal");
     event.preventDefault();
-    //Position 1 in the array of the target property of Event
     const closeButton = event.target[1];
-    // Runs the red "No" button when "Yes" is clicked to close the modal.
     closeButton.click();
 
     // Changes button to SignInModal

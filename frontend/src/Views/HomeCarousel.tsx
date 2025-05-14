@@ -19,9 +19,9 @@ export function HomeCarousel() {
   const didMount = useSelector(selectHomeCarouselDidMount);
   const dispatch = useDispatch();
 
-  useEffect(componentDidMount, []); // MOUNT PHASE
-  useEffect(componentDidUpdate, [didMount]); // UPDATE PHASE
-  useEffect(componentDidUnmount, []); // UNMOUNT PHASE
+  useEffect(componentDidMount, []);
+  useEffect(componentDidUpdate, [didMount]);
+  useEffect(componentDidUnmount, []);
 
   return (
     <div className="row">

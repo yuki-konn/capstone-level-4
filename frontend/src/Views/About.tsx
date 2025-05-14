@@ -10,9 +10,9 @@ export function About() {
   const didMount = useSelector(selectAboutDidMount);
   const dispatch = useDispatch();
 
-  useEffect(componentDidMount, []); // MOUNT HOOK
-  useEffect(componentDidUpdate, [didMount]); // UPDATE HOOK
-  useEffect(componentDidUnmount, []); // UNMOUNT HOOK
+  useEffect(componentDidMount, []);
+  useEffect(componentDidUpdate, [didMount]);
+  useEffect(componentDidUnmount, []);
 
   return (
     <main id="aboutMain" className="container-lg">
