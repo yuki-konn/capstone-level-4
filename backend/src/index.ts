@@ -11,16 +11,15 @@ import { remove } from "./routes/remove";
 
 const hostname = "localhost"; // Local domain
 const port = 8000; // Common backend ports 8000, 9000, 3000
-const path = "/"; // The path where server info will be rendered in a browser.
 
 // Instantiate the Express.js object
 const express = expressApp();
 
 express.use(cors()); // Allows Cross Origin Resource Sharing (cors) with the server.
-express.use(urlencoded()); // Allows data to be received from Postman through x-www-form-urlencoded.
+express.use(urlencoded({ extended: true })); // Allows data to be received from Postman through x-www-form-urlencoded. extended: true, Allows parsing of nested objects and arrays using the qs library.
 express.use(json()); // Allows data to be received by axios through JSON parameters.
 
-express.post(path, root);
+express.post("/", root);
 express.post("/quote", quote); // FavQ quote API path
 express.post("/authUser", authUser); // User Authentication path
 express.post("/create", create); // Account Creation path
