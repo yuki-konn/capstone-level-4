@@ -1,7 +1,7 @@
 import { Account } from "../models/Account";
 import { createAccount } from "../modules/account/createAccount";
 
-export async function handleCreateAccount(event: any) {
+export async function handleCreateAccount(event: any): Promise<string> {
   event.preventDefault();
 
   const targetEmail = event.target[1].value;

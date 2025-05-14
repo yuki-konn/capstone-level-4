@@ -63,7 +63,7 @@ export function CreateAccountModal() {
   );
 
   async function handleSubmit(event: any) {
-    const response: Promise<string> = await handleCreateAccount(event);
+    const response: string = await handleCreateAccount(event);
 
     let action = set.createAccountResponse(response);
     dispatch(action);
