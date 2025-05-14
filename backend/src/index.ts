@@ -21,7 +21,7 @@ express.use(urlencoded()); // Allows data to be received from Postman through x-
 express.use(json()); // Allows data to be received by axios through JSON parameters.
 
 express.post(path, root);
-express.get("/quote", quote); // FavQ quote API path
+express.post("/quote", quote); // FavQ quote API path
 express.post("/authUser", authUser); // User Authentication path
 express.post("/create", create); // Account Creation path
 express.post("/read", read); // Read Account path
