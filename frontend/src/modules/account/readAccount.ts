@@ -2,7 +2,9 @@ import axios from "axios";
 import { Account } from "../../models/Account";
 import { getRootPathAws } from "../../utils/getRootPathAws";
 
-export async function readAccount(targetAccount: Account) {
+export async function readAccount(
+  targetAccount: Account
+): Promise<Account | string> {
   const { email, password } = targetAccount;
 
   const isEmailOrPasswordInvalid =
