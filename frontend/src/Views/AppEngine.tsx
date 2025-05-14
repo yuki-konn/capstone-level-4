@@ -7,6 +7,7 @@ import {
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import axios from "axios";
+import { getRootPathAppEngine } from "../utils/getRootPathAppEngine";
 
 export function AppEngine() {
   const didMount = useSelector(selectAppEngineDidMount);
@@ -38,13 +39,7 @@ export function AppEngine() {
     getServerDemo();
 
     async function getServerDemo() {
-      const domain = window.location.hostname;
-      let rootpath: string = "http://localhost:9000";
-      if (
-        domain === "yuki-konn.github.io" ||
-        domain === "d1ionyqc0g9xy7.cloudfront.net"
-      )
-        rootpath = "https://capstone-level-4-050825.uc.r.appspot.com";
+      const rootpath = getRootPathAppEngine();
       const response = await axios.get(`${rootpath}/`);
       const data = response.data;
       action = set.appEngineResponse(data);
