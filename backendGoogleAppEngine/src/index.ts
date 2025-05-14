@@ -17,7 +17,7 @@ express.use(cors()); // Allows Cross Origin Resource Sharing (cors) with the ser
 express.use(urlencoded()); // Allows data to be received from Postman through x-www-form-urlencoded.
 express.use(json()); // Allows data to be received by axios through JSON parameters.
 // get method assigns the handler to the path. The handler runs when the path is visited in the URL.
-express.get(rootpath, root);
+express.post(rootpath, root);
 express.get("/getDemo", getDemo);
 express.post("/postDemo", postDemo);
 // listen method runs the handler.
