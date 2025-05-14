@@ -12,6 +12,10 @@ describe("readAccount function", () => {
       lastName: "",
       phone: "",
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result = await readAccount(account);
     // ASSERT
@@ -32,6 +36,10 @@ describe("readAccount function", () => {
       lastName: "",
       phone: "",
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result = await readAccount(account);
     // ASSERT
@@ -47,6 +55,10 @@ describe("readAccount function", () => {
       lastName: "",
       phone: "",
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result = await readAccount(account);
     // ASSERT

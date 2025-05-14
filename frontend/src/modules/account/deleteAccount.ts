@@ -18,12 +18,12 @@ export async function deleteAccount(targetAccount: Account): Promise<string> {
   if (isEmailObject)
     return "Your account was unable to be deleted because the email is an object.";
 
-  const query = `?email=${email}&password=${password}`;
+  const data = { email: email, password: password };
   const rootpath = getRootPathAws();
   const route = "/remove";
-  const url = rootpath + route + query;
+  const url = rootpath + route;
 
-  const response = await axios.get(url);
+  const response = await axios.post(url, data);
   const result = response.data;
   return result;
 }

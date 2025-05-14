@@ -12,6 +12,10 @@ describe("updateAccount function", () => {
       lastName: "Testing",
       phone: 1112223333,
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     // const before = await readAccount(account);
     const result = await updateAccount(account);
@@ -50,6 +54,10 @@ describe("updateAccount function", () => {
       lastName: "",
       phone: "",
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result = await updateAccount(account);
     // ASSERT

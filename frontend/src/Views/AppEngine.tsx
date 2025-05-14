@@ -40,7 +40,7 @@ export function AppEngine() {
 
     async function getServerDemo() {
       const rootpath = getRootPathAppEngine();
-      const response = await axios.get(`${rootpath}/`);
+      const response = await axios.post(`${rootpath}/`);
       const data = response.data;
       action = set.appEngineResponse(data);
       dispatch(action);

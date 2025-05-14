@@ -11,6 +11,7 @@ import {
   selectQuoteUrl,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
+import { getRootPathAws } from "../utils/getRootPathAws";
 
 export function Quote() {
   let didMount = useSelector(selectQuoteDidMount);
@@ -72,32 +73,25 @@ export function Quote() {
   }
 
   async function handleClick() {
-    const domain = window.location.hostname;
-    let rootpath: string = "http://localhost:8000";
-    if (
-      domain === "yuki-konn.github.io" ||
-      domain === "d1ionyqc0g9xy7.cloudfront.net"
-    )
-      rootpath =
-        "https://qyxgfxhby4ejikmfmdtzmkjnrq0yazfh.lambda-url.us-east-2.on.aws";
+    const rootpath = getRootPathAws();
 
-    const response = await axios.get(`${rootpath}/quote`);
+    const response = await axios.post(`${rootpath}/quote`);
 
     const quote = response.data.quote;
     const author = response.data.author;
     const url = response.data.url;
     const tags = response.data.tags;
 
-    let action = set.quoteQuote(`${quote}`);
+    let action = set.quoteQuote(quote);
     dispatch(action);
 
-    action = set.quoteAuthor(`${author}`);
+    action = set.quoteAuthor(author);
     dispatch(action);
 
-    action = set.quoteUrl(`${url}`);
+    action = set.quoteUrl(url);
     dispatch(action);
 
-    action = set.quoteTags(`${tags}`);
+    action = set.quoteTags(tags);
     dispatch(action);
 
     action = set.quoteResponse("quoteResponse");

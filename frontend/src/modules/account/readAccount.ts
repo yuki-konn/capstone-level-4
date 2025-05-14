@@ -12,12 +12,13 @@ export async function readAccount(targetAccount: Account) {
     typeof password === "undefined";
   if (isEmailOrPasswordInvalid) return "Provided email or password is invalid.";
 
-  const query = `?email=${email}&password=${password}`;
+  // TRIED NEW WAY OF SENDING DATA WITH POST METHOD.
+  const data = { email: email, password: password };
   const rootpath = getRootPathAws();
   const route = "/read";
-  const url = rootpath + route + query;
+  const url = rootpath + route;
 
-  const response = await axios.get(url);
+  const response = await axios.post(url, data);
   const result = response.data;
 
   const isNotMatchingPassword =

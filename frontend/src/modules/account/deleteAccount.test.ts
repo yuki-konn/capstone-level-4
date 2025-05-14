@@ -1,4 +1,5 @@
 import { Account } from "../../models/Account";
+import { createAccount } from "./createAccount";
 import { deleteAccount } from "./deleteAccount";
 
 describe("deleteAccount function", () => {
@@ -12,6 +13,10 @@ describe("deleteAccount function", () => {
       lastName: "",
       phone: "",
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result: string = await deleteAccount(account);
     // ASSERT
@@ -29,6 +34,10 @@ describe("deleteAccount function", () => {
       lastName: "",
       phone: "",
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result: string = await deleteAccount(account);
     // ASSERT
@@ -102,9 +111,24 @@ describe("deleteAccount function", () => {
       lastName: "",
       phone: "",
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result: string = await deleteAccount(account);
     // ASSERT
     expect(result).toBe("Your account has been deleted.");
+
+    // CLEAN UP
+    const newAccount = {
+      email: "delete@email.com",
+      password: "delete",
+      userName: "delete",
+      firstName: "",
+      lastName: "",
+      phone: "",
+    };
+    await createAccount(newAccount);
   });
 });

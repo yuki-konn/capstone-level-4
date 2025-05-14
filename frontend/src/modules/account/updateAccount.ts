@@ -7,8 +7,7 @@ export async function updateAccount(targetAccount: Account): Promise<string> {
   if (isNotAccount)
     return "Your account wasn't able to update because your account is undefined.";
 
-  const { email, password, userName, firstName, lastName, phone } =
-    targetAccount;
+  const { email } = targetAccount;
 
   const isEmailUndefined = !email;
   if (isEmailUndefined)
@@ -19,12 +18,11 @@ export async function updateAccount(targetAccount: Account): Promise<string> {
   if (isEmailObject)
     return "Your account wasn't able to update because your email is invalid.";
 
-  const query = `?email=${email}&password=${password}&userName=${userName}&firstName=${firstName}&lastName=${lastName}&phone=${phone}`;
   const rootpath = getRootPathAws();
   const route = "/update";
-  const url = rootpath + route + query;
+  const url = rootpath + route;
 
-  const response = await axios.get(url);
+  const response = await axios.post(url, targetAccount);
   const result = response.data;
   return result;
 }

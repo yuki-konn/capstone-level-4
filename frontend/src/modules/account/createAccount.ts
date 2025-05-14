@@ -7,14 +7,11 @@ export async function createAccount(targetAccount: Account) {
   if (isQueryMissing)
     return "Error: newAccount object has no properties. Unable to create account.";
 
-  const { email, password, userName, firstName, lastName, phone } =
-    targetAccount;
-  const query = `?email=${email}&password=${password}&userName=${userName}&firstName=${firstName}&lastName=${lastName}&phone=${phone}`;
   const rootpath = getRootPathAws();
   const route = "/create";
-  const url = rootpath + route + query;
+  const url = rootpath + route;
 
-  const response = await axios.get(url);
+  const response = await axios.post(url, targetAccount);
   const message = response.data;
   return message;
 }

@@ -12,6 +12,10 @@ describe("createAccount function", () => {
       lastName: "End",
       phone: 1112223333,
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
@@ -27,6 +31,10 @@ describe("createAccount function", () => {
       lastName: "",
       phone: "",
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
@@ -42,6 +50,10 @@ describe("createAccount function", () => {
       lastName: "",
       phone: "",
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
@@ -67,6 +79,10 @@ describe("createAccount function", () => {
       lastName: "End",
       phone: 1112223333,
     };
+
+    // NOTE: NEED TO MOCK window.location.hostname
+    // - WORKS WHEN MANUALLY TESTED WITH LIVE SITE
+
     // ACT
     const result1 = await createAccount(newAccount1);
     const result2 = await createAccount(newAccount2);
