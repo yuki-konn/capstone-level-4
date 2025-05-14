@@ -8,6 +8,7 @@ import {
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { AppEngine } from "./AppEngine";
+import { getRootPathAws } from "../utils/getRootPathAws";
 
 export function Server() {
   const didMount = useSelector(selectServerDidMount);
@@ -29,19 +30,13 @@ export function Server() {
     </main>
   );
 
-  // CONNECT TO BACKEND WITH AXIOS AND ASYNC/AWAIT
   function componentDidMount() {
     let action = set.serverDidMount(true);
     dispatch(action);
     getResponse();
 
     async function getResponse() {
-      const domain = window.location.hostname;
-      let rootpath: string = "http://localhost:8000";
-      // Determines if local or GitHub Pages
-      if (domain === "yuki-konn.github.io")
-        rootpath =
-          "https://qyxgfxhby4ejikmfmdtzmkjnrq0yazfh.lambda-url.us-east-2.on.aws";
+      const rootpath = getRootPathAws();
 
       const response = await axios.get(`${rootpath}/`);
 
