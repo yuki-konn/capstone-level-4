@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Account } from "../../models/Account";
+import { getRootPathAws } from "../../utils/getRootPathAws";
 
 export async function updateAccount(targetAccount: Account): Promise<string> {
   const isNotAccount = !targetAccount;
@@ -19,14 +20,7 @@ export async function updateAccount(targetAccount: Account): Promise<string> {
     return "Your account wasn't able to update because your email is invalid.";
 
   const query = `?email=${email}&password=${password}&userName=${userName}&firstName=${firstName}&lastName=${lastName}&phone=${phone}`;
-  const domain = window.location.hostname;
-  let rootpath: string = "http://localhost:8000";
-  if (
-    domain === "yuki-konn.github.io" ||
-    domain === "d1ionyqc0g9xy7.cloudfront.net"
-  )
-    rootpath =
-      "https://qyxgfxhby4ejikmfmdtzmkjnrq0yazfh.lambda-url.us-east-2.on.aws";
+  const rootpath = getRootPathAws();
   const route = "/update";
   const url = rootpath + route + query;
 
