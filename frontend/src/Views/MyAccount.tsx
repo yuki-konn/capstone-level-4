@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { FormEvent, useEffect } from "react";
 import { handleReadAccount } from "../controllers/handleReadAccount";
 import "./MyAccount.scss";
 import { handleUpdateAccount } from "../controllers/handleUpdateAccount";
@@ -176,7 +176,7 @@ export function MyAccount() {
     }
   }
 
-  async function handleSubmitRead(event: any) {
+  async function handleSubmitRead(event: FormEvent<HTMLFormElement>) {
     const response: string | Account = await handleReadAccount(event);
 
     const isAccount = typeof response === "object";
@@ -193,7 +193,7 @@ export function MyAccount() {
     }
   }
 
-  async function handleSubmitUpdate(event: any) {
+  async function handleSubmitUpdate(event: FormEvent<HTMLFormElement>) {
     const response: string = await handleUpdateAccount(event);
     const isUpdated = response === "Your account has been updated.";
     if (isUpdated) {
@@ -205,7 +205,7 @@ export function MyAccount() {
     }
   }
 
-  async function handleSubmitDelete(event: any) {
+  async function handleSubmitDelete(event: FormEvent<HTMLFormElement>) {
     const response: string = await handleDeleteAccount(event);
     const isDeleted = response === "Your account has been deleted.";
     if (isDeleted) {

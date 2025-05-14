@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import { CreateAccountContent } from "./CreateAccountContent";
 import { handleCreateAccount } from "../controllers/handleCreateAccount";
 import { useDispatch, useSelector } from "react-redux";
@@ -62,7 +62,7 @@ export function CreateAccountModal() {
     </>
   );
 
-  async function handleSubmit(event: any) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     const response: string = await handleCreateAccount(event);
 
     let action = set.createAccountResponse(response);
