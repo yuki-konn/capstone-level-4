@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "module": "Preserve", // ALLOWS DEFAULT IMPORT OF OLD JS FILE SYNTAX.
+    "types": ["vitest/globals"] // DECLARES THE TEST FUNCTIONS (describe, it and expect) FOR TYPESCRIPT. LIST OF FOLDERS THAT HAVE DECLARATION FILES.
+  }
+}
