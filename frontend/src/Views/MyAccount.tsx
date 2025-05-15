@@ -88,13 +88,23 @@ export function MyAccount() {
             <label>
               Email <span style={{ color: "red" }}>*</span>
             </label>
-            <input type="email" placeholder="test@email.com" required />
+            <input
+              type="email"
+              name="readEmail"
+              placeholder="test@email.com"
+              required
+            />
           </div>
           <div>
             <label>
               Password <span style={{ color: "red" }}>*</span>
             </label>
-            <input type="password" placeholder="test" required />
+            <input
+              type="password"
+              name="readPassword"
+              placeholder="test"
+              required
+            />
           </div>
           <input id="formSubmitRead" type="submit" />
         </form>

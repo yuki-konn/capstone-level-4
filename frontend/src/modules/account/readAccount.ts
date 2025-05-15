@@ -3,19 +3,18 @@ import { Account } from "../../models/Account";
 import { getRootPathAws } from "../../utils/getRootPathAws";
 
 export async function readAccount(
-  targetAccount: Account
+  targetEmail: string,
+  targetPassword: string
 ): Promise<Account | string> {
-  const { email, password } = targetAccount;
-
   const isEmailOrPasswordInvalid =
-    typeof email === "object" ||
-    typeof password === "object" ||
-    typeof email === "undefined" ||
-    typeof password === "undefined";
+    typeof targetEmail === "object" ||
+    typeof targetPassword === "object" ||
+    typeof targetEmail === "undefined" ||
+    typeof targetPassword === "undefined";
   if (isEmailOrPasswordInvalid) return "Provided email or password is invalid.";
 
   // TRIED NEW WAY OF SENDING DATA WITH POST METHOD.
-  const data = { email: email, password: password };
+  const data = { email: targetEmail, password: targetPassword };
   const rootpath = getRootPathAws();
   const route = "/read";
   const url = rootpath + route;
@@ -24,7 +23,7 @@ export async function readAccount(
   const result = response.data;
 
   const isNotMatchingPassword =
-    email === result.email && password !== result.password;
+    targetEmail === result.email && targetPassword !== result.password;
   if (isNotMatchingPassword) return "The provided password is incorrect.";
 
   return result;
