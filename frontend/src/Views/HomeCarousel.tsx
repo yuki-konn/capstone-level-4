@@ -3,14 +3,12 @@ import oolongtea from "../../assets/images/oolongtea.png";
 import puerhtea from "../../assets/images/puerhtea.png";
 import herbaltea from "../../assets/images/herbaltea.png";
 import "../index.scss";
+import "./HomeCarousel.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { selectHomeCarouselDidMount } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 
 export function HomeCarousel() {
-  const goldcolor = {
-    color: "#FFB302",
-  };
   const imgStyle = {
     maxHeight: "30%",
     margin: "auto",
@@ -40,9 +38,9 @@ export function HomeCarousel() {
                 className="d-block"
                 alt="oolong"
               />
-              <div className="carousel-caption d-none d-md-block">
-                <h5 style={goldcolor}>Oolong Tea</h5>
-                <p style={goldcolor}>
+              <div id="caption1" className="carousel-caption d-none d-md-block">
+                <h5>Oolong Tea</h5>
+                <p>
                   Benefits: Lowers cholesterol, aiding in weight loss, supports
                   dental health.
                 </p>
@@ -55,9 +53,9 @@ export function HomeCarousel() {
                 className="d-block"
                 alt="puerh"
               />
-              <div className="carousel-caption d-none d-md-block">
-                <h5 style={goldcolor}>Pu-erh Tea</h5>
-                <p style={goldcolor}>
+              <div id="caption2" className="carousel-caption d-none d-md-block">
+                <h5>Pu-erh Tea</h5>
+                <p>
                   Benefits: Improves digestion, reduces anxiety, and has many
                   antioxidants.
                 </p>
@@ -70,9 +68,9 @@ export function HomeCarousel() {
                 className="d-block"
                 alt="herbal"
               />
-              <div className="carousel-caption d-none d-md-block">
-                <h5 style={goldcolor}>Herbal Tea</h5>
-                <p style={goldcolor}>
+              <div id="caption3" className="carousel-caption d-none d-md-block">
+                <h5>Herbal Tea</h5>
+                <p>
                   Benefits: Helps with relaxation, immune system support, and
                   heart health.
                 </p>
