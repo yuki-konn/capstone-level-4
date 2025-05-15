@@ -1,7 +1,9 @@
 import React, { FormEvent } from "react";
+import { useDispatch } from "react-redux";
+import { set } from "../modules/redux/store";
 
-export function SignOutModal(props: { onSignOut: any }) {
-  const onSignOut = props.onSignOut;
+export function SignOutModal() {
+  const dispatch = useDispatch();
   return (
     <>
       <button
@@ -55,12 +57,11 @@ export function SignOutModal(props: { onSignOut: any }) {
 
   // SIGN-OUT MODAL FORM HANDLER
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    console.log("Handler: Sign-out Modal");
     event.preventDefault();
     const closeButton = event.target[1];
     closeButton.click();
 
-    // Changes button to SignInModal
-    onSignOut();
+    const action = set.globalAccount(undefined);
+    dispatch(action);
   }
 }

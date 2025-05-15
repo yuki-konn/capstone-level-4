@@ -3,27 +3,27 @@ import { SignInModal } from "./SignInModal";
 import { SignOutModal } from "./SignOutModal";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  selectGlobalAccount,
   selectSignInButton,
   selectSignInDidMount,
-  selectSignInIsSignedIn,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 
 export function SignInArea() {
   const didMount = useSelector(selectSignInDidMount);
-  const isSignedIn = useSelector(selectSignInIsSignedIn);
+  const account = useSelector(selectGlobalAccount);
   let button: any = useSelector(selectSignInButton);
 
   const dispatch = useDispatch();
 
   useEffect(componentDidMount, []);
-  useEffect(componentDidUpdate, [didMount]);
+  useEffect(componentDidUpdate, [didMount, account]);
 
   if (button === "signInButton") {
-    if (isSignedIn) {
-      button = <SignOutModal onSignOut={handleSignOut} />;
+    if (account) {
+      button = <SignOutModal />;
     } else {
-      button = <SignInModal onSignIn={handleSignIn} />;
+      button = <SignInModal />;
     }
   }
 
@@ -40,15 +40,5 @@ export function SignInArea() {
     if (didMount) {
       console.log("SignInArea: Update Phase");
     }
-  }
-
-  function handleSignIn() {
-    let action = set.signInIsSignedIn(true);
-    dispatch(action);
-  }
-
-  function handleSignOut() {
-    let action = set.signInIsSignedIn(false);
-    dispatch(action);
   }
 }
