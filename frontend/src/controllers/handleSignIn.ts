@@ -1,29 +1,22 @@
-import axios from "axios";
-import { getRootPathAws } from "../utils/getRootPathAws";
-// import { authenticationAws } from "../modules/Contact/authenticationAws";
+import { authenticationAws } from "../modules/account/authenticationAws";
+import { Account } from "../models/Account";
 
 // FOR BACKEND AWS DYNAMODB
-export async function handleSignIn(event: any, onSignIn: any) {
+export async function handleSignIn(event: any): Promise<Account | undefined> {
   event.preventDefault();
 
-  const form = event.target;
-  const email = event.target[1].value; // value of email input
-  const password = event.target[2].value; // value of password input
-  const closeButton = event.target[3];
+  const form = event.target.elements;
+  const email = form.email.value;
+  const password = form.password.value;
+  const closeButton = form.closeButton;
+  const inputs = event.target;
 
-  const rootpath = getRootPathAws();
-  const route = "/authUser";
-  const url = rootpath + route;
-  const data = { email: email, password: password };
-
-  const response = await axios.post(url, data);
-  const isAuthenticated = response.data;
+  const account = await authenticationAws(email, password);
+  const isAuthenticated = account !== undefined;
 
   if (isAuthenticated) {
     closeButton.click(); // Closes Modal
-    form.reset(); // RESET FORM
-
-    // Changes button to SignOutModal.
-    onSignIn(); // Prop from SignInModal
-  } else return false;
-} // RESOLVE VALUE IS UNDEFINED BUT THE PROMISE RESOLVES AT THE END.
+    inputs.reset(); // RESET FORM
+  }
+  return account;
+}
