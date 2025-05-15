@@ -4,16 +4,10 @@ import { readAccount } from "./readAccount";
 describe("readAccount function", () => {
   it("returns an email, password, userName, firstName, lastName and phone when given an matching email and password", async () => {
     // ARRANGE
-    const account: Account = {
-      email: "test3@email.com",
-      password: "test3",
-      userName: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-    };
+    const email = "test3@email.com";
+    const password = "test3";
     // ACT
-    const result = await readAccount(account);
+    const result = await readAccount(email, password);
     // ASSERT
     expect(result).toHaveProperty("email");
     expect(result).toHaveProperty("password");
@@ -24,96 +18,54 @@ describe("readAccount function", () => {
   });
   it("returns a email and password when given email and password are correct", async () => {
     // ARRANGE
-    const account: Account = {
-      email: "test3@email.com",
-      password: "test3",
-      userName: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-    };
+    const email = "test3@email.com";
+    const password = "test3";
     // ACT
-    const result = (await readAccount(account)) as Account;
+    const result = (await readAccount(email, password)) as Account;
     // ASSERT
-    expect(result.email).toBe(account.email);
-    expect(result.password).toBe(account.password);
+    expect(result.email).toBe(email);
+    expect(result.password).toBe(password);
   });
   it("returns an error message when the email is in the list, but password is incorrect.", async () => {
     // ARRANGE
-    const account: Account = {
-      email: "test3@email.com",
-      password: "wrongpassword",
-      userName: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-    };
+    const email = "test3@email.com";
+    const password = "wrongPassword";
     // ACT
-    const result = await readAccount(account);
+    const result = await readAccount(email, password);
     // ASSERT
     expect(result).toBe("Provided password is inccorect.");
   });
   it("returns an error message when the email is not in the list", async () => {
     // ARRANGE
-    const account: Account = {
-      email: "not@email.com",
-      password: "test",
-      userName: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-    };
+    const email = "not@email.com";
+    const password = "test";
     // ACT
-    const result = await readAccount(account);
+    const result = await readAccount(email, password);
     // ASSERT
     expect(result).toBe("This email is not associated with any account.");
   });
   it("returns an error message when the email or password is an object", async () => {
     // ARRANGE
-    const account1: Account = {
-      email: {} as any,
-      password: "test",
-      userName: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-    };
-    const account2: Account = {
-      email: "test3@email.com",
-      password: {} as any,
-      userName: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-    };
+    const email1 = {} as any;
+    const password1 = "test3";
+    const email2 = "test3@email.com";
+    const password2 = {} as any;
     // ACT
-    const result1 = await readAccount(account1);
-    const result2 = await readAccount(account2);
+    const result1 = await readAccount(email1, password1);
+    const result2 = await readAccount(email2, password2);
     // ASSERT
     expect(result1).toBe("Provided email or password is invalid.");
     expect(result2).toBe("Provided email or password is invalid.");
   });
   it("returns an error message when the email or password is undefined", async () => {
     // ARRANGE
-    const account1: Account = {
-      email: undefined as any,
-      password: "test",
-      userName: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-    };
-    const account2: Account = {
-      email: "test3@email.com",
-      password: undefined as any,
-      userName: "",
-      firstName: "",
-      lastName: "",
-      phone: "",
-    };
+    const email1 = undefined;
+    const password1 = "test3";
+    const email2 = "test3@email.com";
+    const password2 = undefined;
     // ACT
-    const result1 = await readAccount(account1);
-    const result2 = await readAccount(account2);
+    const result1 = await readAccount(email1, password1);
+    const result2 = await readAccount(email2, password2);
     // ASSERT
     expect(result1).toBe("Provided email or password is invalid.");
     expect(result2).toBe("Provided email or password is invalid.");

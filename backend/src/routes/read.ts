@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
 import { readAccount } from "../modules/readAccount";
-import { Account } from "../models/Account";
 
 export async function read(request: Request, response: Response) {
-  //Query example: ?email=test3@email.com&password=test3&userName=undefined&firstName=undefined&lastName=undefined&phone=undefined
-  const accountQuery = request.body;
-  const account = await readAccount(accountQuery as Account);
+  const email: string = request.body.email;
+  const password: string = request.body.password;
+  const account = await readAccount(email, password);
   response.send(account);
 }

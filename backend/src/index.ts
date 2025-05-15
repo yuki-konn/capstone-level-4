@@ -2,7 +2,6 @@ import expressApp, { json, urlencoded } from "express";
 import cors from "cors";
 import { root } from "./routes/root";
 import { quote } from "./routes/quote";
-import { authUser } from "./routes/authUser";
 import serverless from "serverless-http";
 import { create } from "./routes/create";
 import { read } from "./routes/read";
@@ -21,9 +20,8 @@ express.use(json()); // Allows data to be received by axios through JSON paramet
 
 express.get("/", root);
 express.post("/quote", quote); // FavQ quote API path
-express.post("/authUser", authUser); // User Authentication path
 express.post("/create", create); // Account Creation path
-express.post("/read", read); // Read Account path
+express.post("/read", read); // Read Account path, Used for frontend SignIn and ReadAccount
 express.post("/update", update); // Update Account path
 express.post("/remove", remove); // Delete Account path
 // listen method runs the handler.
@@ -32,7 +30,7 @@ if (isRunningLocally) express.listen(port, hostname, handleListen);
 
 function handleListen() {
   console.log(`Listening on http://${hostname}:${port}`);
-  console.log(`Open a new terminal and run 'npm run build'`);
+  console.log(`Open a new terminal and run 'npm run start2'`);
   console.log(`To debug, start this server in a JavaScript Debug Terminal`);
 }
 

@@ -3,15 +3,14 @@ import { Account } from "../models/Account";
 import { dynamoDBClient } from "./dynamoDBclient";
 
 export async function readAccount(
-  targetAccount: Account
+  targetEmail: string,
+  targetPassword: string
 ): Promise<Account | string> {
-  const { email, password } = targetAccount;
-  const targetEmail = email;
-
-  const isObject = typeof email === "object" || typeof password === "object";
+  const isObject =
+    typeof targetEmail === "object" || typeof targetPassword === "object";
   if (isObject) return "Provided email or password is invalid.";
 
-  const isUndefined = email === undefined || password === undefined;
+  const isUndefined = targetEmail === undefined || targetPassword === undefined;
   if (isUndefined) return "Provided email or password is invalid.";
 
   const request: GetCommandInput = {
@@ -27,7 +26,7 @@ export async function readAccount(
   if (isNotInList) return "This email is not associated with any account.";
 
   const isPasswordIncorrect =
-    account.email === email && account.password !== password;
+    account.email === targetEmail && account.password !== targetPassword;
   if (isPasswordIncorrect) return "Provided password is inccorect.";
 
   return account;
