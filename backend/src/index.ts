@@ -19,7 +19,7 @@ express.use(cors()); // Allows Cross Origin Resource Sharing (cors) with the ser
 express.use(urlencoded({ extended: true })); // Allows data to be received from Postman through x-www-form-urlencoded. extended: true, Allows parsing of nested objects and arrays using the qs library.
 express.use(json()); // Allows data to be received by axios through JSON parameters.
 
-express.post("/", root);
+express.get("/", root);
 express.post("/quote", quote); // FavQ quote API path
 express.post("/authUser", authUser); // User Authentication path
 express.post("/create", create); // Account Creation path
