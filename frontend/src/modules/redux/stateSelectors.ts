@@ -1,5 +1,10 @@
 import { StateVariables } from "./stateVariables";
 
+// GLOBAL
+export function selectGlobalAccount(state: StateVariables) {
+  const { globalAccount } = state;
+  return globalAccount;
+}
 // Home.tsx (Page)
 export function selectHomeDidMount(state: StateVariables): boolean {
   const { homeDidMount } = state;

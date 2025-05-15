@@ -1,6 +1,6 @@
 export const stateVariables = {
   // Global
-  isSignedIn: false,
+  globalAccount: undefined,
 
   // Home.tsx (Page)
   homeDidMount: false,

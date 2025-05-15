@@ -1,10 +1,11 @@
+import { Account } from "../../models/Account";
 import { StateVariables } from "./stateVariables";
 
 export const stateSetters = {
   // Global
-  isSignedIn: function (state: StateVariables, action: ActionBoolean) {
+  globalAccount: function (state: StateVariables, action: ActionAccount) {
     const newValue = action.payload;
-    state.isSignedIn = newValue;
+    state.globalAccount = newValue;
   },
 
   // Home.tsx (Page)
@@ -267,5 +268,9 @@ type ActionArray = {
 };
 type ActionObject = {
   payload: Object;
+  type: string;
+};
+type ActionAccount = {
+  payload: Account | undefined;
   type: string;
 };
