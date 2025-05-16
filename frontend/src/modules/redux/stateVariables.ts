@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export const stateVariables = {
   // Global
   globalAccount: undefined, // SignInArea
@@ -60,9 +62,11 @@ export const stateVariables = {
   // Account.tsx (Page)
   accountDidMount: false,
   accountReadResponse: "",
+  accountReadComponent: "",
   accountUpdateResponse: "",
+  accountUpdateComponent: "",
   accountDeleteResponse: "",
-  accountResponseMessage: "",
+  accountDeleteComponent: "",
 
   // Quote.tsx (Component)
   quoteDidMount: false,

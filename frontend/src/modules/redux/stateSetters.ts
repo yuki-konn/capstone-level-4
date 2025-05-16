@@ -191,12 +191,23 @@ export const stateSetters = {
     const newValue = action.payload;
     state.accountReadResponse = newValue;
   },
+  accountReadComponent: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.accountReadComponent = newValue;
+  },
   accountUpdateResponse: function (
     state: StateVariables,
     action: ActionString
   ) {
     const newValue = action.payload;
     state.accountUpdateResponse = newValue;
+  },
+  accountUpdateComponent: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.accountUpdateComponent = newValue;
   },
   accountDeleteResponse: function (
     state: StateVariables,
@@ -205,12 +216,12 @@ export const stateSetters = {
     const newValue = action.payload;
     state.accountDeleteResponse = newValue;
   },
-  accountResponseMessage: function (
+  accountDeleteComponent: function (
     state: StateVariables,
     action: ActionString
   ) {
     const newValue = action.payload;
-    state.accountResponseMessage = newValue;
+    state.accountDeleteComponent = newValue;
   },
 
   // Quote.tsx (Component)

@@ -177,17 +177,25 @@ export function selectAccountReadResponse(state: StateVariables): string {
   const { accountReadResponse } = state;
   return accountReadResponse;
 }
+export function selectAccountReadComponent(state: StateVariables): string {
+  const { accountReadComponent } = state;
+  return accountReadComponent;
+}
 export function selectAccountUpdateResponse(state: StateVariables): string {
   const { accountUpdateResponse } = state;
   return accountUpdateResponse;
+}
+export function selectAccountUpdateComponent(state: StateVariables): string {
+  const { accountUpdateComponent } = state;
+  return accountUpdateComponent;
 }
 export function selectAccountDeleteResponse(state: StateVariables): string {
   const { accountDeleteResponse } = state;
   return accountDeleteResponse;
 }
-export function selectAccountResponseMessage(state: StateVariables): string {
-  const { accountResponseMessage } = state;
-  return accountResponseMessage;
+export function selectAccountDeleteComponent(state: StateVariables): string {
+  const { accountDeleteComponent } = state;
+  return accountDeleteComponent;
 }
 
 // Quote.tsx (Component)
