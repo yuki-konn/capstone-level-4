@@ -1,6 +1,6 @@
 export const stateVariables = {
   // Global
-  globalAccount: undefined,
+  globalAccount: undefined, // SignInArea
 
   // Home.tsx (Page)
   homeDidMount: false,

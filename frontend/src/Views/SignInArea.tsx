@@ -32,7 +32,10 @@ export function SignInArea() {
   function componentDidMount() {
     console.log("SignInArea: Mount Phase");
 
-    let action = set.signInButton("signInButton");
+    let action = set.signInDidMount(true);
+    dispatch(action);
+
+    action = set.signInButton("signInButton");
     dispatch(action);
   }
 
