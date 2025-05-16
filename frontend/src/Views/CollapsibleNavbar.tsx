@@ -3,15 +3,17 @@ import { Link, NavLink } from "react-router";
 import "./CollapsibleNavbar.scss";
 import { SignInArea } from "./SignInArea";
 import { CreateAccountArea } from "./CreateAccountArea";
+import { useSelector } from "react-redux";
+import { selectGlobalAccount } from "../modules/redux/stateSelectors";
 
 export function CollapsibleNavbar() {
   const domain = window.location.hostname;
   let rootpath: string = "";
   if (domain === "yuki-konn.github.io") rootpath = "/capstone-level-4";
+  const account = useSelector(selectGlobalAccount);
 
   let myAccount = <></>;
-  const isSignedIn = true; // usually false
-  if (isSignedIn)
+  if (account)
     myAccount = (
       <Link className="dropdown-item" to={`${rootpath}/account`}>
         My Account
