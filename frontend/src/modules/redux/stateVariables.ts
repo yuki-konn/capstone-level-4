@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 export const stateVariables = {
   // Global
   globalAccount: undefined, // SignInArea
+  globalCredentials: undefined, // Persistent login
 
   // Home.tsx (Page)
   homeDidMount: false,

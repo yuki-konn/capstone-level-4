@@ -5,6 +5,10 @@ export function selectGlobalAccount(state: StateVariables) {
   const { globalAccount } = state;
   return globalAccount;
 }
+export function selectGlobalCredentials(state: StateVariables) {
+  const { globalCredentials } = state;
+  return globalCredentials;
+}
 // Home.tsx (Page)
 export function selectHomeDidMount(state: StateVariables): boolean {
   const { homeDidMount } = state;

@@ -1,4 +1,5 @@
 import { Account } from "../../models/Account";
+import { Credentials } from "../../models/Credentials";
 import { StateVariables } from "./stateVariables";
 
 export const stateSetters = {
@@ -6,6 +7,13 @@ export const stateSetters = {
   globalAccount: function (state: StateVariables, action: ActionAccount) {
     const newValue = action.payload;
     state.globalAccount = newValue;
+  },
+  globalCredentials: function (
+    state: StateVariables,
+    action: ActionCredentials
+  ) {
+    const newValue = action.payload;
+    state.globalCredentials = newValue;
   },
 
   // Home.tsx (Page)
@@ -273,15 +281,19 @@ type ActionString = {
   payload: string;
   type: string;
 };
-type ActionArray = {
-  payload: Array<string>;
-  type: string;
-};
+// type ActionArray = {
+//   payload: Array<string>;
+//   type: string;
+// };
 type ActionObject = {
   payload: Object;
   type: string;
 };
 type ActionAccount = {
   payload: Account | undefined;
+  type: string;
+};
+type ActionCredentials = {
+  payload: Credentials | undefined;
   type: string;
 };
