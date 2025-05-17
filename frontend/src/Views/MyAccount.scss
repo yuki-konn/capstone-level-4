@@ -7,7 +7,7 @@ $spacer: 1em;
     text-align: center;
     background-color: tan;
   }
-  #readAccountSection {
+  .accountFormSection {
     display: grid;
     background-color: tan;
     margin: auto;
@@ -33,79 +33,27 @@ $spacer: 1em;
     }
     #readAccountInfo {
       p {
-        // b {}
         span {
           color: green;
         }
       }
     }
-    #readAccountMessage {
+    #readAccountMessage,
+    .failed {
       text-align: center;
       color: red;
     }
-  }
-
-  #updateAccountSection {
-    display: grid;
-    background-color: tan;
-    margin: auto;
-    form {
-      padding: ($spacer * 1);
-      div {
-        margin: 0.25em;
-        text-align: center;
-        label {
-          background-color: rgb(236, 185, 118);
-          text-align: start;
-          width: 20%;
-        }
-        input {
-          width: 20%;
-        }
-      }
-      #formSubmitUpdate {
-        margin-left: 20%;
-        width: 20%;
-      }
-    }
-    #updateSuccess {
+    .success {
       color: green;
     }
-    #updateFailed {
-      text-align: center;
-      color: red;
-    }
   }
+}
 
-  #deleteAccountSection {
-    display: grid;
-    background-color: tan;
-    margin: auto;
-    form {
-      padding: ($spacer * 1);
-      div {
-        margin: 0.25em;
-        text-align: center;
-        label {
-          background-color: rgb(236, 185, 118);
-          text-align: start;
-          width: 20%;
-        }
-        input {
-          width: 20%;
-        }
-      }
-      #formSubmitDelete {
-        margin-left: 20%;
-        width: 20%;
-      }
-    }
-    #deleteSuccess {
-      color: green;
-    }
-    #deleteFailed {
-      text-align: center;
-      color: red;
-    }
+#notSignedIn {
+  color: red;
+  text-align: center;
+  h1 {
+    background-color: #181818;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }

@@ -12,6 +12,7 @@ import {
   selectAccountReadResponse,
   selectAccountUpdateComponent,
   selectAccountUpdateResponse,
+  selectGlobalAccount,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { Account } from "../models/Account";
@@ -25,6 +26,7 @@ export function MyAccount() {
   let readComponent: stringOrJSX = useSelector(selectAccountReadComponent);
   let updateComponent: stringOrJSX = useSelector(selectAccountUpdateComponent);
   let deleteComponent: stringOrJSX = useSelector(selectAccountDeleteComponent);
+  const account = useSelector(selectGlobalAccount);
 
   const dispatch = useDispatch();
 
@@ -71,20 +73,28 @@ export function MyAccount() {
   }
 
   if (updateComponent === "updateSuccess")
-    updateComponent = <span id="updateSuccess">{updateResponse}</span>;
+    updateComponent = <span className="success">{updateResponse}</span>;
   if (updateComponent === "updateFailed")
-    updateComponent = <span id="updateFailed">{updateResponse}</span>;
+    updateComponent = <span className="failed">{updateResponse}</span>;
 
   if (deleteComponent === "deleteSuccess")
-    deleteComponent = <span id="deleteSuccess">{deleteResponse}</span>;
+    deleteComponent = <span className="success">{deleteResponse}</span>;
   if (deleteComponent === "deleteFailed")
-    deleteComponent = <span id="deleteFailed">{deleteResponse}</span>;
+    deleteComponent = <span className="failed">{deleteResponse}</span>;
 
+  if (!account)
+    return (
+      <main id="notSignedIn" className="container-lg">
+        <h1>
+          You're not signed in please sign in at the top to view your account.
+        </h1>
+      </main>
+    );
   return (
     <main id="accountMain" className="container-lg">
       <h1>Account Information</h1>
       <hr />
-      <section id="readAccountSection" className="col-12">
+      <section className="accountFormSection col-12">
         <h4>Retrieve Information</h4>
         <span>
           Enter your email and password to retrieve your account information.
@@ -117,7 +127,7 @@ export function MyAccount() {
         {readComponent}
       </section>
       <hr />
-      <section id="updateAccountSection" className="col-12">
+      <section className="accountFormSection col-12">
         <h4>Update Information</h4>
         <span>
           Enter your email and the other fields to update your account.
@@ -158,7 +168,7 @@ export function MyAccount() {
         {updateComponent}
       </section>
       <hr />
-      <section id="deleteAccountSection" className="col-12">
+      <section className="accountFormSection col-12">
         <h4>Delete Account</h4>
         <span>Enter your email and password to delete your account.</span>
         <form onSubmit={handleSubmitDelete}>
