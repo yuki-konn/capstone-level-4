@@ -4,6 +4,7 @@ import { handleSignIn } from "../controllers/handleSignIn";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSignInErrorMessage } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
+import { Credentials } from "../models/Credentials";
 
 export function SignInModal() {
   // ERROR MESSAGE FOR INCORRECT INPUTS
@@ -70,6 +71,13 @@ export function SignInModal() {
     if (account) {
       const action = set.globalAccount(account);
       dispatch(action);
+
+      const credentials: Credentials = {
+        email: account.email,
+        password: account.password,
+      };
+      const loginString = JSON.stringify(credentials);
+      localStorage.setItem("credentials", loginString);
     } else {
       let action = set.signInErrorMessage(
         "The email or password is incorrect."
