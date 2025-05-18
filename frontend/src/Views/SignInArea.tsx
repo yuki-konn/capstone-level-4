@@ -22,12 +22,9 @@ export function SignInArea() {
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate, [didMount, account]);
 
-  if (button === "signInButton") {
-    if (account) {
-      button = <SignOutModal />;
-    } else {
-      button = <SignInModal />;
-    }
+  if (button === "SignInAreaButton") {
+    if (account) button = <SignOutModal />;
+    else button = <SignInModal />;
   }
 
   return <>{button}</>;
@@ -65,7 +62,7 @@ export function SignInArea() {
         } else localStorage.setItem("credentials", "");
       }
     }
-    const action = set.signInButton("signInButton");
+    const action = set.signInButton("SignInAreaButton");
     dispatch(action);
   }
 }
