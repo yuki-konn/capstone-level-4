@@ -72,9 +72,11 @@ export function SignInModal() {
       const action = set.globalAccount(account);
       dispatch(action);
 
+      const currentTimestamp = Date.now();
       const credentials: Credentials = {
         email: account.email,
         password: account.password,
+        timestamp: currentTimestamp,
       };
       const loginString = JSON.stringify(credentials);
       localStorage.setItem("credentials", loginString);
