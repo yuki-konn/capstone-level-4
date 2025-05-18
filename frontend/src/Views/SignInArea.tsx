@@ -8,6 +8,9 @@ import {
   selectSignInDidMount,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
+import { Credentials } from "../models/Credentials";
+import { authenticationAws } from "../modules/account/authenticationAws";
+import { Account } from "../models/Account";
 
 export function SignInArea() {
   const didMount = useSelector(selectSignInDidMount);
@@ -35,13 +38,28 @@ export function SignInArea() {
     let action = set.signInDidMount(true);
     dispatch(action);
 
-    action = set.signInButton("signInButton");
-    dispatch(action);
+    getPersistentLogin();
   }
 
   function componentDidUpdate() {
     if (didMount) {
       console.log("SignInArea: Update Phase");
     }
+  }
+
+  async function getPersistentLogin() {
+    let account: Account = undefined;
+    const login = localStorage.getItem("credentials");
+    if (login) {
+      const credentials: Credentials = JSON.parse(login);
+      const { email, password } = credentials;
+      account = await authenticationAws(email, password);
+      if (account) {
+        const action = set.globalAccount(account);
+        dispatch(action);
+      } else localStorage.setItem("credentials", "");
+    }
+    const action = set.signInButton("signInButton");
+    dispatch(action);
   }
 }
