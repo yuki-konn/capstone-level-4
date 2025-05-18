@@ -52,12 +52,18 @@ export function SignInArea() {
     const login = localStorage.getItem("credentials");
     if (login) {
       const credentials: Credentials = JSON.parse(login);
-      const { email, password } = credentials;
-      account = await authenticationAws(email, password);
-      if (account) {
-        const action = set.globalAccount(account);
-        dispatch(action);
-      } else localStorage.setItem("credentials", "");
+      const { email, password, timestamp } = credentials;
+      const currentTimestamp = Date.now();
+      const elapsedTime = currentTimestamp - timestamp;
+      const isExpired = elapsedTime > 86400000;
+      if (isExpired) localStorage.setItem("credentials", "");
+      else {
+        account = await authenticationAws(email, password);
+        if (account) {
+          const action = set.globalAccount(account);
+          dispatch(action);
+        } else localStorage.setItem("credentials", "");
+      }
     }
     const action = set.signInButton("signInButton");
     dispatch(action);
