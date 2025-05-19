@@ -16,7 +16,15 @@ describe("createAccount function", () => {
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBe("Your account has been successfully created");
+    expect(result).toEqual({
+      email: "test5@email.com",
+      password: "test5",
+      userName: "testUser5",
+      firstName: "Test",
+      lastName: "Testing",
+      phone: 1112223333,
+    });
+    // expect(result).toBe("Your account has been successfully created");
 
     // CLEANUP
     await deleteAccount(newAccount);
@@ -37,7 +45,14 @@ describe("createAccount function", () => {
     expect(newAccount.email).toBeDefined();
     expect(newAccount.password).toBeDefined();
     expect(newAccount.userName).toBeDefined();
-    expect(result).toBe("Your account has been successfully created");
+    expect(result).toEqual({
+      email: "test6@email.com",
+      password: "test6",
+      userName: "testUser6",
+      firstName: "",
+      lastName: "",
+      phone: "",
+    });
     // CLEANUP
     await deleteAccount(newAccount);
   });

@@ -5,7 +5,7 @@ import { ErrorInfo } from "../models/ErrorInfo";
 
 export async function createAccount(
   newAccount: Account
-): Promise<ErrorInfo | string> {
+): Promise<ErrorInfo | Account> {
   // Checks if newAccount is undefined
   const isUndefined = newAccount === undefined;
   const undefinedError: ErrorInfo = {
@@ -60,13 +60,11 @@ export async function createAccount(
       };
       const response = await dynamoDBClient.put(request);
       const isSuccessful = response.$metadata.httpStatusCode === 200;
-      if (isSuccessful) return "Your account has been successfully created";
+      if (isSuccessful) {
+        const account = newAccount;
+        return account;
+      }
     }
     console.warn("Error: Unable to create account");
   }
 }
-
-type Error = {
-  error: string;
-  message: string;
-};
