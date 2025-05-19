@@ -161,6 +161,10 @@ export function selectCreateAccountResponse(state: StateVariables): string {
   const { createAccountResponse } = state;
   return createAccountResponse;
 }
+export function selectCreateAccountResponseType(state: StateVariables): string {
+  const { createAccountResponseType } = state;
+  return createAccountResponseType;
+}
 
 // Server.tsx (Page)
 export function selectServerDidMount(state: StateVariables): boolean {

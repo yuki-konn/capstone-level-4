@@ -179,6 +179,13 @@ export const stateSetters = {
     const newValue = action.payload;
     state.createAccountResponse = newValue;
   },
+  createAccountResponseType: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.createAccountResponseType = newValue;
+  },
 
   // Server.tsx (Page)
   serverDidMount: function (state: StateVariables, action: ActionBoolean) {

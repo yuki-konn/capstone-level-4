@@ -53,6 +53,7 @@ export const stateVariables = {
   createAccountButton: "",
   // CreateAccountModal.tsx
   createAccountResponse: "",
+  createAccountResponseType: "",
 
   // Server.tsx (Page)
   serverDidMount: false,
