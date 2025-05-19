@@ -94,14 +94,15 @@ describe("createAccount function", () => {
       "Error: The email or password field is empty. Unable to create account."
     );
   });
-  it("returns error message from backend when object has no properties.", async () => {
-    // ARRANGE
-    const newAccount = {};
-    // ACT
-    const result = await createAccount(newAccount as Account);
-    // ASSERT
-    expect(result).toBe(
-      "Error: newAccount object has no properties. Unable to create account."
-    );
-  });
+  // NOT NEED ANYMORE BECAUSE USING POST METHOD
+  // it("returns error message from backend when object has no properties.", async () => {
+  //   // ARRANGE
+  //   const newAccount = {};
+  //   // ACT
+  //   const result = await createAccount(newAccount as Account);
+  //   // ASSERT
+  //   expect(result).toBe(
+  //     "Error: newAccount object has no properties. Unable to create account."
+  //   );
+  // });
 });

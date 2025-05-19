@@ -1,25 +1,25 @@
 import { Account } from "../models/Account";
+import { ErrorInfo } from "../models/ErrorInfo";
 import { createAccount } from "../modules/account/createAccount";
 
-export async function handleCreateAccount(event: any): Promise<string> {
+export async function handleCreateAccount(
+  event: any
+): Promise<ErrorInfo | Account> {
   event.preventDefault();
 
-  const targetEmail = event.target[1].value;
-  const targetPassword = event.target[2].value;
-  const targetUserName = event.target[3].value;
-  const targetFirstName = event.target[4].value;
-  const targetLastName = event.target[5].value;
-  const targetPhone = event.target[6].value;
+  const form = event.target.elements;
+  const inputs = event.target;
 
   const newAccount: Account = {
-    email: targetEmail,
-    password: targetPassword,
-    userName: targetUserName,
-    firstName: targetFirstName,
-    lastName: targetLastName,
-    phone: targetPhone,
+    email: form.email.value,
+    password: form.password.value,
+    userName: form.userName.value,
+    firstName: form.firstName.value,
+    lastName: form.lastName.value,
+    phone: form.phoneNumber.value,
   };
 
   const response = await createAccount(newAccount);
+  inputs.reset();
   return response;
 }

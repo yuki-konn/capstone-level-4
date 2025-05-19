@@ -2,12 +2,25 @@ import React, { FormEvent } from "react";
 import { CreateAccountContent } from "./CreateAccountContent";
 import { handleCreateAccount } from "../controllers/handleCreateAccount";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCreateAccountResponse } from "../modules/redux/stateSelectors";
+import {
+  selectCreateAccountResponse,
+  selectCreateAccountResponseType,
+} from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
+import { ErrorInfo } from "../models/ErrorInfo";
+import { Account } from "../models/Account";
 
 export function CreateAccountModal() {
-  const response = useSelector(selectCreateAccountResponse);
+  let response: any = useSelector(selectCreateAccountResponse);
+  const responseType: string = useSelector(selectCreateAccountResponseType);
   const dispatch = useDispatch();
+
+  if (responseType === "Success") {
+    response = <span style={{ color: "green" }}>{response}</span>;
+  }
+  if (responseType === "Failed") {
+    response = <span style={{ color: "red" }}>{response}</span>;
+  }
   return (
     <>
       <button
@@ -42,7 +55,7 @@ export function CreateAccountModal() {
             </div>
             <div id="createAcountContent" className="modal-body">
               <CreateAccountContent />
-              <span style={{ color: "green" }}>{response}</span>
+              <div className="text-center">{response}</div>
             </div>
             <div className="modal-footer">
               <button
@@ -63,10 +76,28 @@ export function CreateAccountModal() {
   );
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    const response: string = await handleCreateAccount(event);
+    const response: ErrorInfo | Account = await handleCreateAccount(event);
+    let action: any;
 
-    let action = set.createAccountResponse(response);
-    dispatch(action);
+    if (response.hasOwnProperty("email")) {
+      action = set.createAccountResponseType("Success");
+      dispatch(action);
+      action = set.createAccountResponse(
+        "Your account has been successfully created"
+      );
+      dispatch(action);
+      action = set.globalAccount(response);
+      dispatch(action);
+
+      const closeModal = event.target[7];
+      closeModal.click();
+    } else {
+      const { message } = response as ErrorInfo;
+      action = set.createAccountResponseType("Failed");
+      dispatch(action);
+      action = set.createAccountResponse(message);
+      dispatch(action);
+    }
 
     setTimeout(closeModal, 3000);
 
