@@ -1,10 +1,12 @@
 import { authenticationAws } from "./authenticationAws";
 
 describe("The authenticationAws function", () => {
-  it("returns an Account when given email and password are correct", async () => {
+  it.only("returns an Account when given email and password are correct", async () => {
     // ARRANGE
     const email = "test@email.com";
     const password = "test";
+
+    // global.window = { hostname: "http://localhost:8000" } as any;
     // ACT
     const result = await authenticationAws(email, password);
     // ASSERT
