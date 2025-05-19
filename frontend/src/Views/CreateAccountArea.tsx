@@ -7,6 +7,7 @@ import {
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 
+// Disabled going to merge to SignInArea
 export function CreateAccountArea() {
   const didMount = useSelector(selectCreateAccountDidMount);
   let button: any = useSelector(selectCreateAccountButton);

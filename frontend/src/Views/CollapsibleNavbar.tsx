@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router";
 import "./CollapsibleNavbar.scss";
 import { SignInArea } from "./SignInArea";
-import { CreateAccountArea } from "./CreateAccountArea";
+// import { CreateAccountArea } from "./CreateAccountArea";
 import { useSelector } from "react-redux";
 import { selectGlobalAccount } from "../modules/redux/stateSelectors";
 
@@ -56,9 +56,9 @@ export function CollapsibleNavbar() {
             <NavLink className="nav-item nav-link" to={`${rootpath}/contact`}>
               <i className="bi bi-messenger"></i> Contact
             </NavLink>
-            <li>
+            {/* <li>
               <CreateAccountArea />
-            </li>
+            </li> */}
             <li>
               <SignInArea />
             </li>
