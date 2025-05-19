@@ -16,7 +16,7 @@ describe("createAccount function", () => {
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBe("Your account has been successfully created.");
+    expect(result).toBe("Your account has been successfully created");
 
     // CLEANUP
     await deleteAccount(newAccount);
@@ -37,11 +37,11 @@ describe("createAccount function", () => {
     expect(newAccount.email).toBeDefined();
     expect(newAccount.password).toBeDefined();
     expect(newAccount.userName).toBeDefined();
-    expect(result).toBe("Your account has been successfully created.");
+    expect(result).toBe("Your account has been successfully created");
     // CLEANUP
     await deleteAccount(newAccount);
   });
-  it("returns undefined and doesn't create account when all inputs are empty ", async () => {
+  it("returns error object and doesn't create account when all inputs are empty ", async () => {
     // ARRANGE
     const newAccount: Account = {
       email: "",
@@ -54,9 +54,12 @@ describe("createAccount function", () => {
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toEqual({
+      error: "allEmptyError",
+      message: "Input fields are all empty",
+    });
   });
-  it("returns undefined and doesn't create account when email or password is empty ", async () => {
+  it("returns error object and doesn't create account when email or password is empty ", async () => {
     // ARRANGE
     const newAccount1: Account = {
       email: "",
@@ -81,28 +84,40 @@ describe("createAccount function", () => {
 
     // ASSERT
     expect(newAccount1.email).toBe("");
-    expect(result1).toBeUndefined();
+    expect(result1).toEqual({
+      error: "emailOrPasswordEmptyError",
+      message: "Email or password is empty",
+    });
 
     expect(newAccount2.password).toBe("");
-    expect(result2).toBeUndefined();
+    expect(result2).toEqual({
+      error: "emailOrPasswordEmptyError",
+      message: "Email or password is empty",
+    });
   });
-  it("returns undefined and doesn't create account when object has no properties. ", async () => {
+  it("returns error object and doesn't create account when object has no properties. ", async () => {
     // ARRANGE
     const newAccount: any = {};
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toEqual({
+      error: "objectError",
+      message: "Account object has no properties",
+    });
   });
-  it("returns undefined and doesn't create account when undefined. ", async () => {
+  it("returns error object and doesn't create account when undefined. ", async () => {
     // ARRANGE
     const newAccount: Account = undefined;
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toEqual({
+      error: "undefinedError",
+      message: "Account is undefined",
+    });
   });
-  it("returns undefined when email is not avaiable (already in database). ", async () => {
+  it("returns error object when email is not avaiable (already in database). ", async () => {
     // ARRANGE
     const newAccount: Account = {
       email: "test3@email.com",
@@ -115,6 +130,9 @@ describe("createAccount function", () => {
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBeUndefined();
+    expect(result).toEqual({
+      error: "accountExistsError",
+      message: "This email is already associated with an account",
+    });
   });
 });
