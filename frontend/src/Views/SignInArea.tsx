@@ -11,6 +11,7 @@ import { set } from "../modules/redux/store";
 import { Credentials } from "../models/Credentials";
 import { authenticationAws } from "../modules/account/authenticationAws";
 import { Account } from "../models/Account";
+import { CreateAccountModal } from "./CreateAccountModal";
 
 export function SignInArea() {
   const didMount = useSelector(selectSignInDidMount);
@@ -24,8 +25,16 @@ export function SignInArea() {
 
   if (button === "SignInAreaButton") {
     if (account) button = <SignOutModal />;
-    else button = <SignInModal />;
+    else
+      button = (
+        <>
+          <SignInModal />
+          <CreateAccountModal />
+        </>
+      );
   }
+
+  // button = buttonMap[button];
 
   return <>{button}</>;
 
@@ -62,7 +71,20 @@ export function SignInArea() {
         } else localStorage.setItem("credentials", "");
       }
     }
+    // let action: any;
+    // if (account) action = set.signInButton("SignOutModal");
+    // else action = set.signInButton("SignInModal");
     const action = set.signInButton("SignInAreaButton");
     dispatch(action);
   }
 }
+
+// const buttonMap = {
+//   SignInModal: (
+//     <>
+//       <SignInModal />
+//       <CreateAccountModal />
+//     </>
+//   ),
+//   SignOutModal: <SignOutModal />,
+// };
