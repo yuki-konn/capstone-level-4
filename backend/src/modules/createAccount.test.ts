@@ -1,13 +1,14 @@
 import { Account } from "../models/Account";
 import { createAccount } from "./createAccount";
+import { deleteAccount } from "./deleteAccount";
 
 describe("createAccount function", () => {
   it("returns message and creates account when all fields are inputted. ", async () => {
     // ARRANGE
     const newAccount: Account = {
-      email: "test3@email.com",
-      password: "test3",
-      userName: "testUser3",
+      email: "test5@email.com",
+      password: "test5",
+      userName: "testUser5",
       firstName: "Test",
       lastName: "Testing",
       phone: 1112223333,
@@ -15,15 +16,17 @@ describe("createAccount function", () => {
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBeDefined();
     expect(result).toBe("Your account has been successfully created.");
+
+    // CLEANUP
+    await deleteAccount(newAccount);
   });
   it("returns message and creates account when only email, password, and username are inputted. ", async () => {
     // ARRANGE
     const newAccount: Account = {
-      email: "test3@email.com",
-      password: "test3",
-      userName: "testUser3",
+      email: "test6@email.com",
+      password: "test6",
+      userName: "testUser6",
       firstName: "",
       lastName: "",
       phone: "",
@@ -35,8 +38,10 @@ describe("createAccount function", () => {
     expect(newAccount.password).toBeDefined();
     expect(newAccount.userName).toBeDefined();
     expect(result).toBe("Your account has been successfully created.");
+    // CLEANUP
+    await deleteAccount(newAccount);
   });
-  it("returns a error message and doesn't create account when all inputs are empty ", async () => {
+  it("returns undefined and doesn't create account when all inputs are empty ", async () => {
     // ARRANGE
     const newAccount: Account = {
       email: "",
@@ -49,12 +54,9 @@ describe("createAccount function", () => {
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBeDefined();
-    expect(result).toBe(
-      "Error: All input fields are empty. Unable to create account."
-    );
+    expect(result).toBeUndefined();
   });
-  it("returns a error message and doesn't create account when email or password is empty ", async () => {
+  it("returns undefined and doesn't create account when email or password is empty ", async () => {
     // ARRANGE
     const newAccount1: Account = {
       email: "",
@@ -79,35 +81,40 @@ describe("createAccount function", () => {
 
     // ASSERT
     expect(newAccount1.email).toBe("");
-    expect(result1).toBe(
-      "Error: The email or password field is empty. Unable to create account."
-    );
+    expect(result1).toBeUndefined();
 
     expect(newAccount2.password).toBe("");
-    expect(result2).toBe(
-      "Error: The email or password field is empty. Unable to create account."
-    );
+    expect(result2).toBeUndefined();
   });
-  it("returns a error message and doesn't create account when object has no properties. ", async () => {
+  it("returns undefined and doesn't create account when object has no properties. ", async () => {
     // ARRANGE
     const newAccount: any = {};
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBeDefined();
-    expect(result).toBe(
-      "Error: newAccount object has no properties. Unable to create account."
-    );
+    expect(result).toBeUndefined();
   });
-  it("returns a error message and doesn't create account when undefined. ", async () => {
+  it("returns undefined and doesn't create account when undefined. ", async () => {
     // ARRANGE
     const newAccount: Account = undefined;
     // ACT
     const result = await createAccount(newAccount);
     // ASSERT
-    expect(result).toBeDefined();
-    expect(result).toBe(
-      "Error: newAccount is undefined. Unable to create account."
-    );
+    expect(result).toBeUndefined();
+  });
+  it("returns undefined when email is not avaiable (already in database). ", async () => {
+    // ARRANGE
+    const newAccount: Account = {
+      email: "test3@email.com",
+      password: "test3",
+      userName: "testUser3",
+      firstName: "",
+      lastName: "",
+      phone: "",
+    };
+    // ACT
+    const result = await createAccount(newAccount);
+    // ASSERT
+    expect(result).toBeUndefined();
   });
 });
