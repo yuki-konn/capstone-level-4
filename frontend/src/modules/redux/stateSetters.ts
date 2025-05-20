@@ -278,6 +278,16 @@ export const stateSetters = {
     const newValue = action.payload;
     state.appEngineResponse = newValue;
   },
+
+  // AiInterface.tsx (Component)
+  aiInterfaceDidMount: function (state: StateVariables, action: ActionBoolean) {
+    const newValue = action.payload;
+    state.aiInterfaceDidMount = newValue;
+  },
+  aiInterfaceContext: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.aiInterfaceContext = newValue;
+  },
 };
 
 type ActionBoolean = {

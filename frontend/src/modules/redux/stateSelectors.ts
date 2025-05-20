@@ -245,3 +245,13 @@ export function selectAppEngineResponse(state: StateVariables): Object {
   const { appEngineResponse } = state;
   return appEngineResponse;
 }
+
+// AiInterface.tsx (Component)
+export function selectAiInterfaceDidMount(state: StateVariables): boolean {
+  const { aiInterfaceDidMount } = state;
+  return aiInterfaceDidMount;
+}
+export function selectAiInterfaceContext(state: StateVariables): string {
+  const { aiInterfaceContext } = state;
+  return aiInterfaceContext;
+}

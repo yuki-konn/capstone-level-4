@@ -80,6 +80,10 @@ export const stateVariables = {
   appEngineDidMount: false,
   appEngineServerDemo: "",
   appEngineResponse: {},
+
+  // AiInterface.tsx (Component)
+  aiInterfaceDidMount: false,
+  aiInterfaceContext: "",
 };
 
 export type StateVariables = typeof stateVariables;
