@@ -4,6 +4,7 @@ import { root } from "./routes/root";
 import dotenv from "dotenv";
 import { getDemo } from "./routes/getDemo";
 import { postDemo } from "./routes/postDemo";
+import { ai } from "./routes/ai";
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ express.use(urlencoded()); // Allows data to be received from Postman through x-
 express.use(json()); // Allows data to be received by axios through JSON parameters.
 // get method assigns the handler to the path. The handler runs when the path is visited in the URL.
 express.get(rootpath, root);
+express.post("/ai", ai);
 express.get("/getDemo", getDemo);
 express.post("/postDemo", postDemo);
 // listen method runs the handler.
