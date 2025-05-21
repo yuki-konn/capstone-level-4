@@ -3,7 +3,7 @@
     "start": "npm run close-port && npm run start-server",
     "start2": "npm run start-build",
     "build": "npm run build-production",
-    "test": "npx vitest",
+    "test": "npx vitest getAnswer",
     "deploy": "gcloud app deploy ./dist/app.yaml",
     "build-deploy": "npm run build-production && npm run deploy",
     "------": "---------------------------------------",
