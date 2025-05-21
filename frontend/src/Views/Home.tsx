@@ -11,7 +11,7 @@ import {
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { LinkCard } from "../modules/LinkCard";
-import { TriviaCard } from "../modules/TriviaCard";
+// import { TriviaCard } from "../modules/TriviaCard";
 
 export function Home() {
   const didMount = useSelector(selectHomeDidMount);
