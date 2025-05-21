@@ -16,7 +16,7 @@ export function CollapsibleNavbar() {
   // ONLY FOR PRESENTATION
   if (account)
     myAccount = (
-      <li className="nav-item dropdown">
+      <li id="dropDownArea" className="nav-item dropdown">
         <a
           className="nav-link dropdown-toggle"
           href="#"
@@ -83,13 +83,13 @@ export function CollapsibleNavbar() {
             {/* <li>
               <CreateAccountArea />
             </li> */}
-            <li>
+            <li id="signIn">
               <SignInArea />
             </li>
           </ul>
           {myAccount}
           {/* DEFAULT SET UP */}
-          {/* <li className="nav-item dropdown">
+          {/* <li id="dropDownArea" className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
               href="#"
