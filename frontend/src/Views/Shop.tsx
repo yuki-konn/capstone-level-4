@@ -1,8 +1,8 @@
 import React, { JSX, useEffect } from "react";
-import { handleClickAddCart } from "../controllers/handleClickAddCart";
 import "./Shop.scss";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  // selectCartCountArray,
   selectShopBlackTeaCard,
   selectShopDidMount,
   selectShopGreenTeaCard,
@@ -18,6 +18,7 @@ import {
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { ShopCard } from "../modules/Shop/ShopCard";
+import { Cart } from "./Cart";
 
 export function Shop() {
   const didMount = useSelector(selectShopDidMount);
@@ -33,6 +34,7 @@ export function Shop() {
   let mateTeaCard: any = useSelector(selectShopMateTeaCard);
   let herbalTeaCard: any = useSelector(selectShopHerbalTeaCard);
   let rooibosTeaCard: any = useSelector(selectShopRooibosTeaCard);
+  // let quantity: Array<number> = useSelector(selectCartCountArray);
 
   useEffect(componentDidMount, []); // MOUNT HOOK
   useEffect(componentDidUpdate, [didMount]); // UPDATE HOOK
@@ -72,14 +74,28 @@ export function Shop() {
 
   return (
     <main id="shopMain" className="container-lg">
+      <section id="sectionCart">
+        <div className="container-fluid">
+          <div id="sectionCartTitle" className="row">
+            <div className="col-12">
+              <h2 className="text-center m-2 fw-bold border border-3 border-success bg-warning">
+                Items in Cart
+              </h2>
+            </div>
+          </div>
+          <Cart />
+        </div>
+      </section>
+      <br />
       <section className="m-1" id="sectionTea">
         <h2 className="text-center m-2 fw-bold border border-3 border-success bg-warning">
           Products
         </h2>
         {sectionTeaContent}
       </section>
-      <br />
-      <section id="sectionCart">
+
+      {/* OLD ITEMS IN CART SECTION */}
+      {/* <section id="sectionCart">
         <div className="container-fluid">
           <div id="sectionCartTitle" className="row">
             <div className="col-12">
@@ -162,7 +178,7 @@ export function Shop() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 
@@ -236,10 +252,10 @@ export function Shop() {
 }
 
 // PASSES PARAMETER TO A MORE SPECIFIC HANDLER
-function handleClick(event: any) {
-  let buttonId = event.target.id; // GETS THE ID OF BUTTON THATS CLICKED. USED THIS INSTEAD OF getElementById BECAUSE I WANTED EACH BUTTON TO GIVE ME A DIFFERENT ID.
-  handleClickAddCart(event, buttonId);
-}
+// function handleClick(event: any) {
+//   let buttonId = event.target.id; // GETS THE ID OF BUTTON THATS CLICKED. USED THIS INSTEAD OF getElementById BECAUSE I WANTED EACH BUTTON TO GIVE ME A DIFFERENT ID.
+//   handleClickAddCart(event, buttonId);
+// }
 
 // FOR NON-SERIALIZABLE STATES
 function getTeaCard(card: string): JSX.Element | string {
