@@ -7,7 +7,7 @@ import {
   selectHomeLinkCard1,
   selectHomeLinkCard2,
   selectHomeLinkCard3,
-  selectHomeTriviaCard,
+  // selectHomeTriviaCard,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { LinkCard } from "../modules/LinkCard";
@@ -15,11 +15,10 @@ import { TriviaCard } from "../modules/TriviaCard";
 
 export function Home() {
   const didMount = useSelector(selectHomeDidMount);
-  // STATE VARIABLES FOR BOOTSTRAP CARDS
   let aboutLinkCard: any = useSelector(selectHomeLinkCard1);
   let locationLinkCard: any = useSelector(selectHomeLinkCard2);
   let historyLinkCard: any = useSelector(selectHomeLinkCard3);
-  let triviaCard: any = useSelector(selectHomeTriviaCard);
+  // let triviaCard: any = useSelector(selectHomeTriviaCard);
 
   const dispatch = useDispatch();
 
@@ -30,7 +29,7 @@ export function Home() {
   aboutLinkCard = getCard(aboutLinkCard);
   locationLinkCard = getCard(locationLinkCard);
   historyLinkCard = getCard(historyLinkCard);
-  triviaCard = getCard(triviaCard);
+  // triviaCard = getCard(triviaCard);
 
   return (
     <main id="homeMain" className="container-lg">
@@ -44,9 +43,9 @@ export function Home() {
       <section id="sectionHistory" className="text-center m-2">
         {historyLinkCard}
       </section>
-      <section id="sectionTrivia" className="text-center m-2">
+      {/* <section id="sectionTrivia" className="text-center m-2">
         {triviaCard}
-      </section>
+      </section> */}
       <br />
       <div id="siteMapGroup" className="m-1">
         <span className="fw-bold p-0 m-0">
@@ -68,17 +67,16 @@ export function Home() {
               <span>History</span>
             </a>
           </li>
-          <li className="list-group-item">
+          {/* <li className="list-group-item">
             <a className="no-decor" href="#sectionTrivia">
               <span>Trivia</span>
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </main>
   );
 
-  // MOUNT PHASE
   function componentDidMount() {
     document.title = "Yuki Tea Shop";
     console.log("The Home component has mounted.");
@@ -99,14 +97,12 @@ export function Home() {
     dispatch(action);
   }
 
-  // UPDATE PHASE
   function componentDidUpdate() {
     if (didMount) {
       console.log("The Home component has updated.");
     }
   }
 
-  // UNMOUNT PHASE
   function componentDidUnmount() {
     // - TO UNMOUNT REACT REQUIRES YOU TO RETURN A CALLBACK.
     // - A CONDITION CAN ALSO CAUSE A COMPONENT TO UNMOUNT.
@@ -122,7 +118,7 @@ function getCard(card: string): JSX.Element | string {
   let aboutLinkCard = "";
   let locationLinkCard = "";
   let historyLinkCard = "";
-  let triviaCard = "";
+  // let triviaCard = "";
   // LinkCard Class
   if (card === "aboutLinkCard") {
     const aboutCard = new LinkCard(0);
@@ -140,9 +136,9 @@ function getCard(card: string): JSX.Element | string {
     return historyLinkCard;
   }
   // TriviaCard Class
-  if (card === "triviaCard") {
-    const triviaCardObj = new TriviaCard();
-    triviaCard = triviaCardObj.cardContent;
-    return triviaCard;
-  }
+  // if (card === "triviaCard") {
+  //   const triviaCardObj = new TriviaCard();
+  //   triviaCard = triviaCardObj.cardContent;
+  //   return triviaCard;
+  // }
 }
