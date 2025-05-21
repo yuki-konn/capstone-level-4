@@ -57,7 +57,26 @@ export function Shop() {
     sectionTeaContent = (
       <div className="container-fluid">
         <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5">
-          <div className="col">{blackTeaCard}</div>
+          <div className="col">
+            {blackTeaCard}
+            {/* <div>
+              <button
+                onClick={handleClick1(0) as any}
+                className="btn btn-sm border-black bg-success"
+              >
+                +
+              </button>
+              <span className="text-black">
+                <i className="bi bi-cart fs-4"></i>
+              </span>
+              <button
+                // onClick={handleClick2(0) as any}
+                className="btn btn-sm border-black bg-danger"
+              >
+                -
+              </button>
+            </div> */}
+          </div>
           <div className="col">{greenTeaCard}</div>
           <div className="col">{whiteTeaCard}</div>
           <div className="col">{oolongTeaCard}</div>
@@ -181,6 +200,15 @@ export function Shop() {
       </section> */}
     </main>
   );
+
+  // function handleClick1(position: number) {
+  //   if (position === 0) {
+  //     let action = set.cartCountArray(quantity[0] + 1);
+  //     debugger;
+  //     dispatch(action);
+  //   }
+  // }
+  // function handleClick2() {}
 
   // MOUNT PHASE
   function componentDidMount() {

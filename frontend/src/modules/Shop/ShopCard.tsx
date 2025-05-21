@@ -28,7 +28,7 @@ export class ShopCard {
 
           <div>
             <button
-              // onClick={handleClick1(position) as any}
+              // onClick={this.handleClick1(position) as any}
               className="btn btn-sm border-black bg-success"
             >
               {teaCards[position].addButton}
@@ -37,7 +37,7 @@ export class ShopCard {
               <i className="bi bi-cart fs-4"></i>
             </span>
             <button
-              // onClick="handleClickDecrease(event)"
+              // onClick={this.handleClick2(position) as any}
               className="btn btn-sm border-black bg-danger"
             >
               {teaCards[position].minusButton}
@@ -47,6 +47,12 @@ export class ShopCard {
       </article>
     );
   }
+
+  // handleClick1(position: number) {
+  //   handleClickIncrease(position);
+  // }
+
+  // handleClick2(position: number) {}
 }
 // function handleClick1(position: number): void {
 //   handleClickIncrease(position);
