@@ -1,5 +1,5 @@
-import { handleClickApi } from "../controllers/handleClickApi";
 import React from "react";
+import { getTrivia } from "./getTrivia";
 export class TriviaCard {
   cardContent: any = (<></>);
   triviaCardContent = {
@@ -14,7 +14,7 @@ export class TriviaCard {
           <h2 className="card-title">{this.triviaCardContent.title}</h2>
           <div id="outputTag" className="p-3"></div>
           <button
-            onClick={handleClickTriviaCard}
+            onClick={handleClick}
             className="cardButton btn btn-success btn-sm"
           >
             {this.triviaCardContent.buttonName}
@@ -25,6 +25,6 @@ export class TriviaCard {
   }
 }
 
-function handleClickTriviaCard(event: any) {
-  handleClickApi(event);
+function handleClick(event: any) {
+  getTrivia();
 }

@@ -140,6 +140,19 @@ export const stateSetters = {
     state.shopRooibosTeaCard = newValue;
   },
 
+  // Cart.tsx (Component)
+  cartDidMount: function (state: StateVariables, action: ActionBoolean) {
+    const newValue = action.payload;
+    state.cartDidMount = newValue;
+  },
+  cartCountArray: function (
+    state: StateVariables,
+    action: ActionCartCountArray
+  ) {
+    const newValue = action.payload;
+    state.cartCountArray = newValue;
+  },
+
   // SignInArea.tsx (Component)
   signInDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
@@ -304,6 +317,10 @@ type ActionString = {
 // };
 type ActionObject = {
   payload: Object;
+  type: string;
+};
+type ActionCartCountArray = {
+  payload: Array<number>;
   type: string;
 };
 type ActionAccount = {

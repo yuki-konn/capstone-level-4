@@ -8,8 +8,8 @@ import {
   selectAccountDeleteComponent,
   selectAccountDeleteResponse,
   selectAccountDidMount,
-  selectAccountReadComponent,
-  selectAccountReadResponse,
+  // selectAccountReadComponent,
+  // selectAccountReadResponse,
   selectAccountUpdateComponent,
   selectAccountUpdateResponse,
   selectGlobalAccount,
@@ -20,10 +20,10 @@ import { Account } from "../models/Account";
 // TODO: Make this page disabled in navigation and only enable after signing in.
 export function MyAccount() {
   const didMount = useSelector(selectAccountDidMount);
-  let readResponse: Account | string = useSelector(selectAccountReadResponse);
+  // let readResponse: Account | string = useSelector(selectAccountReadResponse);
   const updateResponse: string = useSelector(selectAccountUpdateResponse);
   const deleteResponse: string = useSelector(selectAccountDeleteResponse);
-  let readComponent: stringOrJSX = useSelector(selectAccountReadComponent);
+  // let readComponent: stringOrJSX = useSelector(selectAccountReadComponent);
   let updateComponent: stringOrJSX = useSelector(selectAccountUpdateComponent);
   let deleteComponent: stringOrJSX = useSelector(selectAccountDeleteComponent);
   const account = useSelector(selectGlobalAccount);
@@ -33,44 +33,44 @@ export function MyAccount() {
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate, [didMount]);
 
-  if (readComponent === "readSuccess") {
-    const { email, password, userName, firstName, lastName, phone } =
-      readResponse as any as Account;
-    readComponent = (
-      <div id="readAccountInfo">
-        <h4>
-          <u>Retrieved Information</u>
-        </h4>
-        <p>
-          <b>Email: </b>
-          <span>{email}</span>
-        </p>
-        <p>
-          <b>password: </b>
-          <span>{password}</span>
-        </p>
-        <p>
-          <b>User Name: </b>
-          <span>{userName}</span>
-        </p>
-        <p>
-          <b>First Name: </b>
-          <span>{firstName}</span>
-        </p>
-        <p>
-          <b>Last Name: </b>
-          <span>{lastName}</span>
-        </p>
-        <p>
-          <b>Phone #: </b>
-          <span>{phone}</span>
-        </p>
-      </div>
-    );
-  }
-  if (readComponent === "readFailed") {
-    readComponent = <span id="readAccountMessage">{readResponse}</span>;
-  }
+  // if (readComponent === "readSuccess") {
+  //   const { email, password, userName, firstName, lastName, phone } =
+  //     readResponse as any as Account;
+  //   readComponent = (
+  //     <div id="readAccountInfo">
+  //       <h4>
+  //         <u>Retrieved Information</u>
+  //       </h4>
+  //       <p>
+  //         <b>Email: </b>
+  //         <span>{email}</span>
+  //       </p>
+  //       <p>
+  //         <b>password: </b>
+  //         <span>{password}</span>
+  //       </p>
+  //       <p>
+  //         <b>User Name: </b>
+  //         <span>{userName}</span>
+  //       </p>
+  //       <p>
+  //         <b>First Name: </b>
+  //         <span>{firstName}</span>
+  //       </p>
+  //       <p>
+  //         <b>Last Name: </b>
+  //         <span>{lastName}</span>
+  //       </p>
+  //       <p>
+  //         <b>Phone #: </b>
+  //         <span>{phone}</span>
+  //       </p>
+  //     </div>
+  //   );
+  // }
+  // if (readComponent === "readFailed") {
+  //   readComponent = <span id="readAccountMessage">{readResponse}</span>;
+  // }
 
   if (updateComponent === "updateSuccess")
     updateComponent = <span className="success">{updateResponse}</span>;
@@ -94,7 +94,47 @@ export function MyAccount() {
     <main id="accountMain" className="container-lg">
       <h1>Account Information</h1>
       <hr />
-      <section className="accountFormSection col-12">
+      <section id="accountInfo" className="col-12">
+        <div>
+          <span className="spanLabel">Email: </span>
+          <span className="infoItem">{account.email}</span>
+        </div>
+        <div>
+          <span className="spanLabel">Password: </span>
+          <span className="infoItem">{account.password}</span>
+        </div>
+        <div>
+          <span className="spanLabel">User Name: </span>
+          <span className="infoItem">{account.userName}</span>
+        </div>
+        <div>
+          <span className="spanLabel">First Name: </span>
+          <span className="infoItem">{account.firstName}</span>
+        </div>
+        <div>
+          <span className="spanLabel">Last Name: </span>
+          <span className="infoItem">{account.lastName}</span>
+        </div>
+        <div>
+          <span className="spanLabel">Phone Number: </span>
+          <span className="infoItem">{account.phone}</span>
+        </div>
+        {/* <div>
+          <input
+            name="update"
+            value="Update Account"
+            type="button"
+            onClick={handleClickUpdate}
+          />
+          <input
+            name="delete"
+            value="Delete Account"
+            type="button"
+            onClick={handleClickDelete}
+          />
+        </div> */}
+      </section>
+      {/* <section className="accountFormSection col-12">
         <h4>Retrieve Information</h4>
         <span>
           Enter your email and password to retrieve your account information.
@@ -125,7 +165,7 @@ export function MyAccount() {
           <input id="formSubmitRead" type="submit" />
         </form>
         {readComponent}
-      </section>
+      </section> */}
       <hr />
       <section className="accountFormSection col-12">
         <h4>Update Information</h4>
@@ -137,11 +177,11 @@ export function MyAccount() {
             <label>
               Email <span style={{ color: "red" }}>*</span>{" "}
             </label>
-            <input type="email" placeholder="test3@email.com" required />
+            <input type="email" defaultValue={account.email} required />
           </div>
           <div>
             <label>Password </label>
-            <input type="password" placeholder="test3" />
+            <input type="password" defaultValue={account.password} />
           </div>
           <div>
             <label>User Name </label>
@@ -176,13 +216,13 @@ export function MyAccount() {
             <label>
               Email <span style={{ color: "red" }}>*</span>
             </label>
-            <input type="email" placeholder="delete@email.com" required />
+            <input type="email" defaultValue={account.email} required />
           </div>
           <div>
             <label>
               Password <span style={{ color: "red" }}>*</span>
             </label>
-            <input type="password" placeholder="delete" required />
+            <input type="password" defaultValue={account.password} required />
           </div>
           <input id="formSubmitDelete" type="submit" />
         </form>
@@ -203,28 +243,31 @@ export function MyAccount() {
     }
   }
 
-  async function handleSubmitRead(event: FormEvent<HTMLFormElement>) {
-    const response: string | Account = await handleReadAccount(event);
+  // function handleClickUpdate() {}
+  // function handleClickDelete() {}
 
-    const isAccount = typeof response === "object";
-    if (isAccount) {
-      let action = set.accountReadComponent("readSuccess");
-      dispatch(action);
-      action = set.accountReadResponse(response);
-      dispatch(action);
-    }
-    const isMessage = typeof response === "string";
-    if (isMessage) {
-      let action = set.accountReadComponent("readFailed");
-      dispatch(action);
-      action = set.accountReadResponse(response);
-      dispatch(action);
-    }
-  }
+  // async function handleSubmitRead(event: FormEvent<HTMLFormElement>) {
+  //   const response: string | Account = await handleReadAccount(event);
+
+  //   const isAccount = typeof response === "object";
+  //   if (isAccount) {
+  //     let action = set.accountReadComponent("readSuccess");
+  //     dispatch(action);
+  //     action = set.accountReadResponse(response);
+  //     dispatch(action);
+  //   }
+  //   const isMessage = typeof response === "string";
+  //   if (isMessage) {
+  //     let action = set.accountReadComponent("readFailed");
+  //     dispatch(action);
+  //     action = set.accountReadResponse(response);
+  //     dispatch(action);
+  //   }
+  // }
 
   async function handleSubmitUpdate(event: FormEvent<HTMLFormElement>) {
     const response: string = await handleUpdateAccount(event);
-    // const isUpdated = response === "Your account has been updated.";
+
     const isUpdated = response.includes("updated");
     if (isUpdated) {
       let action = set.accountUpdateComponent("updateSuccess");
@@ -241,6 +284,7 @@ export function MyAccount() {
 
   async function handleSubmitDelete(event: FormEvent<HTMLFormElement>) {
     const response: string = await handleDeleteAccount(event);
+
     const isDeleted = response === "Your account has been deleted.";
     if (isDeleted) {
       let action = set.accountDeleteComponent("deleteSuccess");

@@ -13,12 +13,36 @@ export function CollapsibleNavbar() {
   const account = useSelector(selectGlobalAccount);
 
   let myAccount = <></>;
+  // ONLY FOR PRESENTATION
   if (account)
     myAccount = (
-      <Link className="dropdown-item" to={`${rootpath}/account`}>
-        My Account
-      </Link>
+      <li id="dropDownArea" className="nav-item dropdown">
+        <a
+          className="nav-link dropdown-toggle"
+          href="#"
+          id="navbar-dropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Account
+        </a>
+        <ul className="dropdown-menu" aria-labelledby="navbar-dropdown">
+          <li>
+            <Link className="dropdown-item" to={`${rootpath}/account`}>
+              My Account
+            </Link>
+          </li>
+        </ul>
+      </li>
     );
+  // DEFAULT SETUP
+  // if (account)
+  //   myAccount = (
+  //     <Link className="dropdown-item" to={`${rootpath}/account`}>
+  //       My Account
+  //     </Link>
+  //   );
 
   return (
     <nav id="collapsibleNavbar" className="navbar navbar-expand-lg bg-dark">
@@ -59,11 +83,13 @@ export function CollapsibleNavbar() {
             {/* <li>
               <CreateAccountArea />
             </li> */}
-            <li>
+            <li id="signIn">
               <SignInArea />
             </li>
           </ul>
-          <li className="nav-item dropdown">
+          {myAccount}
+          {/* DEFAULT SET UP */}
+          {/* <li id="dropDownArea" className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
               href="#"
@@ -82,7 +108,7 @@ export function CollapsibleNavbar() {
                 {myAccount}
               </li>
             </ul>
-          </li>
+          </li> */}
         </div>
       </div>
     </nav>
