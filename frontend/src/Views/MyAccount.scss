@@ -47,6 +47,20 @@ $spacer: 1em;
       color: green;
     }
   }
+  #accountInfo {
+    margin: auto;
+    div {
+      padding: 5px 0px;
+      margin: 0.25em;
+      font-size: 1.25rem;
+      .spanLabel {
+        font-weight: bold;
+      }
+      .infoItem {
+        color: green;
+      }
+    }
+  }
 }
 
 #notSignedIn {

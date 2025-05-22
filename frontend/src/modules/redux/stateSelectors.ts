@@ -128,6 +128,15 @@ export function selectShopRooibosTeaCard(state: StateVariables): string {
   return shopRooibosTeaCard;
 }
 
+// Cart.tsx (Component)
+export function selectCartDidMount(state: StateVariables): boolean {
+  const { cartDidMount } = state;
+  return cartDidMount;
+}
+export function selectCartCountArray(state: StateVariables): Array<number> {
+  const { cartCountArray } = state;
+  return cartCountArray;
+}
 // SignInArea.tsx (Component)
 export function selectSignInDidMount(state: StateVariables): boolean {
   const { signInDidMount } = state;

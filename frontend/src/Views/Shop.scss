@@ -10,14 +10,18 @@
         article {
           margin: 1px;
           width: 100%;
-          height: 400px;
+          // height: 400px;
+          height: 500px;
           align-items: center;
           img {
             max-width: 100%;
             height: 70%;
           }
           .card-body {
-            height: 30%;
+            // height: 30%;
+            span {
+              font-weight: bold;
+            }
           }
         }
       }
@@ -29,8 +33,8 @@
     #sectionCartArea {
       div {
         background-color: tan;
-        padding: 5px;
-        margin-bottom: 5px;
+        // padding: 5px;
+        // margin-bottom: 5px;
         button {
           width: 100%;
         }

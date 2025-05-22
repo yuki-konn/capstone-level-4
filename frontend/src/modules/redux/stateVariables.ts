@@ -41,6 +41,10 @@ export const stateVariables = {
   shopHerbalTeaCard: "",
   shopRooibosTeaCard: "",
 
+  // Cart.tsx (Component)
+  cartDidMount: false,
+  cartCountArray: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+
   // SignInArea.tsx (Page)
   signInDidMount: false,
   signInButton: "",
