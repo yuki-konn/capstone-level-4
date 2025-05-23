@@ -19,6 +19,7 @@ import {
 import { set } from "../modules/redux/store";
 import { ShopCard } from "../modules/Shop/ShopCard";
 import { Cart } from "./Cart";
+import { AiInterface } from "./AiInterface";
 
 export function Shop() {
   const didMount = useSelector(selectShopDidMount);
@@ -93,6 +94,7 @@ export function Shop() {
 
   return (
     <main id="shopMain" className="container-lg">
+      <AiInterface />
       <section id="sectionCart">
         <div className="container-fluid">
           <div id="sectionCartTitle" className="row">
@@ -278,6 +280,8 @@ export function Shop() {
     };
   }
 }
+
+function handleClickAiInterface(event: any) {}
 
 // PASSES PARAMETER TO A MORE SPECIFIC HANDLER
 // function handleClick(event: any) {

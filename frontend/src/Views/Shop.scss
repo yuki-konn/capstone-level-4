@@ -29,12 +29,9 @@
   }
 
   #sectionCart {
-    // #sectionCartTitle {}
     #sectionCartArea {
       div {
         background-color: tan;
-        // padding: 5px;
-        // margin-bottom: 5px;
         button {
           width: 100%;
         }
@@ -43,7 +40,6 @@
         text-align: center;
       }
     }
-
     button {
       @include boxShadow;
     }
