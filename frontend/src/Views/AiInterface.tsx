@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { FormEvent, useEffect } from "react";
+import { handleSubmitAiInterface } from "../controllers/handleSubmitAiInterface";
 import { useDispatch, useSelector } from "react-redux";
 import { set } from "../modules/redux/store";
 import {
@@ -8,36 +9,60 @@ import {
 
 export function AiInterface() {
   const didMount: boolean = useSelector(selectAiInterfaceDidMount);
-  const context = useSelector(selectAiInterfaceContext);
+  let contextBox: any = useSelector(selectAiInterfaceContext);
+  let action: any;
   const dispatch = useDispatch();
 
   useEffect(componentDidMount, []);
-  // TODO: Change to context then put in modal and put on fixed button on shop page
   return (
-    <div>
-      <form>
-        <div className="row">
-          <div className="col-12">
-            <input name="question" type="text" className="col-10" />
-            <input type="submit" className="col-2" />
+    <>
+      <div>{contextBox}</div>
+      <div id="aiInterface" className="container-fluid">
+        <form onSubmit={handleSubmit}>
+          <div id="row1" className="row p-1">
+            <div className="col-12">placeholder</div>
           </div>
-        </div>
-        <button onClick={handleClick}>Context</button>
-        <div className="row">
-          <div className="col-3">{context}</div>
-        </div>
-      </form>
-    </div>
+          <div id="row2" className="row">
+            <textarea
+              className="col-12"
+              name="question"
+              placeholder="Type Here"
+              required
+            />
+          </div>
+          <div id="row3" className="row align-bottom">
+            <input
+              className="col-4 rowbuttons"
+              type="submit"
+              name="ask"
+              value="Ask"
+            />
+            <button
+              onClick={handleClickSeeContext}
+              className="col-8"
+              type="button"
+              name="context"
+            >
+              See Context
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 
   function componentDidMount() {
-    const action = set.aiInterfaceDidMount(true);
+    action = set.aiInterfaceDidMount(true);
     dispatch(action);
   }
 
-  function handleClick() {
-    const context = "test context";
-    const action = set.aiInterfaceContext(context);
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    const answer = await handleSubmitAiInterface(event);
+    debugger;
+  }
+
+  function handleClickSeeContext() {
+    action = set.aiInterfaceContext("SeeContext");
     dispatch(action);
   }
 }
