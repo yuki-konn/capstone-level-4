@@ -19,7 +19,7 @@ import {
 import { set } from "../modules/redux/store";
 import { ShopCard } from "../modules/Shop/ShopCard";
 import { Cart } from "./Cart";
-import { AiInterface } from "./AiInterface";
+import { AiInterfaceArea } from "./AiInterfaceArea";
 
 export function Shop() {
   const didMount = useSelector(selectShopDidMount);
@@ -94,7 +94,7 @@ export function Shop() {
 
   return (
     <main id="shopMain" className="container-lg">
-      <AiInterface />
+      <AiInterfaceArea />
       <section id="sectionCart">
         <div className="container-fluid">
           <div id="sectionCartTitle" className="row">
