@@ -297,9 +297,28 @@ export const stateSetters = {
     const newValue = action.payload;
     state.aiInterfaceDidMount = newValue;
   },
-  aiInterfaceContext: function (state: StateVariables, action: ActionString) {
+  aiInterfaceIsShown: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
-    state.aiInterfaceContext = newValue;
+    state.aiInterfaceIsShown = newValue;
+  },
+  aiInterfaceContent: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.aiInterfaceContent = newValue;
+  },
+  // AiInterfaceContent.tsx (Component)
+  aiInterfaceContentDidMount: function (
+    state: StateVariables,
+    action: ActionBoolean
+  ) {
+    const newValue = action.payload;
+    state.aiInterfaceContentDidMount = newValue;
+  },
+  aiInterfaceContentContext: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.aiInterfaceContentContext = newValue;
   },
 };
 

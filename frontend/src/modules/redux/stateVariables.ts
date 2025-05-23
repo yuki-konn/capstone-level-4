@@ -87,7 +87,12 @@ export const stateVariables = {
 
   // AiInterface.tsx (Component)
   aiInterfaceDidMount: false,
-  aiInterfaceContext: "",
+  aiInterfaceIsShown: false,
+  aiInterfaceContent: "",
+
+  // AiInterfaceChatBox.tsx (Component)
+  aiInterfaceContentDidMount: false,
+  aiInterfaceContentContext: "",
 };
 
 export type StateVariables = typeof stateVariables;
