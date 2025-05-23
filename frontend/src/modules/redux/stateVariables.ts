@@ -85,14 +85,14 @@ export const stateVariables = {
   appEngineServerDemo: "",
   appEngineResponse: {},
 
+  // AiInterfaceArea.tsx (Component)
+  aiInterfaceAreaDidMount: false,
+  aiInterfaceAreaIsShown: false,
+  aiInterfaceAreaContent: "",
+
   // AiInterface.tsx (Component)
   aiInterfaceDidMount: false,
-  aiInterfaceIsShown: false,
-  aiInterfaceContent: "",
-
-  // AiInterfaceChatBox.tsx (Component)
-  aiInterfaceContentDidMount: false,
-  aiInterfaceContentContext: "",
+  aiInterfaceContext: "",
 };
 
 export type StateVariables = typeof stateVariables;

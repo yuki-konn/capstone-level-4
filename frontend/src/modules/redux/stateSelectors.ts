@@ -255,27 +255,25 @@ export function selectAppEngineResponse(state: StateVariables): Object {
   return appEngineResponse;
 }
 
+// AiInterfaceArea.tsx (Component)
+export function selectAiInterfaceAreaDidMount(state: StateVariables): boolean {
+  const { aiInterfaceAreaDidMount } = state;
+  return aiInterfaceAreaDidMount;
+}
+export function selectAiInterfaceAreaIsShown(state: StateVariables): boolean {
+  const { aiInterfaceAreaIsShown } = state;
+  return aiInterfaceAreaIsShown;
+}
+export function selectAiInterfaceAreaContent(state: StateVariables): string {
+  const { aiInterfaceAreaContent } = state;
+  return aiInterfaceAreaContent;
+}
 // AiInterface.tsx (Component)
 export function selectAiInterfaceDidMount(state: StateVariables): boolean {
   const { aiInterfaceDidMount } = state;
   return aiInterfaceDidMount;
 }
-export function selectAiInterfaceIsShown(state: StateVariables): boolean {
-  const { aiInterfaceIsShown } = state;
-  return aiInterfaceIsShown;
-}
-export function selectAiInterfaceContent(state: StateVariables): string {
-  const { aiInterfaceContent } = state;
-  return aiInterfaceContent;
-}
-// AiInterfaceContent.tsx (Component)
-export function selectAiInterfaceContentDidMount(
-  state: StateVariables
-): boolean {
-  const { aiInterfaceContentDidMount } = state;
-  return aiInterfaceContentDidMount;
-}
-export function selectAiInterfaceContentContext(state: StateVariables): string {
-  const { aiInterfaceContentContext } = state;
-  return aiInterfaceContentContext;
+export function selectAiInterfaceContext(state: StateVariables): string {
+  const { aiInterfaceContext } = state;
+  return aiInterfaceContext;
 }

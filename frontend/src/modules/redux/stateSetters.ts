@@ -292,33 +292,36 @@ export const stateSetters = {
     state.appEngineResponse = newValue;
   },
 
+  // AiInterfaceArea.tsx (Component)
+  aiInterfaceAreaDidMount: function (
+    state: StateVariables,
+    action: ActionBoolean
+  ) {
+    const newValue = action.payload;
+    state.aiInterfaceAreaDidMount = newValue;
+  },
+  aiInterfaceAreaIsShown: function (
+    state: StateVariables,
+    action: ActionBoolean
+  ) {
+    const newValue = action.payload;
+    state.aiInterfaceAreaIsShown = newValue;
+  },
+  aiInterfaceAreaContent: function (
+    state: StateVariables,
+    action: ActionString
+  ) {
+    const newValue = action.payload;
+    state.aiInterfaceAreaContent = newValue;
+  },
   // AiInterface.tsx (Component)
   aiInterfaceDidMount: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
     state.aiInterfaceDidMount = newValue;
   },
-  aiInterfaceIsShown: function (state: StateVariables, action: ActionBoolean) {
+  aiInterfaceContext: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
-    state.aiInterfaceIsShown = newValue;
-  },
-  aiInterfaceContent: function (state: StateVariables, action: ActionString) {
-    const newValue = action.payload;
-    state.aiInterfaceContent = newValue;
-  },
-  // AiInterfaceContent.tsx (Component)
-  aiInterfaceContentDidMount: function (
-    state: StateVariables,
-    action: ActionBoolean
-  ) {
-    const newValue = action.payload;
-    state.aiInterfaceContentDidMount = newValue;
-  },
-  aiInterfaceContentContext: function (
-    state: StateVariables,
-    action: ActionString
-  ) {
-    const newValue = action.payload;
-    state.aiInterfaceContentContext = newValue;
+    state.aiInterfaceContext = newValue;
   },
 };
 
