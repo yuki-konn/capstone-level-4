@@ -1,0 +1,51 @@
+#aiInterfaceArea {
+  #aiInterfaceButton {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 2;
+    font-size: 1.2em;
+    border-radius: 15px;
+    border: 2px solid gold;
+    background-color: green;
+    color: gold;
+  }
+  #aiInterface {
+    position: fixed;
+    bottom: 85px;
+    right: 40px;
+    z-index: 2;
+    max-height: 400px;
+    max-width: 300px;
+    background-color: tan;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    form {
+      display: grid;
+      #row1 {
+        flex-grow: 1;
+        div {
+          border-radius: 10px;
+          height: 320px;
+          background-color: white;
+        }
+      }
+      #row2 {
+        border-radius: 15px;
+        textarea {
+          border-radius: 10px;
+          height: 2rem;
+          resize: none;
+        }
+      }
+      #row3 {
+        border-radius: 15px;
+        align-content: end;
+        .rowButtons {
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+}
