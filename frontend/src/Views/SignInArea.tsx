@@ -10,7 +10,6 @@ import {
 import { set } from "../modules/redux/store";
 import { Credentials } from "../models/Credentials";
 import { authenticationAws } from "../modules/account/authenticationAws";
-import { Account } from "../models/Account";
 import { CreateAccountModal } from "./CreateAccountModal";
 
 export function SignInArea() {
@@ -34,8 +33,6 @@ export function SignInArea() {
       );
   }
 
-  // button = buttonMap[button];
-
   return <>{button}</>;
 
   function componentDidMount() {
@@ -54,7 +51,7 @@ export function SignInArea() {
   }
 
   async function getPersistentLogin() {
-    let account: Account = undefined;
+    let action: any;
     const login = localStorage.getItem("credentials");
     if (login) {
       const credentials: Credentials = JSON.parse(login);
@@ -64,27 +61,14 @@ export function SignInArea() {
       const isExpired = elapsedTime > 86400000;
       if (isExpired) localStorage.setItem("credentials", "");
       else {
-        account = await authenticationAws(email, password);
+        const account = await authenticationAws(email, password);
         if (account) {
-          const action = set.globalAccount(account);
+          action = set.globalAccount(account);
           dispatch(action);
         } else localStorage.setItem("credentials", "");
       }
     }
-    // let action: any;
-    // if (account) action = set.signInButton("SignOutModal");
-    // else action = set.signInButton("SignInModal");
-    const action = set.signInButton("SignInAreaButton");
+    action = set.signInButton("SignInAreaButton");
     dispatch(action);
   }
 }
-
-// const buttonMap = {
-//   SignInModal: (
-//     <>
-//       <SignInModal />
-//       <CreateAccountModal />
-//     </>
-//   ),
-//   SignOutModal: <SignOutModal />,
-// };
