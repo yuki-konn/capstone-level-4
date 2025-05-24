@@ -1,15 +1,21 @@
 $spacer: 1em;
+$borderColor: #44190b;
+$bgColor: tan;
+$buttonBackground: #1d8e50;
 
 #accountMain {
+  border: 3px solid $borderColor;
   h1 {
     margin: 0px 5em;
     padding: 5px 0px;
     text-align: center;
-    background-color: tan;
+    background-color: $bgColor;
+    border: 2px solid $borderColor;
   }
   .accountFormSection {
     display: grid;
-    background-color: tan;
+    background-color: $bgColor;
+    border: 2px solid $borderColor;
     margin: auto;
     form {
       padding: ($spacer * 1);
@@ -50,10 +56,16 @@ $spacer: 1em;
 
   #accountInfo {
     margin: auto;
+    background-color: $bgColor;
+    border: 2px solid $borderColor;
+
     div {
-      padding: 5px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: start;
       margin: 0.25em;
       font-size: 1.25rem;
+
       .spanLabel {
         font-weight: bold;
       }

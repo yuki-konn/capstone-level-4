@@ -95,30 +95,36 @@ export function MyAccount() {
       <AiInterfaceArea />
       <h1>Account Information</h1>
       <hr />
-      <section id="accountInfo" className="col-12">
-        <div>
-          <span className="spanLabel">Email: </span>
-          <span className="infoItem">{account.email}</span>
+      <section id="accountInfo">
+        <div className="row">
+          <div className="col">
+            <span className="spanLabel">Email: </span>
+            <span className="infoItem">{account.email}</span>
+          </div>
+          <div className="col">
+            <span className="spanLabel">Password: </span>
+            <span className="infoItem">{account.password}</span>
+          </div>
         </div>
-        <div>
-          <span className="spanLabel">Password: </span>
-          <span className="infoItem">{account.password}</span>
+        <div className="row">
+          <div className="col">
+            <span className="spanLabel">User Name: </span>
+            <span className="infoItem">{account.userName}</span>
+          </div>
+          <div className="col">
+            <span className="spanLabel">First Name: </span>
+            <span className="infoItem">{account.firstName}</span>
+          </div>
         </div>
-        <div>
-          <span className="spanLabel">User Name: </span>
-          <span className="infoItem">{account.userName}</span>
-        </div>
-        <div>
-          <span className="spanLabel">First Name: </span>
-          <span className="infoItem">{account.firstName}</span>
-        </div>
-        <div>
-          <span className="spanLabel">Last Name: </span>
-          <span className="infoItem">{account.lastName}</span>
-        </div>
-        <div>
-          <span className="spanLabel">Phone Number: </span>
-          <span className="infoItem">{account.phone}</span>
+        <div className="row">
+          <div className="col">
+            <span className="spanLabel">Last Name: </span>
+            <span className="infoItem">{account.lastName}</span>
+          </div>
+          <div className="col">
+            <span className="spanLabel">Phone Number: </span>
+            <span className="infoItem">{account.phone}</span>
+          </div>
         </div>
         {/* <div>
           <input
