@@ -29,7 +29,7 @@ export function AiInterfaceArea() {
     </div>
   );
   function componentDidMount() {
-    console.log("AiInterface: Mount Phase");
+    console.log("AiInterfaceArea Component: Mount Phase");
     action = set.aiInterfaceAreaDidMount(true);
     dispatch(action);
     action = set.aiInterfaceAreaContent("HideContent");
@@ -37,7 +37,7 @@ export function AiInterfaceArea() {
   }
   function componentDidUpdate() {
     if (didMount) {
-      console.log("AiInterface: Update Phase");
+      console.log("AiInterfaceArea Component: Update Phase");
     }
   }
   function handleClick() {

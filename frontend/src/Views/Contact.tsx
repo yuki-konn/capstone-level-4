@@ -107,7 +107,7 @@ export function Contact() {
   // MOUNT PHASE
   function componentDidMount() {
     document.title = "Yuki Tea Shop | CONTACT";
-    console.log("The Contact component has mounted.");
+    console.log("Contact Page: Mount Phase");
     let action = set.contactDidMount(true);
     dispatch(action);
   }
@@ -115,7 +115,7 @@ export function Contact() {
   // UPDATE PHASE
   function componentDidUpdate() {
     if (didMount) {
-      console.log("The Contact component has updated.");
+      console.log("Contact Page: Update Phase");
       // RUNS AFTER handleSubmitContact IS CLICKED.
       if (contactFormName) {
         let action = set.contactFormData1("contactFormData");
@@ -162,7 +162,7 @@ export function Contact() {
   // UNMOUNT PHASE
   function componentDidUnmount() {
     return function () {
-      console.log("The Contact component has unmounted.");
+      console.log("Contact Page: Unmount Phase");
       let action = set.contactDidMount(false);
       dispatch(action);
     };

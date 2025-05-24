@@ -57,6 +57,7 @@ export function AiInterface() {
   );
 
   function componentDidMount() {
+    console.log("AiInterface Component: Mount Phase");
     action = set.aiInterfaceDidMount(true);
     dispatch(action);
   }

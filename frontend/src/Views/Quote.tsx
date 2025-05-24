@@ -53,20 +53,20 @@ export function Quote() {
   );
 
   function componentDidMount() {
-    console.log("The Quote component has mounted.");
+    console.log("Quote Component: Mount Phase");
     let action = set.quoteDidMount(true);
     dispatch(action);
   }
 
   function componentDidUpdate() {
     if (didMount) {
-      console.log("The Quote component has updated.");
+      console.log("Quote Component: Update Phase");
     }
   }
 
   function componentDidUnmount() {
     return function () {
-      console.log("The Quote component has unmounted.");
+      console.log("Quote Component: Unmount Phase");
       let action = set.quoteDidMount(false);
       dispatch(action);
     };

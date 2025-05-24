@@ -20,7 +20,7 @@ export function CreateAccountArea() {
   return <>{button}</>;
 
   function componentDidMount() {
-    console.log("CreateAccountArea: Mount Phase");
+    console.log("CreateAccountArea Component: Mount Phase");
     let action = set.createAccountDidMount(true);
     dispatch(action);
 

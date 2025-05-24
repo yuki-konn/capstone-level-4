@@ -114,92 +114,6 @@ export function Shop() {
         </h2>
         {sectionTeaContent}
       </section>
-
-      {/* OLD ITEMS IN CART SECTION */}
-      {/* <section id="sectionCart">
-        <div className="container-fluid">
-          <div id="sectionCartTitle" className="row">
-            <div className="col-12">
-              <h2 className="text-center m-2 fw-bold border border-3 border-success bg-warning">
-                Items in Cart
-              </h2>
-            </div>
-          </div>
-          <div id="sectionCartArea" className="row row-cols-lg-5">
-            <div id="cart1" className="col-12 col-md-6">
-              <h4>Black Tea</h4>
-              <br />
-              <button id="addCartButton1" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-            <div id="cart2" className="col-12 col-md-6">
-              <h4>Green Tea</h4>
-              <br />
-              <button id="addCartButton2" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-            <div id="cart3" className="col-12 col-md-6">
-              <h4>White Tea</h4>
-              <br />
-              <button id="addCartButton3" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-            <div id="cart4" className="col-12 col-md-6">
-              <h4>Oolong Tea</h4>
-              <span className="badge bg-info col-12">50% OFF SUMMER SALE</span>
-              <button id="addCartButton4" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-            <div id="cart5" className="col-12 col-md-6">
-              <h4>Pu-erh Tea</h4>
-              <span className="badge bg-info col-12">50% OFF SUMMER SALE</span>
-              <button id="addCartButton5" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-
-            <div id="cart6" className="col-12 col-md-6">
-              <h4>Purple Tea</h4>
-              <br />
-              <button id="addCartButton6" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-            <div id="cart7" className="col-12 col-md-6">
-              <h4>Matcha Tea</h4>
-              <br />
-              <button id="addCartButton7" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-            <div id="cart8" className="col-12 col-md-6">
-              <h4>Mate Tea</h4>
-              <br />
-              <button id="addCartButton8" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-            <div id="cart9" className="col-12 col-md-6">
-              <h4>Herbal Tea</h4>
-              <span className="badge bg-info col-12">50% OFF SUMMER SALE</span>
-              <button id="addCartButton9" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-            <div id="cart10" className="col-12 col-md-6">
-              <h4>Rooibos Tea</h4>
-              <br />
-              <button id="addCartButton10" onClick={handleClick}>
-                <i className="bi bi-cart-plus-fill"></i> Add to Cart
-              </button>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </main>
   );
 
@@ -215,7 +129,7 @@ export function Shop() {
   // MOUNT PHASE
   function componentDidMount() {
     document.title = "Yuki Tea Shop | SHOP";
-    console.log("The Shop component has mounted.");
+    console.log("Shop Page: Mount phase");
 
     let action = set.shopDidMount(true);
     dispatch(action);
@@ -248,7 +162,7 @@ export function Shop() {
   // UPDATE PHASE
   function componentDidUpdate() {
     if (didMount) {
-      console.log("The Shop component has updated.");
+      console.log("Shop Page: Update Phase");
       const img1 = document.getElementById("img1");
       new bootstrap.Tooltip(img1);
       const img2 = document.getElementById("img2");
@@ -274,20 +188,12 @@ export function Shop() {
   // UNMOUNT PHASE
   function componentDidUnmount() {
     return function () {
-      console.log("The Shop component has unmounted.");
+      console.log("Shop Page: Unmount Phase");
       let action = set.shopDidMount(false);
       dispatch(action);
     };
   }
 }
-
-function handleClickAiInterface(event: any) {}
-
-// PASSES PARAMETER TO A MORE SPECIFIC HANDLER
-// function handleClick(event: any) {
-//   let buttonId = event.target.id; // GETS THE ID OF BUTTON THATS CLICKED. USED THIS INSTEAD OF getElementById BECAUSE I WANTED EACH BUTTON TO GIVE ME A DIFFERENT ID.
-//   handleClickAddCart(event, buttonId);
-// }
 
 // FOR NON-SERIALIZABLE STATES
 function getTeaCard(card: string): JSX.Element | string {

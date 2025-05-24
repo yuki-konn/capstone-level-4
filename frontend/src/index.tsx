@@ -9,7 +9,6 @@ import "./index.scss";
 import { Header } from "./Views/Header";
 import { Footer } from "./Views/Footer";
 import { HandleRefresh } from "./Views/HandleRefresh";
-import { Server } from "./Views/Server";
 import { MyAccount } from "./Views/MyAccount";
 import { Provider } from "react-redux";
 import { store } from "./modules/redux/store";
@@ -32,7 +31,6 @@ root.render(
           <Route path={`${rootpath}/shop`} element={<Shop />} />
           <Route path={`${rootpath}/about`} element={<About />} />
           <Route path={`${rootpath}/contact`} element={<Contact />} />
-          <Route path={`${rootpath}/server`} element={<Server />} />
           <Route path={`${rootpath}/account`} element={<MyAccount />} />
         </Routes>
         <Footer />

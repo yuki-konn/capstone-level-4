@@ -1,8 +1,6 @@
-// COLORS
 $navText: #00b300;
 $navTextHover: #b4f298;
 
-// FONTS
 $primaryFont: "edosz";
 
 @font-face {
@@ -10,7 +8,6 @@ $primaryFont: "edosz";
   src: url("../../assets/fonts/edosz.ttf");
 }
 
-// STYLES
 #collapsibleNavbar {
   font-family: $primaryFont;
   #homeNavDiv {

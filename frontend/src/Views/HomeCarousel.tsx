@@ -111,19 +111,19 @@ export function HomeCarousel() {
   );
 
   function componentDidMount() {
-    console.log("HomeCarousel: Mount Phase");
+    console.log("HomeCarousel Component: Mount Phase");
     let action = set.homeCarouselDidMount(true);
     dispatch(action);
   }
 
   function componentDidUpdate() {
     if (didMount) {
-      console.log("HomeCarousel: Update Phase");
+      console.log("HomeCarousel Component: Update Phase");
     }
   }
   function componentDidUnmount() {
     return function () {
-      console.log("HomeCarousel: Unmount Phase");
+      console.log("HomeCarousel Component: Unmount Phase");
       let action = set.homeCarouselDidMount(false);
       dispatch(action);
     };

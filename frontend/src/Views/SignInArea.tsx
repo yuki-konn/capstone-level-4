@@ -36,7 +36,7 @@ export function SignInArea() {
   return <>{button}</>;
 
   function componentDidMount() {
-    console.log("SignInArea: Mount Phase");
+    console.log("SignInArea Component: Mount Phase");
 
     let action = set.signInDidMount(true);
     dispatch(action);
@@ -46,7 +46,7 @@ export function SignInArea() {
 
   function componentDidUpdate() {
     if (didMount) {
-      console.log("SignInArea: Update Phase");
+      console.log("SignInArea Component: Update Phase");
     }
   }
 

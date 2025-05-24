@@ -17,9 +17,7 @@ import {
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { AiInterfaceArea } from "./AiInterfaceArea";
-// import { Account } from "../models/Account";
 
-// TODO: Make this page disabled in navigation and only enable after signing in.
 export function MyAccount() {
   const didMount = useSelector(selectAccountDidMount);
   // let readResponse: Account | string = useSelector(selectAccountReadResponse);

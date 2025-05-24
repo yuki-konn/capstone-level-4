@@ -102,9 +102,6 @@ export function CollapsibleNavbar() {
             </a>
             <ul className="dropdown-menu" aria-labelledby="navbar-dropdown">
               <li>
-                <Link className="dropdown-item" to={`${rootpath}/server`}>
-                  Server
-                </Link>
                 {myAccount}
               </li>
             </ul>

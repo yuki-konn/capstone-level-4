@@ -261,7 +261,7 @@ export function About() {
   // MOUNT PHASE
   function componentDidMount() {
     document.title = "Yuki Tea Shop | ABOUT";
-    console.log("The About component has mounted.");
+    console.log("About Page: Mount Phase");
     let action = set.aboutDidMount(true);
     dispatch(action);
   }
@@ -269,13 +269,13 @@ export function About() {
   // UPDATE PHASE
   function componentDidUpdate() {
     if (didMount) {
-      console.log("The About component has updated.");
+      console.log("About Page: Update Phase");
     }
   }
   // UNMOUNT PHASE
   function componentDidUnmount() {
     return function () {
-      console.log("The About component has unmounted.");
+      console.log("About Page: Unmount Phase");
       let action = set.aboutDidMount(false);
       dispatch(action);
     };

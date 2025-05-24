@@ -8,19 +8,16 @@ import {
   selectHomeLinkCard1,
   selectHomeLinkCard2,
   selectHomeLinkCard3,
-  // selectHomeTriviaCard,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { LinkCard } from "../modules/LinkCard";
 import { AiInterfaceArea } from "./AiInterfaceArea";
-// import { TriviaCard } from "../modules/TriviaCard";
 
 export function Home() {
   const didMount = useSelector(selectHomeDidMount);
   let aboutLinkCard: any = useSelector(selectHomeLinkCard1);
   let locationLinkCard: any = useSelector(selectHomeLinkCard2);
   let historyLinkCard: any = useSelector(selectHomeLinkCard3);
-  // let triviaCard: any = useSelector(selectHomeTriviaCard);
 
   const dispatch = useDispatch();
 
@@ -31,7 +28,6 @@ export function Home() {
   aboutLinkCard = getCard(aboutLinkCard);
   locationLinkCard = getCard(locationLinkCard);
   historyLinkCard = getCard(historyLinkCard);
-  // triviaCard = getCard(triviaCard);
 
   return (
     <main id="homeMain" className="container-lg">
@@ -46,9 +42,6 @@ export function Home() {
       <section id="sectionHistory" className="text-center m-2">
         {historyLinkCard}
       </section>
-      {/* <section id="sectionTrivia" className="text-center m-2">
-        {triviaCard}
-      </section> */}
       <br />
       <div id="siteMapGroup" className="m-1">
         <span className="fw-bold p-0 m-0">
@@ -70,11 +63,6 @@ export function Home() {
               <span>History</span>
             </a>
           </li>
-          {/* <li className="list-group-item">
-            <a className="no-decor" href="#sectionTrivia">
-              <span>Trivia</span>
-            </a>
-          </li> */}
         </ul>
       </div>
     </main>
@@ -121,7 +109,6 @@ function getCard(card: string): JSX.Element | string {
   let aboutLinkCard = "";
   let locationLinkCard = "";
   let historyLinkCard = "";
-  // let triviaCard = "";
   // LinkCard Class
   if (card === "aboutLinkCard") {
     const aboutCard = new LinkCard(0);
@@ -138,10 +125,4 @@ function getCard(card: string): JSX.Element | string {
     historyLinkCard = historyCard.cardContent;
     return historyLinkCard;
   }
-  // TriviaCard Class
-  // if (card === "triviaCard") {
-  //   const triviaCardObj = new TriviaCard();
-  //   triviaCard = triviaCardObj.cardContent;
-  //   return triviaCard;
-  // }
 }
