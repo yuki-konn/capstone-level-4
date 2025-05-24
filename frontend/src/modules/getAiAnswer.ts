@@ -3,14 +3,16 @@ import { getRootPathAppEngine } from "../utils/getRootPathAppEngine";
 
 export async function getAiAnswer(
   userQuestion: string,
-  chatBoxContext: string
+  context: string
 ): Promise<string> {
-  const data = { question: userQuestion, context: chatBoxContext };
+  const data = { question: userQuestion, context: context };
   const rootpath = getRootPathAppEngine();
   const route = "/ai";
   const url = rootpath + route;
   const response = await axios.post(url, data);
-  const answer: string = response.data;
-  debugger;
+  let answer: string | "" = response.data;
+  const isAnswerEmpty = answer === "";
+  if (isAnswerEmpty) answer = "Sorry, I don't know";
+
   return answer;
 }
