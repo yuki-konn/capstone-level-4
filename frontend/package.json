@@ -12,6 +12,7 @@
     "test": "npx jest authenticationAws",
     "deploy": "npm run s3-upload && npm run update-cloudfront",
     "build-deploy": "npm run build && npm run s3-upload && npm run update-cloudfront",
+    "build-deploy-git": "npm run build-deploy && git add . && git commit -m \"bundled and deployed frontend\" && git push",
     "--------------------": "---------------------------------------------------------",
     "s3-upload": "aws s3 cp ./dist/ s3://capstone-level-4/frontend/dist/ --recursive --exclude *.map",
     "update-cloudfront": "aws cloudfront create-invalidation --distribution-id E3BPTYXT9I14IP --paths \"/*\""
