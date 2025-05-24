@@ -1,16 +1,18 @@
+$borderColor: #44190b;
+
 @mixin boxShadow {
   box-shadow: 2px 2px grey;
 }
 
 #shopMain {
   #sectionTea {
+    border: 3px solid $borderColor;
     .row {
       .col {
         font-size: small;
         article {
           margin: 1px;
           width: 100%;
-          // height: 400px;
           height: 500px;
           align-items: center;
           img {
@@ -18,7 +20,6 @@
             height: 70%;
           }
           .card-body {
-            // height: 30%;
             span {
               font-weight: bold;
             }
@@ -29,6 +30,7 @@
   }
 
   #sectionCart {
+    border: 3px solid $borderColor;
     #sectionCartArea {
       div {
         background-color: tan;
