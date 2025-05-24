@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import "./About.scss";
 import "../index.scss";
+import "./AiInterfaceArea.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAboutDidMount } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { Quote } from "./Quote";
+import { AiInterfaceArea } from "./AiInterfaceArea";
 
 export function About() {
   const didMount = useSelector(selectAboutDidMount);
@@ -16,6 +18,7 @@ export function About() {
 
   return (
     <main id="aboutMain" className="container-lg">
+      <AiInterfaceArea />
       <div
         id="aboutTitle"
         className="m-2 text-center border border-3 border-success bg-warning"

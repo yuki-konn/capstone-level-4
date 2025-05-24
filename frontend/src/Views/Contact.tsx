@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { handleSubmitPhone } from "../controllers/handleSubmitPhone";
 import "./Contact.scss";
+import "./AiInterfaceArea.scss";
 import { getCheckedRadio } from "../modules/Contact/getCheckedRadio";
 import { getServerFeedback } from "../modules/Contact/getServerFeedback";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +17,7 @@ import {
 import { set } from "../modules/redux/store";
 import { ContactFormContent } from "./ContactFormContent";
 import { ContactPhoneContent } from "./ContactPhoneContent";
+import { AiInterfaceArea } from "./AiInterfaceArea";
 // import { handleSubmitContact } from "../controllers/handleSubmitContact";
 // import { databaseSimulation } from "../modules/Contact/databaseSimulation";
 
@@ -63,6 +65,7 @@ export function Contact() {
 
   return (
     <main id="contactMain" className="container-lg">
+      <AiInterfaceArea />
       <h1 className="text-center border-bottom border-3 border-dark">
         Contact Us
       </h1>

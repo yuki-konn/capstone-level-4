@@ -1,6 +1,7 @@
 import React, { FormEvent, ReactElement, useEffect } from "react";
-import { handleReadAccount } from "../controllers/handleReadAccount";
+// import { handleReadAccount } from "../controllers/handleReadAccount";
 import "./MyAccount.scss";
+import "./AiInterfaceArea.scss";
 import { handleUpdateAccount } from "../controllers/handleUpdateAccount";
 import { handleDeleteAccount } from "../controllers/handleDeleteAccount";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +16,8 @@ import {
   selectGlobalAccount,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
-import { Account } from "../models/Account";
+import { AiInterfaceArea } from "./AiInterfaceArea";
+// import { Account } from "../models/Account";
 
 // TODO: Make this page disabled in navigation and only enable after signing in.
 export function MyAccount() {
@@ -92,6 +94,7 @@ export function MyAccount() {
     );
   return (
     <main id="accountMain" className="container-lg">
+      <AiInterfaceArea />
       <h1>Account Information</h1>
       <hr />
       <section id="accountInfo" className="col-12">

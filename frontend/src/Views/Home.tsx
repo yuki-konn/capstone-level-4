@@ -1,5 +1,6 @@
 import React, { JSX, useEffect } from "react";
 import "../index.scss";
+import "./AiInterfaceArea.scss";
 import { HomeCarousel } from "./HomeCarousel";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,6 +12,7 @@ import {
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { LinkCard } from "../modules/LinkCard";
+import { AiInterfaceArea } from "./AiInterfaceArea";
 // import { TriviaCard } from "../modules/TriviaCard";
 
 export function Home() {
@@ -33,6 +35,7 @@ export function Home() {
 
   return (
     <main id="homeMain" className="container-lg">
+      <AiInterfaceArea />
       <HomeCarousel />
       <section id="sectionAbout" className="text-center m-2">
         {aboutLinkCard}
