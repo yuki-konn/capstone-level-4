@@ -17,6 +17,4 @@ const steepTime = `Brewing time varies depending on the type of tea, but general
 const benefits = `Tea has been shown to have various health benefits, including antioxidant properties and potential benefits for cardiovascular health.`;
 const bagOrLoose = `Loose leaf tea offers a more complex flavor profile and allows for a more precise brewing experience compared to tea bags, which often contain smaller, more fragmented leaves.`;
 
-const faqContext = `${caffeine} ${types} ${defineTea} ${shelfLife} ${storage} ${steepTime} ${benefits} ${bagOrLoose}`;
-
-export const aiContext = faqContext;
+export const aiContext = `${caffeine} ${types} ${defineTea} ${shelfLife} ${storage} ${steepTime} ${benefits} ${bagOrLoose}`;

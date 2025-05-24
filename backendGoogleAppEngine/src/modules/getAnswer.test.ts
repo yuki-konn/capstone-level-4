@@ -1,4 +1,4 @@
-import { aiContext } from "./AiContext";
+import { aiContext } from "./aiContext";
 import { getAnswer } from "./getAnswer";
 
 describe("getAnswer", { timeout: 100000 }, () => {
