@@ -4,51 +4,56 @@ import { useDispatch, useSelector } from "react-redux";
 import { set } from "../modules/redux/store";
 import {
   selectAiInterfaceAnswer,
-  selectAiInterfaceContext,
+  selectAiInterfaceButtonToggle,
   selectAiInterfaceDidMount,
 } from "../modules/redux/stateSelectors";
 
 export function AiInterface() {
   const didMount: boolean = useSelector(selectAiInterfaceDidMount);
-  let contextBox: any = useSelector(selectAiInterfaceContext);
   const aiAnswer = useSelector(selectAiInterfaceAnswer);
+  let button: string = useSelector(selectAiInterfaceButtonToggle);
   let action: any;
   const dispatch = useDispatch();
 
   useEffect(componentDidMount, []);
   //TODO: Make button map for SeeContext button
+  button = buttonMap[button];
   return (
     <>
-      <div>{contextBox}</div>
       <div id="aiInterface" className="container-fluid">
-        <form onSubmit={handleSubmit}>
-          {/* Answer box or Context box on row1*/}
+        <form onSubmit={handleSubmit} className="row-gap-1">
           <div id="row1" className="row p-1">
             <div className="col-12">{aiAnswer}</div>
           </div>
-          <div id="row2" className="row">
-            <textarea
-              className="col-12"
-              name="question"
-              placeholder="Type Here"
-              required
-            />
+          <div id="row2" className="row p-1">
+            <div className="col-12">
+              <textarea
+                id="question"
+                name="question"
+                placeholder="Type Here"
+                required
+              />
+            </div>
           </div>
-          <div id="row3" className="row align-bottom">
-            <input
-              className="col-4 rowbuttons"
-              type="submit"
-              name="ask"
-              value="Ask"
-            />
-            <button
-              onClick={handleClickShowContext}
-              className="col-8"
-              type="button"
-              name="context"
-            >
-              See Context
-            </button>
+          <div id="row3" className="row align-bottom p-1">
+            <div className="col-4">
+              <input
+                className="interfaceButton "
+                type="submit"
+                name="ask"
+                value="Ask"
+              />
+            </div>
+            <div className="col-8">
+              <button
+                onClick={handleClick}
+                className="interfaceButton"
+                type="button"
+                name="context"
+              >
+                {button}
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -58,6 +63,9 @@ export function AiInterface() {
   function componentDidMount() {
     action = set.aiInterfaceDidMount(true);
     dispatch(action);
+
+    // action = set.aiInterfaceButtonToggle("ShowContext");
+    // dispatch(action);
   }
 
   //TODO: Make componentDidUpdate for replacing answer box with context box
@@ -70,11 +78,24 @@ export function AiInterface() {
     //TODO: Test handler
   }
 
-  function handleClickShowContext() {
-    action = set.aiInterfaceContext("ShowContext");
-    dispatch(action);
+  function handleClick() {
+    debugger;
+    if (button === "Show Context") {
+      action = set.aiInterfaceButtonToggle("ShowInterface");
+      dispatch(action);
+    }
+    if (button === "Show Interface") {
+      action = set.aiInterfaceButtonToggle("ShowContext");
+      dispatch(action);
+    }
+
     //TODO: Have handler make a context box replace the interface
     // with a new box that shows the context with a button that says
     // "show interface"
   }
 }
+
+const buttonMap = {
+  ShowContext: "Show Context",
+  ShowInterface: "Show Interface",
+};
