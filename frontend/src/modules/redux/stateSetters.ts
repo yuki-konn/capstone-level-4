@@ -323,6 +323,10 @@ export const stateSetters = {
     const newValue = action.payload;
     state.aiInterfaceContext = newValue;
   },
+  aiInterfaceAnswer: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.aiInterfaceAnswer = newValue;
+  },
 };
 
 type ActionBoolean = {

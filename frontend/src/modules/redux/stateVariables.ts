@@ -93,6 +93,7 @@ export const stateVariables = {
   // AiInterface.tsx (Component)
   aiInterfaceDidMount: false,
   aiInterfaceContext: "",
+  aiInterfaceAnswer: "(Answer appears here)",
 };
 
 export type StateVariables = typeof stateVariables;

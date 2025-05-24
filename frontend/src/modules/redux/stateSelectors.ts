@@ -277,3 +277,7 @@ export function selectAiInterfaceContext(state: StateVariables): string {
   const { aiInterfaceContext } = state;
   return aiInterfaceContext;
 }
+export function selectAiInterfaceAnswer(state: StateVariables): string {
+  const { aiInterfaceAnswer } = state;
+  return aiInterfaceAnswer;
+}
