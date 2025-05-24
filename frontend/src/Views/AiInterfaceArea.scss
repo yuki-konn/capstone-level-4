@@ -24,20 +24,35 @@ $buttonBackground: #1d8e50;
     background-color: $bgColor;
     border: 2px solid $borderColor;
     border-radius: 10px;
+    width: 100%;
 
     form {
-      display: grid;
-      #row1 {
+      #labelArea {
+        label {
+          width: 100%;
+        }
+      }
+      #outputArea {
         flex-grow: 1;
         div {
           border: 2px double $borderColor;
           border-radius: 10px;
           max-height: 200px;
           height: 200px;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          overflow-wrap: break-word;
           background-color: white;
+
+          #questionOutput {
+            color: black;
+          }
+          #answerOutput {
+            color: green;
+          }
         }
       }
-      #row2 {
+      #questionArea {
         border-radius: 15px;
         div {
           padding: 0px 1px;
@@ -51,7 +66,7 @@ $buttonBackground: #1d8e50;
           }
         }
       }
-      #row3 {
+      #buttonArea {
         border-radius: 15px;
         align-content: end;
         div {
