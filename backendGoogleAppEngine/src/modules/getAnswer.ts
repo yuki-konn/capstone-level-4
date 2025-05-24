@@ -15,7 +15,8 @@ export async function getAnswer(
   const response = await aiModel(userQuestion, userContext);
 
   let { answer, score } = response as QuestionAnsweringOutput;
-  const isScoreLow = score < 0.15;
-  if (isScoreLow) answer = undefined;
+  // const isScoreLow = score < 0.15;
+  const isScoreHigh = score > 0.25; // AI is likes to rate score high when it's wrong
+  if (isScoreHigh) answer = undefined;
   return answer;
 }
