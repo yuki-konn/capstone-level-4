@@ -273,11 +273,11 @@ export function selectAiInterfaceDidMount(state: StateVariables): boolean {
   const { aiInterfaceDidMount } = state;
   return aiInterfaceDidMount;
 }
-export function selectAiInterfaceContext(state: StateVariables): string {
-  const { aiInterfaceContext } = state;
-  return aiInterfaceContext;
-}
 export function selectAiInterfaceAnswer(state: StateVariables): string {
   const { aiInterfaceAnswer } = state;
   return aiInterfaceAnswer;
+}
+export function selectAiInterfaceQuestion(state: StateVariables): string {
+  const { aiInterfaceQuestion } = state;
+  return aiInterfaceQuestion;
 }

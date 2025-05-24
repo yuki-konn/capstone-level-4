@@ -319,13 +319,13 @@ export const stateSetters = {
     const newValue = action.payload;
     state.aiInterfaceDidMount = newValue;
   },
-  aiInterfaceContext: function (state: StateVariables, action: ActionString) {
-    const newValue = action.payload;
-    state.aiInterfaceContext = newValue;
-  },
   aiInterfaceAnswer: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
     state.aiInterfaceAnswer = newValue;
+  },
+  aiInterfaceQuestion: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.aiInterfaceQuestion = newValue;
   },
 };
 
