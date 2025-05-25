@@ -10,16 +10,20 @@ export async function handleAccountUpdate(
   const inputs = event.target.elements;
   const closeButton = inputs.closeButton;
 
-  const userName = inputs.userName.value;
-  const firstName = inputs.firstName.value;
-  const lastName = inputs.lastName.value;
-  const phone = inputs.phone.value;
+  const accountInfo: Account = {
+    email: inputs.email.value,
+    password: inputs.password.value,
+    userName: inputs.userName.value,
+    firstName: inputs.firstName.value,
+    lastName: inputs.lastName.value,
+    phone: inputs.phone.value,
+  };
 
-  const account = await updateAccount(userName, firstName, lastName, phone);
-  if (!account) return undefined;
+  const updatedAccount = await updateAccount(accountInfo);
+  if (!updatedAccount) return undefined;
 
   closeButton.click();
   inputs.reset();
 
-  return account;
+  return updatedAccount;
 }

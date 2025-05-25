@@ -3,10 +3,7 @@ import { Account } from "../../models/Account";
 import { getRootPathAws } from "../../utils/getRootPathAws";
 
 export async function updateAccount(
-  newUserName: string,
-  newFirstName: string,
-  newLastName: string,
-  newPhone: string
+  newInfo: Account
 ): Promise<Account | undefined> {
   // const isNotAccount = !targetAccount;
   // if (isNotAccount)
@@ -23,17 +20,11 @@ export async function updateAccount(
   // if (isEmailObject)
   //   return "Your account wasn't able to update because your email is invalid.";
 
-  const data = {
-    userName: newUserName,
-    firstName: newFirstName,
-    lastName: newLastName,
-    phone: newPhone,
-  };
   const rootpath = getRootPathAws();
   const route = "/update";
   const url = rootpath + route;
 
-  const response = await axios.post(url, data);
-  const result = response.data;
-  return result;
+  const response = await axios.post(url, newInfo);
+  const updatedAccount: Account = response.data;
+  return updatedAccount;
 }
