@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AccountModalContent } from "./AccountModalContent";
-import { selectGlobalErrorMessage } from "../modules/redux/stateSelectors";
+import { selectGlobalAccount } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { handleAccountUpdate } from "../controllers/handleAccountUpdate";
+import { Account } from "../models/Account";
 
 export function AccountModal() {
-  const errorMessage = useSelector(selectGlobalErrorMessage);
+  const currentAccount: Account = useSelector(selectGlobalAccount);
   const dispatch = useDispatch();
   let action: any;
 
@@ -43,7 +44,7 @@ export function AccountModal() {
               ></button>
             </div>
             <div id="signInContent" className="modal-body">
-              <AccountModalContent errorMessage={errorMessage} />
+              <AccountModalContent />
             </div>
             <div className="modal-footer">
               <button
@@ -65,23 +66,26 @@ export function AccountModal() {
   );
 
   async function handleSubmit(event: any) {
-    const account = await handleAccountUpdate(event);
+    const account = await handleAccountUpdate(event, currentAccount);
 
     if (account) {
       action = set.globalAccount(account);
       dispatch(action);
-
-      action = set.globalErrorMessage("Your account has been updated");
+      action = set.globalMessage(
+        `Success: updated account for ${account.email}`
+      );
       dispatch(action);
     } else {
-      action = set.globalErrorMessage("Your account was unable to update");
+      action = set.globalErrorMessage("Failed: account unable to be updated");
       dispatch(action);
     }
 
-    setTimeout(resetErrorMessage, 5000);
+    setTimeout(resetMessage, 5000);
 
-    function resetErrorMessage() {
-      let action = set.globalErrorMessage("");
+    function resetMessage() {
+      action = set.globalErrorMessage("");
+      dispatch(action);
+      action = set.globalMessage("");
       dispatch(action);
     }
   }

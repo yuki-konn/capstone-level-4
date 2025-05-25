@@ -1,9 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectGlobalAccount } from "../modules/redux/stateSelectors";
+import {
+  selectGlobalAccount,
+  selectGlobalErrorMessage,
+  selectGlobalMessage,
+} from "../modules/redux/stateSelectors";
 
-export function AccountModalContent(props: { errorMessage: string }) {
-  const errorMessage = props.errorMessage;
+export function AccountModalContent() {
+  const successMessage = useSelector(selectGlobalMessage);
+  const errorMessage = useSelector(selectGlobalErrorMessage);
   const account = useSelector(selectGlobalAccount);
   return (
     <div className="container">
@@ -65,8 +70,9 @@ export function AccountModalContent(props: { errorMessage: string }) {
         </div>
       </div>
       <div className="row">
-        <div className="col" style={{ color: "red" }}>
-          {errorMessage}
+        <div className="col">
+          <span style={{ color: "red" }}>{errorMessage}</span>
+          <span style={{ color: "green" }}>{successMessage}</span>
         </div>
       </div>
     </div>
