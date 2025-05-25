@@ -1,7 +1,7 @@
 import { Account } from "../models/Account";
 import { readAccount } from "../modules/account/readAccount";
 
-export async function handleReadAccount(event: any): Promise<Account | string> {
+export async function handleAccountRead(event: any): Promise<Account | string> {
   event.preventDefault();
 
   const form = event.target.elements;
