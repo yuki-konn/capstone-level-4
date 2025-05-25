@@ -2,6 +2,7 @@ export const stateVariables = {
   // Global
   globalAccount: undefined, // SignInArea
   globalCredentials: undefined, // Persistent login
+  globalErrorMessage: "", // SignInModal and AccountModal
 
   // Home.tsx (Page)
   homeDidMount: false,
@@ -49,8 +50,6 @@ export const stateVariables = {
   signInDidMount: false,
   signInButton: "",
   signInIsSignedIn: false,
-  // SignInModal.tsx
-  signInErrorMessage: "",
 
   // CreateAccountArea.tsx (Page)
   createAccountDidMount: false,

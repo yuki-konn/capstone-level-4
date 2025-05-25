@@ -15,6 +15,10 @@ export const stateSetters = {
     const newValue = action.payload;
     state.globalCredentials = newValue;
   },
+  globalErrorMessage: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.globalErrorMessage = newValue;
+  },
 
   // Home.tsx (Page)
   homeDidMount: function (state: StateVariables, action: ActionBoolean) {
@@ -165,11 +169,6 @@ export const stateSetters = {
   signInIsSignedIn: function (state: StateVariables, action: ActionBoolean) {
     const newValue = action.payload;
     state.signInIsSignedIn = newValue;
-  },
-  // SignInModal.tsx
-  signInErrorMessage: function (state: StateVariables, action: ActionString) {
-    const newValue = action.payload;
-    state.signInErrorMessage = newValue;
   },
 
   // CreateAccountArea.tsx (Component)

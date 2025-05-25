@@ -9,6 +9,11 @@ export function selectGlobalCredentials(state: StateVariables) {
   const { globalCredentials } = state;
   return globalCredentials;
 }
+export function selectGlobalErrorMessage(state: StateVariables): string {
+  const { globalErrorMessage } = state;
+  return globalErrorMessage;
+}
+
 // Home.tsx (Page)
 export function selectHomeDidMount(state: StateVariables): boolean {
   const { homeDidMount } = state;
@@ -149,11 +154,6 @@ export function selectSignInButton(state: StateVariables): string {
 export function selectSignInIsSignedIn(state: StateVariables): boolean {
   const { signInIsSignedIn } = state;
   return signInIsSignedIn;
-}
-// SignInModal.tsx (Component)
-export function selectSignInErrorMessage(state: StateVariables): string {
-  const { signInErrorMessage } = state;
-  return signInErrorMessage;
 }
 
 // // CreateAccountArea.tsx (Component)

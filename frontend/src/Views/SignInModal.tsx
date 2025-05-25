@@ -2,13 +2,13 @@ import React, { FormEvent } from "react";
 import { SignInContent } from "./SignInContent";
 import { handleSignIn } from "../controllers/handleSignIn";
 import { useDispatch, useSelector } from "react-redux";
-import { selectSignInErrorMessage } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
 import { Credentials } from "../models/Credentials";
+import { selectGlobalErrorMessage } from "../modules/redux/stateSelectors";
 
 export function SignInModal() {
   // ERROR MESSAGE FOR INCORRECT INPUTS
-  const errorMessage = useSelector(selectSignInErrorMessage);
+  const errorMessage = useSelector(selectGlobalErrorMessage);
   const dispatch = useDispatch();
 
   return (
@@ -81,7 +81,7 @@ export function SignInModal() {
       const loginString = JSON.stringify(credentials);
       localStorage.setItem("credentials", loginString);
     } else {
-      let action = set.signInErrorMessage(
+      let action = set.globalErrorMessage(
         "The email or password is incorrect."
       );
       dispatch(action);
@@ -90,7 +90,7 @@ export function SignInModal() {
     setTimeout(resetErrorMessage, 5000);
 
     function resetErrorMessage() {
-      let action = set.signInErrorMessage("");
+      let action = set.globalErrorMessage("");
       dispatch(action);
     }
   }

@@ -1,7 +1,7 @@
 import React from "react";
 
 export function SignInContent(props: { errorMessage: string }) {
-  const errorMessage = props.errorMessage; // Prop from SignInModal
+  const errorMessage = props.errorMessage;
   return (
     <>
       <label>Email: </label>
