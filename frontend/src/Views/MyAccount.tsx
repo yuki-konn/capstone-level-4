@@ -102,24 +102,24 @@ export function MyAccount() {
             <span className="infoItem">{account.email}</span>
           </div>
           <div className="col">
-            <span className="spanLabel">Password: </span>
-            <span className="infoItem">{account.password}</span>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <span className="spanLabel">User Name: </span>
-            <span className="infoItem">{account.userName}</span>
-          </div>
-          <div className="col">
             <span className="spanLabel">First Name: </span>
             <span className="infoItem">{account.firstName}</span>
           </div>
         </div>
         <div className="row">
           <div className="col">
+            <span className="spanLabel">Password: </span>
+            <span className="infoItem">{account.password}</span>
+          </div>
+          <div className="col">
             <span className="spanLabel">Last Name: </span>
             <span className="infoItem">{account.lastName}</span>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <span className="spanLabel">User Name: </span>
+            <span className="infoItem">{account.userName}</span>
           </div>
           <div className="col">
             <span className="spanLabel">Phone Number: </span>
