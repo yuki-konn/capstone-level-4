@@ -11,6 +11,7 @@ import { set } from "../modules/redux/store";
 import { Credentials } from "../models/Credentials";
 import { authenticationAws } from "../modules/account/authenticationAws";
 import { CreateAccountModal } from "./CreateAccountModal";
+import { AccountModal } from "./AccountModal";
 
 export function SignInArea() {
   const didMount = useSelector(selectSignInDidMount);
@@ -23,7 +24,13 @@ export function SignInArea() {
   useEffect(componentDidUpdate, [didMount, account]);
 
   if (button === "SignInAreaButton") {
-    if (account) button = <SignOutModal />;
+    if (account)
+      button = (
+        <>
+          <SignOutModal />
+          <AccountModal />
+        </>
+      );
     else
       button = (
         <>
