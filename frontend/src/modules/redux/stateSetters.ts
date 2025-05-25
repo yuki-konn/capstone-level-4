@@ -15,6 +15,10 @@ export const stateSetters = {
     const newValue = action.payload;
     state.globalCredentials = newValue;
   },
+  globalMessage: function (state: StateVariables, action: ActionString) {
+    const newValue = action.payload;
+    state.globalMessage = newValue;
+  },
   globalErrorMessage: function (state: StateVariables, action: ActionString) {
     const newValue = action.payload;
     state.globalErrorMessage = newValue;

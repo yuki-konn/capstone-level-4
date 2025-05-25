@@ -13,6 +13,10 @@ export function selectGlobalErrorMessage(state: StateVariables): string {
   const { globalErrorMessage } = state;
   return globalErrorMessage;
 }
+export function selectGlobalMessage(state: StateVariables): string {
+  const { globalMessage } = state;
+  return globalMessage;
+}
 
 // Home.tsx (Page)
 export function selectHomeDidMount(state: StateVariables): boolean {

@@ -2,6 +2,7 @@ export const stateVariables = {
   // Global
   globalAccount: undefined, // SignInArea
   globalCredentials: undefined, // Persistent login
+  globalMessage: "", // AccountModal
   globalErrorMessage: "", // SignInModal and AccountModal
 
   // Home.tsx (Page)
