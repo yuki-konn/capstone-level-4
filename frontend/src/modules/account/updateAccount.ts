@@ -5,20 +5,13 @@ import { getRootPathAws } from "../../utils/getRootPathAws";
 export async function updateAccount(
   newInfo: Account
 ): Promise<Account | undefined> {
-  // const isNotAccount = !targetAccount;
-  // if (isNotAccount)
-  //   return "Your account wasn't able to update because your account is undefined.";
-
-  // const { email } = targetAccount;
-
-  // const isEmailUndefined = !email;
-  // if (isEmailUndefined)
-  //   return "Your account wasn't able to update because your email is undefined.";
-
-  // const isEmailObject =
-  //   typeof email === "object" || JSON.stringify(email) === "{}";
-  // if (isEmailObject)
-  //   return "Your account wasn't able to update because your email is invalid.";
+  const isNotAccount = !newInfo;
+  if (isNotAccount) return undefined;
+  const isEmailOrPasswordUndefined = !newInfo.email || !newInfo.password;
+  if (isEmailOrPasswordUndefined) return undefined;
+  const isEmailObject =
+    typeof newInfo.email === "object" || JSON.stringify(newInfo.email) === "{}";
+  if (isEmailObject) return undefined;
 
   const rootpath = getRootPathAws();
   const route = "/update";
