@@ -1,23 +1,24 @@
-import React, { JSX, useEffect } from "react";
+import React, { useEffect } from "react";
+// import React, { JSX, useEffect } from "react";
 import "../index.scss";
 import "./AiInterfaceArea.scss";
 import { HomeCarousel } from "./HomeCarousel";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectHomeDidMount,
-  selectHomeLinkCard1,
-  selectHomeLinkCard2,
-  selectHomeLinkCard3,
+  // selectHomeLinkCard1,
+  // selectHomeLinkCard2,
+  // selectHomeLinkCard3,
 } from "../modules/redux/stateSelectors";
 import { set } from "../modules/redux/store";
-import { LinkCard } from "../modules/LinkCard";
+// import { LinkCard } from "../modules/LinkCard";
 import { AiInterfaceArea } from "./AiInterfaceArea";
 
 export function Home() {
   const didMount = useSelector(selectHomeDidMount);
-  let aboutLinkCard: any = useSelector(selectHomeLinkCard1);
-  let locationLinkCard: any = useSelector(selectHomeLinkCard2);
-  let historyLinkCard: any = useSelector(selectHomeLinkCard3);
+  // let aboutLinkCard: any = useSelector(selectHomeLinkCard1);
+  // let locationLinkCard: any = useSelector(selectHomeLinkCard2);
+  // let historyLinkCard: any = useSelector(selectHomeLinkCard3);
 
   const dispatch = useDispatch();
 
@@ -25,15 +26,16 @@ export function Home() {
   useEffect(componentDidUpdate, [didMount]);
   useEffect(componentDidUnmount, []);
 
-  aboutLinkCard = getCard(aboutLinkCard);
-  locationLinkCard = getCard(locationLinkCard);
-  historyLinkCard = getCard(historyLinkCard);
+  // aboutLinkCard = getCard(aboutLinkCard);
+  // locationLinkCard = getCard(locationLinkCard);
+  // historyLinkCard = getCard(historyLinkCard);
 
   return (
     <main id="homeMain" className="container-lg">
       <AiInterfaceArea />
       <HomeCarousel />
-      <section id="sectionAbout" className="text-center m-2">
+      {/* TODO: Make Carousel with cards of products that are sold */}
+      {/* <section id="sectionAbout" className="text-center m-2">
         {aboutLinkCard}
       </section>
       <section id="sectionLocation" className="text-center m-2">
@@ -64,33 +66,33 @@ export function Home() {
             </a>
           </li>
         </ul>
-      </div>
+      </div> */}
     </main>
   );
 
   function componentDidMount() {
     document.title = "Yuki Tea Shop";
-    console.log("The Home component has mounted.");
+    console.log("Home page: Mount Phase");
 
     let action = set.homeDidMount(true);
     dispatch(action);
 
-    action = set.homeLinkCard1("aboutLinkCard");
-    dispatch(action);
+    // action = set.homeLinkCard1("aboutLinkCard");
+    // dispatch(action);
 
-    action = set.homeLinkCard2("locationLinkCard");
-    dispatch(action);
+    // action = set.homeLinkCard2("locationLinkCard");
+    // dispatch(action);
 
-    action = set.homeLinkCard3("historyLinkCard");
-    dispatch(action);
+    // action = set.homeLinkCard3("historyLinkCard");
+    // dispatch(action);
 
-    action = set.homeTriviaCard("triviaCard");
-    dispatch(action);
+    // action = set.homeTriviaCard("triviaCard");
+    // dispatch(action);
   }
 
   function componentDidUpdate() {
     if (didMount) {
-      console.log("The Home component has updated.");
+      console.log("Home page: Update Phase");
     }
   }
 
@@ -98,31 +100,31 @@ export function Home() {
     // - TO UNMOUNT REACT REQUIRES YOU TO RETURN A CALLBACK.
     // - A CONDITION CAN ALSO CAUSE A COMPONENT TO UNMOUNT.
     return function () {
-      console.log("The Home component has unmounted.");
+      console.log("Home page: Unmount Phase");
       let action = set.homeDidMount(false);
       dispatch(action);
     };
   }
 }
 
-function getCard(card: string): JSX.Element | string {
-  let aboutLinkCard = "";
-  let locationLinkCard = "";
-  let historyLinkCard = "";
-  // LinkCard Class
-  if (card === "aboutLinkCard") {
-    const aboutCard = new LinkCard(0);
-    aboutLinkCard = aboutCard.cardContent;
-    return aboutLinkCard;
-  }
-  if (card === "locationLinkCard") {
-    const locationCard = new LinkCard(1);
-    locationLinkCard = locationCard.cardContent;
-    return locationLinkCard;
-  }
-  if (card === "historyLinkCard") {
-    const historyCard = new LinkCard(2);
-    historyLinkCard = historyCard.cardContent;
-    return historyLinkCard;
-  }
-}
+// function getCard(card: string): JSX.Element | string {
+//   let aboutLinkCard = "";
+//   let locationLinkCard = "";
+//   let historyLinkCard = "";
+//   // LinkCard Class
+//   if (card === "aboutLinkCard") {
+//     const aboutCard = new LinkCard(0);
+//     aboutLinkCard = aboutCard.cardContent;
+//     return aboutLinkCard;
+//   }
+//   if (card === "locationLinkCard") {
+//     const locationCard = new LinkCard(1);
+//     locationLinkCard = locationCard.cardContent;
+//     return locationLinkCard;
+//   }
+//   if (card === "historyLinkCard") {
+//     const historyCard = new LinkCard(2);
+//     historyLinkCard = historyCard.cardContent;
+//     return historyLinkCard;
+//   }
+// }
