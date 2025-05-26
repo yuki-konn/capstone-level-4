@@ -24,8 +24,14 @@ export function SignOutModal() {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
+          <div
+            className="modal-content"
+            style={{ width: "75%", margin: "auto" }}
+          >
+            <div
+              className="modal-header"
+              style={{ justifyContent: "space-between" }}
+            >
               <h1 className="modal-title fs-5" id="signOutModalLabel">
                 Sign Out
               </h1>
@@ -34,9 +40,14 @@ export function SignOutModal() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                style={{ width: "0px" }}
               ></button>
             </div>
-            <div className="modal-body">Are you sure you want to sign out?</div>
+            <div className="modal-body" style={{ placeSelf: "center" }}>
+              <div className="row">
+                <div className="col">Are you sure you want to sign out?</div>
+              </div>
+            </div>
             <div className="modal-footer">
               <button
                 type="button"

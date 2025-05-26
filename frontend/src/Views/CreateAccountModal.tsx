@@ -41,8 +41,14 @@ export function CreateAccountModal() {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
+          <div
+            className="modal-content"
+            style={{ width: "75%", margin: "auto" }}
+          >
+            <div
+              className="modal-header"
+              style={{ justifyContent: "space-between" }}
+            >
               <h1 className="modal-title fs-5" id="createAccountModalLabel">
                 Please fill in your information.
               </h1>
@@ -51,9 +57,14 @@ export function CreateAccountModal() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                style={{ width: "0px" }}
               ></button>
             </div>
-            <div id="createAcountContent" className="modal-body">
+            <div
+              id="createAcountContent"
+              className="modal-body"
+              style={{ placeSelf: "center" }}
+            >
               <CreateAccountContent />
               <div className="text-center">{response}</div>
             </div>

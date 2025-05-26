@@ -3,58 +3,75 @@ import React from "react";
 export function CreateAccountContent() {
   return (
     <>
-      <span>Required information is marked with *</span>
-      <br />
-      <div className="text-center">
-        <label className="text-start" style={{ width: "25%" }}>
-          Email *{" "}
-        </label>
-        <input
-          type="email"
-          name="email"
-          placeholder="johnsmith@email.com"
-          required
-        />
+      <div className="row">
+        <div className="col-12">
+          <span className="text-info">
+            Required information is marked with *
+          </span>
+        </div>
       </div>
-      <div className="text-center">
-        <label className="text-start" style={{ width: "25%" }}>
-          Password *{" "}
-        </label>
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          required
-        />
+      <div className="row">
+        <div className="col-4">
+          <label>Email*</label>
+        </div>
+        <div className="col-4">
+          <input
+            type="email"
+            name="email"
+            placeholder="johnsmith@email.com"
+            required
+          />
+        </div>
       </div>
-      <div className="text-center">
-        <label className="text-start" style={{ width: "25%" }}>
-          User Name *{" "}
-        </label>
-        <input type="text" name="userName" placeholder="Username" required />
+      <div className="row">
+        <div className="col-4">
+          <label>Password*</label>
+        </div>
+        <div className="col-4">
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            required
+          />
+        </div>
       </div>
-      <div className="text-center">
-        <label className="text-start" style={{ width: "25%" }}>
-          First Name{" "}
-        </label>
-        <input type="text" name="firstName" placeholder="John" />
+      <div className="row">
+        <div className="col-4">
+          <label>User Name*</label>
+        </div>
+        <div className="col-4">
+          <input type="text" name="userName" placeholder="Username" required />
+        </div>
       </div>
-      <div className="text-center">
-        <label className="text-start" style={{ width: "25%" }}>
-          Last Name{" "}
-        </label>
-        <input type="text" name="lastName" placeholder="Smith" />
+      <div className="row">
+        <div className="col-4">
+          <label>First Name</label>
+        </div>
+        <div className="col-4">
+          <input type="text" name="firstName" placeholder="John" />
+        </div>
       </div>
-      <div className="text-center">
-        <label className="text-start" style={{ width: "25%" }}>
-          Phone Number{" "}
-        </label>
-        <input
-          type="tel"
-          pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
-          placeholder="##########"
-          name="phoneNumber"
-        />
+      <div className="row">
+        <div className="col-4">
+          <label>Last Name</label>
+        </div>
+        <div className="col-4">
+          <input type="text" name="lastName" placeholder="Smith" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-4">
+          <label>Phone</label>
+        </div>
+        <div className="col-4">
+          <input
+            type="tel"
+            pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+            placeholder="##########"
+            name="phoneNumber"
+          />
+        </div>
       </div>
     </>
   );

@@ -30,9 +30,12 @@ export function AccountModal() {
         aria-labelledby="accountModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog" style={{ width: "75%", margin: "auto" }}>
           <div className="modal-content">
-            <div className="modal-header">
+            <div
+              className="modal-header"
+              style={{ justifyContent: "space-between" }}
+            >
               <h1 className="modal-title fs-5" id="accountModalLabel">
                 Account
               </h1>
@@ -41,9 +44,14 @@ export function AccountModal() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                style={{ width: "0px" }}
               ></button>
             </div>
-            <div id="signInContent" className="modal-body">
+            <div
+              id="signInContent"
+              className="modal-body"
+              style={{ placeSelf: "center" }}
+            >
               <AccountModalContent />
             </div>
             <div className="modal-footer">

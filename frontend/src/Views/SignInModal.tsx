@@ -31,8 +31,14 @@ export function SignInModal() {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
+          <div
+            className="modal-content"
+            style={{ width: "75%", margin: "auto" }}
+          >
+            <div
+              className="modal-header"
+              style={{ justifyContent: "space-between" }}
+            >
               <h1 className="modal-title fs-5" id="signInModalLabel">
                 Sign In
               </h1>
@@ -41,9 +47,14 @@ export function SignInModal() {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                style={{ width: "0px" }}
               ></button>
             </div>
-            <div id="signInContent" className="modal-body">
+            <div
+              id="signInContent"
+              className="modal-body"
+              style={{ placeSelf: "center" }}
+            >
               <SignInContent errorMessage={errorMessage} />
             </div>
             <div className="modal-footer">

@@ -13,18 +13,25 @@ export function AccountModalContent() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col">
-          <label>Email: </label>
+        <div className="col-12">
+          <span className="text-info">
+            To update your account, Change any fields marked with *
+          </span>
         </div>
-        <div className="col">
+      </div>
+      <div className="row">
+        <div className="col-4">
+          <label>Email</label>
+        </div>
+        <div className="col-4">
           <input type="email" value={account.email} name="email" readOnly />{" "}
         </div>
       </div>
       <div className="row">
-        <div className="col">
-          <label>Password: </label>
+        <div className="col-4">
+          <label>Password</label>
         </div>
-        <div className="col">
+        <div className="col-4">
           <input
             type="password"
             value={account.password}
@@ -34,18 +41,18 @@ export function AccountModalContent() {
         </div>
       </div>
       <div className="row">
-        <div className="col">
-          <label>User Name: </label>
+        <div className="col-4">
+          <label>User Name*</label>
         </div>
-        <div className="col">
+        <div className="col-4">
           <input type="text" defaultValue={account.userName} name="userName" />
         </div>
       </div>
       <div className="row">
-        <div className="col">
-          <label>First Name: </label>
+        <div className="col-4">
+          <label>First Name*</label>
         </div>
-        <div className="col">
+        <div className="col-4">
           <input
             type="text"
             defaultValue={account.firstName}
@@ -54,23 +61,23 @@ export function AccountModalContent() {
         </div>
       </div>
       <div className="row">
-        <div className="col">
-          <label>Last Name: </label>
+        <div className="col-4">
+          <label>Last Name*</label>
         </div>
-        <div className="col">
+        <div className="col-4">
           <input type="text" defaultValue={account.lastName} name="lastName" />
         </div>
       </div>
       <div className="row">
-        <div className="col">
-          <label>Phone: </label>
+        <div className="col-4">
+          <label>Phone Number*</label>
         </div>
-        <div className="col">
+        <div className="col-4">
           <input type="text" defaultValue={account.phone} name="phone" />
         </div>
       </div>
       <div className="row">
-        <div className="col">
+        <div className="col-4">
           <span style={{ color: "red" }}>{errorMessage}</span>
           <span style={{ color: "green" }}>{successMessage}</span>
         </div>
