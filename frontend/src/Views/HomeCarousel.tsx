@@ -23,8 +23,8 @@ export function HomeCarousel() {
 
   return (
     <div className="row">
-      <div className="col ">
-        <h3 className="m-2 text-center bg-warning">Summer Sale 50% off</h3>
+      <div className="col m-2">
+        <h3 className="text-center bg-warning">Featured Products</h3>
         <div
           id="homeCarousel"
           className="carousel slide"
@@ -38,12 +38,20 @@ export function HomeCarousel() {
                 className="d-block"
                 alt="oolong"
               />
-              <div id="caption1" className="carousel-caption d-none d-md-block">
-                <h5>Oolong Tea</h5>
-                <p>
-                  Benefits: Lowers cholesterol, aiding in weight loss, supports
-                  dental health.
-                </p>
+              <div className="carousel-caption d-none d-md-block carouselCaption">
+                <div className="row">
+                  <div className="col">
+                    <h5 className="captionTitle">Oolong Tea</h5>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <p className="captionDescription">
+                      Benefits: Lowers cholesterol, aiding in weight loss,
+                      supports dental health.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="carousel-item">
@@ -53,12 +61,20 @@ export function HomeCarousel() {
                 className="d-block"
                 alt="puerh"
               />
-              <div id="caption2" className="carousel-caption d-none d-md-block">
-                <h5>Pu-erh Tea</h5>
-                <p>
-                  Benefits: Improves digestion, reduces anxiety, and has many
-                  antioxidants.
-                </p>
+              <div className="carousel-caption d-none d-md-block carouselCaption">
+                <div className="row">
+                  <div className="col">
+                    <h5 className="captionTitle">Pu-erh Tea</h5>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <p className="captionDescription">
+                      Benefits: Improves digestion, reduces anxiety, and has
+                      many antioxidants.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="carousel-item">
@@ -68,12 +84,20 @@ export function HomeCarousel() {
                 className="d-block"
                 alt="herbal"
               />
-              <div id="caption3" className="carousel-caption d-none d-md-block">
-                <h5>Herbal Tea</h5>
-                <p>
-                  Benefits: Helps with relaxation, immune system support, and
-                  heart health.
-                </p>
+              <div className="carousel-caption d-none d-md-block carouselCaption">
+                <div className="row">
+                  <div className="col">
+                    <h5 className="captionTitle">Herbal Tea</h5>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <p className="captionDescription">
+                      Benefits: Helps with relaxation, immune system support,
+                      and heart health.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

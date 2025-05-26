@@ -1,15 +1,12 @@
 .carousel-item {
-  #caption1,
-  #caption2,
-  #caption3 {
-    h5,
-    p {
+  background-color: rgba(68, 25, 11, 0.5);
+  .carouselCaption {
+    .captionTitle,
+    .captionDescription {
       color: black;
       background-color: tan;
       margin: auto;
       flex-wrap: wrap;
-    }
-    h5 {
       display: inline-block;
     }
   }
