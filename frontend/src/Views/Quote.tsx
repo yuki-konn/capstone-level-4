@@ -25,17 +25,35 @@ export function Quote() {
 
   if (response === "quoteResponse")
     response = (
-      <div id="quote-display">
-        <blockquote id="quote">"{quote}"</blockquote>
-        <blockquote id="author">~ {author}</blockquote>
-        <p id="url">
-          Quote URL:{" "}
-          <a href={url} target="_blank">
-            {url}
-          </a>
-        </p>
-        <p id="tags">Quote Tags: {tags}</p>
-      </div>
+      <>
+        <div id="quote-display" className="row">
+          <div className="row">
+            <div className="col">
+              <blockquote id="quote">"{quote}"</blockquote>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <blockquote id="author">~ {author}</blockquote>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <p id="url">
+                Quote URL:{" "}
+                <a href={url} target="_blank">
+                  {url}
+                </a>
+              </p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <p id="tags">Quote Tags: {tags}</p>
+            </div>
+          </div>
+        </div>
+      </>
     );
 
   useEffect(componentDidMount, []);
@@ -43,11 +61,19 @@ export function Quote() {
   useEffect(componentDidUnmount, []);
 
   return (
-    <div id="quote-module">
-      <h3>Quotes to think about while drinking tea.</h3>
-      <button className="btn btn-success btn-sm" onClick={handleClick}>
-        Brew Quote
-      </button>
+    <div id="quote-module" className="text-center m-2">
+      <div className="row">
+        <div className="col">
+          <h3>Quotes to think about while drinking tea.</h3>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <button className="btn btn-success btn-sm" onClick={handleClick}>
+            Brew Quote
+          </button>
+        </div>
+      </div>
       {response}
     </div>
   );
