@@ -40,6 +40,10 @@ $secondaryFont: sans-serif;
   }
 }
 
+* {
+  border: 1px solid yellow;
+}
+
 // STYLES
 body {
   @include background;

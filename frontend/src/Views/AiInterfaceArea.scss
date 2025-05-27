@@ -1,6 +1,7 @@
 $borderColor: #44190b;
 $bgColor: tan;
 $buttonBackground: #1d8e50;
+$cursorIcon: url(../../assets/images/cursor/cursorIcon.png);
 
 #aiInterfaceArea {
   #aiInterfaceButton {
@@ -13,6 +14,9 @@ $buttonBackground: #1d8e50;
     border: 2px solid $borderColor;
     background-color: $buttonBackground;
     color: gold;
+    &:hover {
+      cursor: $cursorIcon, pointer;
+    }
   }
   #aiInterface {
     position: fixed;
@@ -78,6 +82,9 @@ $buttonBackground: #1d8e50;
             background-color: $buttonBackground;
             border: 2px solid $borderColor;
             border-radius: 10px;
+            &:hover {
+              cursor: $cursorIcon, pointer;
+            }
           }
         }
       }

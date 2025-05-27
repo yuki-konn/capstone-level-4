@@ -13,44 +13,20 @@ $buttonBackground: #1d8e50;
     border: 2px solid $borderColor;
   }
   .accountFormSection {
-    display: grid;
     background-color: $bgColor;
     border: 2px solid $borderColor;
     margin: auto;
+    justify-items: center;
+
     form {
       padding: ($spacer * 1);
 
       div {
         margin: 0.25em;
-        text-align: center;
         label {
           background-color: rgb(236, 185, 118);
-          text-align: start;
-          width: 20%;
-        }
-        input {
-          width: 20%;
         }
       }
-      #formSubmitRead {
-        margin-left: 20%;
-        width: 20%;
-      }
-    }
-    #readAccountInfo {
-      p {
-        span {
-          color: green;
-        }
-      }
-    }
-    #readAccountMessage,
-    .failed {
-      text-align: center;
-      color: red;
-    }
-    .success {
-      color: green;
     }
   }
 
