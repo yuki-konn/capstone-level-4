@@ -218,14 +218,6 @@ export const stateSetters = {
     const newValue = action.payload;
     state.accountDidMount = newValue;
   },
-  accountReadResponse: function (state: StateVariables, action: ActionString) {
-    const newValue = action.payload;
-    state.accountReadResponse = newValue;
-  },
-  accountReadComponent: function (state: StateVariables, action: ActionString) {
-    const newValue = action.payload;
-    state.accountReadComponent = newValue;
-  },
   accountUpdateResponse: function (
     state: StateVariables,
     action: ActionString

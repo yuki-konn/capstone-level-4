@@ -63,10 +63,8 @@ export const stateVariables = {
   serverDidMount: false,
   serverResponse: "",
 
-  // Account.tsx (Page)
+  // MyAccount.tsx (Page)
   accountDidMount: false,
-  accountReadResponse: "",
-  accountReadComponent: "",
   accountUpdateResponse: "",
   accountUpdateComponent: "",
   accountDeleteResponse: "",

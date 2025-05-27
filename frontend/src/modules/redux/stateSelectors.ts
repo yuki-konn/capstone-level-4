@@ -194,14 +194,6 @@ export function selectAccountDidMount(state: StateVariables): boolean {
   const { accountDidMount } = state;
   return accountDidMount;
 }
-export function selectAccountReadResponse(state: StateVariables): string {
-  const { accountReadResponse } = state;
-  return accountReadResponse;
-}
-export function selectAccountReadComponent(state: StateVariables): string {
-  const { accountReadComponent } = state;
-  return accountReadComponent;
-}
 export function selectAccountUpdateResponse(state: StateVariables): string {
   const { accountUpdateResponse } = state;
   return accountUpdateResponse;
