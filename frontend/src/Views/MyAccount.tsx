@@ -1,15 +1,13 @@
 import React, { FormEvent, ReactElement, useEffect } from "react";
 import "./MyAccount.scss";
 import "./AiInterfaceArea.scss";
-import { handleAccountUpdate } from "../controllers/handleAccountUpdate";
+// import { handleAccountUpdate } from "../controllers/handleAccountUpdate";
 import { handleDeleteAccount } from "../controllers/handleDeleteAccount";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAccountDeleteComponent,
   selectAccountDeleteResponse,
   selectAccountDidMount,
-  // selectAccountReadComponent,
-  // selectAccountReadResponse,
   selectAccountUpdateComponent,
   selectAccountUpdateResponse,
   selectGlobalAccount,
@@ -19,10 +17,8 @@ import { AiInterfaceArea } from "./AiInterfaceArea";
 
 export function MyAccount() {
   const didMount = useSelector(selectAccountDidMount);
-  // let readResponse: Account | string = useSelector(selectAccountReadResponse);
   const updateResponse: string = useSelector(selectAccountUpdateResponse);
   const deleteResponse: string = useSelector(selectAccountDeleteResponse);
-  // let readComponent: stringOrJSX = useSelector(selectAccountReadComponent);
   let updateComponent: stringOrJSX = useSelector(selectAccountUpdateComponent);
   let deleteComponent: stringOrJSX = useSelector(selectAccountDeleteComponent);
   const account = useSelector(selectGlobalAccount);
@@ -31,45 +27,6 @@ export function MyAccount() {
 
   useEffect(componentDidMount, []);
   useEffect(componentDidUpdate, [didMount, account]);
-
-  // if (readComponent === "readSuccess") {
-  //   const { email, password, userName, firstName, lastName, phone } =
-  //     readResponse as any as Account;
-  //   readComponent = (
-  //     <div id="readAccountInfo">
-  //       <h4>
-  //         <u>Retrieved Information</u>
-  //       </h4>
-  //       <p>
-  //         <b>Email: </b>
-  //         <span>{email}</span>
-  //       </p>
-  //       <p>
-  //         <b>password: </b>
-  //         <span>{password}</span>
-  //       </p>
-  //       <p>
-  //         <b>User Name: </b>
-  //         <span>{userName}</span>
-  //       </p>
-  //       <p>
-  //         <b>First Name: </b>
-  //         <span>{firstName}</span>
-  //       </p>
-  //       <p>
-  //         <b>Last Name: </b>
-  //         <span>{lastName}</span>
-  //       </p>
-  //       <p>
-  //         <b>Phone #: </b>
-  //         <span>{phone}</span>
-  //       </p>
-  //     </div>
-  //   );
-  // }
-  // if (readComponent === "readFailed") {
-  //   readComponent = <span id="readAccountMessage">{readResponse}</span>;
-  // }
 
   if (updateComponent === "updateSuccess")
     updateComponent = <span className="success">{updateResponse}</span>;
@@ -92,12 +49,13 @@ export function MyAccount() {
   return (
     <main id="accountMain" className="container-lg">
       <AiInterfaceArea />
-      <section id="accountInfo">
+      <section id="accountInfo" className="m-2">
         <div className="row">
           <div className="col">
             <h1>Account Information</h1>
           </div>
         </div>
+        {/* TODO: Make into BootStrap Cards */}
         <div className="row">
           <div className="col">
             <span className="spanLabel">Email: </span>
@@ -149,7 +107,6 @@ export function MyAccount() {
           </div>
         </div>
       </section> */}
-      <hr />
       {/* <section className="accountFormSection col-12">
         <h4>Update Information</h4>
         <span>
@@ -190,26 +147,55 @@ export function MyAccount() {
         </form>
         {updateComponent}
       </section> */}
-      <hr />
-      <section className="accountFormSection col-12">
-        <h4>Delete Account</h4>
-        <span>Enter your email and password to delete your account.</span>
-        <form onSubmit={handleSubmitDelete}>
-          <div>
-            <label>
-              Email <span style={{ color: "red" }}>*</span>
-            </label>
-            <input type="email" defaultValue={account.email} required />
+      <section className="accountFormSection m-2 ">
+        <div className="row">
+          <div className="col">
+            <h4>Delete Account</h4>
           </div>
-          <div>
-            <label>
-              Password <span style={{ color: "red" }}>*</span>
-            </label>
-            <input type="password" defaultValue={account.password} required />
+        </div>
+        <div className="row">
+          <div className="col">
+            <span>Enter your email and password to delete your account.</span>
           </div>
-          <input id="formSubmitDelete" type="submit" />
-        </form>
-        {deleteComponent}
+        </div>
+        <div className="row">
+          <div className="col">
+            <form onSubmit={handleSubmitDelete}>
+              <div className="row">
+                <div className="col-4">
+                  <label>
+                    Email <span style={{ color: "red" }}>*</span>
+                  </label>
+                </div>
+                <div className="col-4">
+                  <input type="email" defaultValue={account.email} required />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-4">
+                  <label>
+                    Password <span style={{ color: "red" }}>*</span>
+                  </label>
+                </div>
+                <div className="col-4">
+                  <input
+                    type="password"
+                    defaultValue={account.password}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col text-center">
+                  <input type="submit" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">{deleteComponent}</div>
+        </div>
       </section>
     </main>
   );
@@ -226,8 +212,8 @@ export function MyAccount() {
     }
   }
 
-  function handleClickUpdate() {}
-  function handleClickDelete() {}
+  // function handleClickUpdate() {}
+  // function handleClickDelete() {}
 
   // async function handleSubmitRead(event: FormEvent<HTMLFormElement>) {
   //   const response: string | Account = await handleReadAccount(event);
@@ -248,21 +234,21 @@ export function MyAccount() {
   //   }
   // }
 
-  async function handleSubmitUpdate(event: FormEvent<HTMLFormElement>) {
-    // const response = await handleAccountUpdate(event);
-    // const isUpdated = response.includes("updated");
-    // if (isUpdated) {
-    //   let action = set.accountUpdateComponent("updateSuccess");
-    //   dispatch(action);
-    //   action = set.accountUpdateResponse(response);
-    //   dispatch(action);
-    // } else {
-    //   let action = set.accountUpdateComponent("updateFailed");
-    //   dispatch(action);
-    //   action = set.accountUpdateResponse(response);
-    //   dispatch(action);
-    // }
-  }
+  // async function handleSubmitUpdate(event: FormEvent<HTMLFormElement>) {
+  //   const response = await handleAccountUpdate(event);
+  //   const isUpdated = response.includes("updated");
+  //   if (isUpdated) {
+  //     let action = set.accountUpdateComponent("updateSuccess");
+  //     dispatch(action);
+  //     action = set.accountUpdateResponse(response);
+  //     dispatch(action);
+  //   } else {
+  //     let action = set.accountUpdateComponent("updateFailed");
+  //     dispatch(action);
+  //     action = set.accountUpdateResponse(response);
+  //     dispatch(action);
+  //   }
+  // }
 
   async function handleSubmitDelete(event: FormEvent<HTMLFormElement>) {
     const response: string = await handleDeleteAccount(event);
