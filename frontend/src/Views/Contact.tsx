@@ -40,7 +40,7 @@ export function Contact() {
 
   if (contactFormData === "contactFormData") {
     contactFormData = (
-      <>
+      <div id="outputTag1" className="border border-3 border-dark text-center">
         <b style={{ color: "green" }}>{contactFormResponse}</b>
         <br />
         <div>
@@ -59,36 +59,20 @@ export function Contact() {
           --------------
           <br />
         </div>
-      </>
+      </div>
     );
   }
 
   return (
     <main id="contactMain" className="container-lg">
       <AiInterfaceArea />
-      <h1 className="text-center border-bottom border-3 border-dark">
-        Contact Us
-      </h1>
-      <section>
-        <h2 className="textShadow">Contact Form</h2>
+      <section className="formSection">
         <form id="form1" onSubmit={handleSubmitContact}>
           <ContactFormContent />
         </form>
-        <br />
-        <div
-          id="outputTag1"
-          className="border border-3 border-dark text-center"
-        >
-          {contactFormData}
-        </div>
-
-        <br />
+        {contactFormData}
       </section>
-      <section>
-        <h2 className="textShadow">
-          <i className="bi bi-telephone"></i> Schedule a Phone Appointment
-        </h2>
-
+      <section className="formSection">
         <form onSubmit={handleSubmitPhone as any}>
           <ContactPhoneContent />
         </form>
@@ -130,33 +114,29 @@ export function Contact() {
     const name = event.target[0].value;
     const email = event.target[1].value;
     const comment = event.target[2].value;
-    const outputTag = document.getElementById("outputTag1");
 
     // MAKES SUBMISSION NOT DISPLAY MORE THAN ONCE
-    const isEmpty = outputTag.children.length === 0;
-    if (isEmpty) {
-      let action = set.contactFormName(name);
-      dispatch(action);
-      action = set.contactFormEmail(email);
-      dispatch(action);
+    let action = set.contactFormName(name);
+    dispatch(action);
+    action = set.contactFormEmail(email);
+    dispatch(action);
 
-      // ADDS INPUTTED COMMENT
-      action = set.contactCommentArea(comment);
-      dispatch(action);
+    // ADDS INPUTTED COMMENT
+    action = set.contactCommentArea(comment);
+    dispatch(action);
 
-      // CHECKS TO SEE WHICH RADIO BUTTON IS SELECTED
-      const ratingFeedback = getCheckedRadio(event);
-      // ADDS INPUTTED RATING
-      action = set.contactRadioArea(ratingFeedback);
-      dispatch(action);
+    // CHECKS TO SEE WHICH RADIO BUTTON IS SELECTED
+    const ratingFeedback = getCheckedRadio(event);
+    // ADDS INPUTTED RATING
+    action = set.contactRadioArea(ratingFeedback);
+    dispatch(action);
 
-      // SERVER DATA RETRIEVAL
-      const serverFeedback = getServerFeedback(event);
+    // SERVER DATA RETRIEVAL
+    const serverFeedback = getServerFeedback(event);
 
-      // CHANGES FROM PROCESSING TO SUCCESSFULLY SUBMITTED
-      action = set.contactResponse(serverFeedback);
-      dispatch(action);
-    }
+    // CHANGES FROM PROCESSING TO SUCCESSFULLY SUBMITTED
+    action = set.contactResponse(serverFeedback);
+    dispatch(action);
   }
 
   // UNMOUNT PHASE
