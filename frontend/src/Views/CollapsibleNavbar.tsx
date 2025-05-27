@@ -2,7 +2,6 @@ import React from "react";
 import { Link, NavLink } from "react-router";
 import "./CollapsibleNavbar.scss";
 import { SignInArea } from "./SignInArea";
-// import { CreateAccountArea } from "./CreateAccountArea";
 import { useSelector } from "react-redux";
 import { selectGlobalAccount } from "../modules/redux/stateSelectors";
 
@@ -13,7 +12,6 @@ export function CollapsibleNavbar() {
   const account = useSelector(selectGlobalAccount);
 
   let myAccount = <></>;
-  // ONLY FOR PRESENTATION
   if (account)
     myAccount = (
       <li id="dropDownArea" className="nav-item dropdown">
@@ -36,13 +34,6 @@ export function CollapsibleNavbar() {
         </ul>
       </li>
     );
-  // DEFAULT SETUP
-  // if (account)
-  //   myAccount = (
-  //     <Link className="dropdown-item" to={`${rootpath}/account`}>
-  //       My Account
-  //     </Link>
-  //   );
 
   return (
     <nav id="collapsibleNavbar" className="navbar navbar-expand-lg bg-dark">
@@ -80,32 +71,9 @@ export function CollapsibleNavbar() {
             <NavLink className="nav-item nav-link" to={`${rootpath}/contact`}>
               <i className="bi bi-messenger"></i> Contact
             </NavLink>
-            {/* <li>
-              <CreateAccountArea />
-            </li> */}
-            <li id="signIn">
-              <SignInArea />
-            </li>
+            <SignInArea />
           </ul>
           {myAccount}
-          {/* DEFAULT SET UP */}
-          {/* <li id="dropDownArea" className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              id="navbar-dropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Misc.
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="navbar-dropdown">
-              <li>
-                {myAccount}
-              </li>
-            </ul>
-          </li> */}
         </div>
       </div>
     </nav>
