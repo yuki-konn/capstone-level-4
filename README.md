@@ -3,11 +3,11 @@
 Capstone Level 4 Project
 
 Frontend: TypeScript, Bootstrap, SASS<br>
-Backend: TypeScript, Nodejs<br>
-AWS: DynamoDB, Lambda<br>
+Backend: TypeScript, Nodejs, AWS, Google App Engine<br>
+AWS: DynamoDB, Lambda, CloudFront<br>
 API: [OpenTDB](https://opentdb.com/api_config.php),
 [FavQs](https://favqs.com/api)<br>
-Testing: Jest
+Testing: Jest, Vitest
 
 # NOTES
 
@@ -16,28 +16,18 @@ In the Home.js there is one inline style.
 
 # TO DO
 
-## Top Priority:
+- Put all internal and inline styles in SASS files.
 
-Applying things I learned.
+### Shop.tsx
 
-## Medium Priority:
+- Get buttons working with redux state variables.
 
-### Contact.js
+### Contact.tsx
 
-- Convert PhoneContact Form output feedback to react.
-- Put handleClickAddCart in componentDidUpdate in shop.js (Output feedback)
-
-## Low Priority:
-
-## Working but can improve:
-
-### Contact.js
-
-- Convert ContactForm promises to Async and await.
-- Convert PhoneForm promises to Async and await.
+- Rework phone appointment form
 
 ### Ideas:
 
-- Create catagories for products based on tea type for shop page. Make a Navigation with tea types and add more pictures of each type of tea.
+- Photoshop a white circle background around each sample image in the shop.
 
 - Create signed in specific pages. Like a profile page, settings page, forum page, etc.
