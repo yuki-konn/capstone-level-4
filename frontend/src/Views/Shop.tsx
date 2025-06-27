@@ -78,15 +78,15 @@ export function Shop() {
               </button>
             </div> */}
           </div>
-          <div className="col">{greenTeaCard}</div>
-          <div className="col">{whiteTeaCard}</div>
-          <div className="col">{oolongTeaCard}</div>
-          <div className="col">{puerhTeaCard}</div>
-          <div className="col">{purpleTeaCard}</div>
-          <div className="col">{matchaTeaCard}</div>
-          <div className="col">{mateTeaCard}</div>
-          <div className="col">{herbalTeaCard}</div>
-          <div className="col">{rooibosTeaCard}</div>
+          <div className="col text-center">{greenTeaCard}</div>
+          <div className="col text-center">{whiteTeaCard}</div>
+          <div className="col text-center">{oolongTeaCard}</div>
+          <div className="col text-center">{puerhTeaCard}</div>
+          <div className="col text-center">{purpleTeaCard}</div>
+          <div className="col text-center">{matchaTeaCard}</div>
+          <div className="col text-center">{mateTeaCard}</div>
+          <div className="col text-center">{herbalTeaCard}</div>
+          <div className="col text-center">{rooibosTeaCard}</div>
         </div>
       </div>
     );
