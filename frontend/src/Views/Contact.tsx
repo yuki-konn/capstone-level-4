@@ -77,13 +77,13 @@ export function Contact() {
           <ContactPhoneContent />
         </form>
         <br />
-        <div
+        {/* <div
           id="phoneOutputTag"
           className="border border-3 border-dark text-center"
         >
-          {/* {formOutput2} */}
+          {formOutput2}
         </div>
-        <br />
+        <br /> */}
       </section>
     </main>
   );
