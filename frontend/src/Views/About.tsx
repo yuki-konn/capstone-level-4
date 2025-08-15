@@ -30,6 +30,97 @@ export function About() {
       <section>
         <Quote />
       </section>
+      <section id="sectionLvl4">
+        <h2 className="m-2 text-center bg-warning">Level 4</h2>
+        <article className="m-2 p-2">
+          <h3 className="textShadow text-center">
+            Coding difference between Level 3 and Level 4
+          </h3>
+          <ul className="list-group-numbered list-group border border-3 border-dashed border-black">
+            <li className="list-group-item">
+              Added Redux to store state variables.
+            </li>
+            <li className="list-group-item">
+              TypeScript
+              <li className="list-group-item">
+                Converted .js files to .ts and .tsx files
+              </li>
+              <li className="list-group-item">
+                Converted all pages to TypeScript
+              </li>
+              <li className="list-group-item">
+                Configured TypeScript for webpack, babel, packages, etc.
+              </li>
+              <li className="list-group-item">
+                Sorted packages into dependencies and dev dependencies.
+              </li>
+            </li>
+            <li className="list-group-item">
+              Seperated Project folder into frontend, backend, and
+              backendGoogleAppEngine
+              <li className="list-group-item">
+                Established communication between frontend and backend.
+              </li>
+            </li>
+          </ul>
+        </article>
+        <article className="m-2 p-2">
+          <h3 className="textShadow text-center">Changes & Features</h3>
+          <ul className="list-group-numbered list-group border border-3 border-dashed border-black">
+            <li className="list-group-item">
+              Home Page
+              <li className="list-group-item">...</li>
+            </li>
+            <li className="list-group-item">
+              Shop Page
+              <li className="list-group-item">
+                Added new buttons to cards in shop page.
+              </li>
+            </li>
+            <li className="list-group-item">
+              Contact Page
+              <li className="list-group-item">
+                Changed Contact page styles to be more user friendly
+              </li>
+            </li>
+            <li className="list-group-item">
+              About Page
+              <li className="list-group-item">
+                Added Level 4 changes information
+              </li>
+            </li>
+            <li className="list-group-item">
+              Other
+              <li className="list-group-item">Reduced header image height</li>
+            </li>
+            <li className="list-group-item">
+              Navigation Bar
+              <li className="list-group-item">
+                When not signed in createAccount modal is in navigation bar that
+                allows account creation.
+              </li>
+              <li className="list-group-item">
+                Added My Account page that only appears when signed in.
+              </li>
+              <li className="list-group-item">
+                Added Account modal to navigation bar when signed in.
+              </li>
+              <li className="list-group-item">
+                Account modal allows account information to be updated.
+              </li>
+            </li>
+            <li className="list-group-item">
+              AI Model
+              <li className="list-group-item">
+                Added simple AI question answering model in chatbox to all
+                pages. Accessible by clicking 'Ask Question' button on bottom
+                right of the page.
+              </li>
+            </li>
+          </ul>
+        </article>
+      </section>
+      <hr />
       <section id="sectionLvl3">
         <h2 className="m-2 text-center bg-warning">Level 3</h2>
         <article className="m-2 p-2">
@@ -89,7 +180,6 @@ export function About() {
                 <code>jest</code>, <code>@jest/globals</code> for unit testing.
               </li>
             </ul>
-            {/* <li className="list-group-item">...</li> */}
           </ul>
         </article>
         <article className="m-2 p-2">
@@ -117,11 +207,10 @@ export function About() {
             <li className="list-group-item">
               Added <b>Bootstrap Carousel</b> to Home page.
             </li>
-            {/* <li className="list-group-item">...</li> */}
           </ul>
         </article>
       </section>
-
+      <hr />
       <section id="sectionLvl2">
         <h2 className="m-2 text-center bg-warning">Level 2</h2>
         <article className="m-2 p-2">
@@ -190,7 +279,7 @@ export function About() {
           </ul>
         </article>
       </section>
-
+      <hr />
       <section id="sectionLvl1">
         <h2 className="m-2 text-center bg-warning">Level 1</h2>
         <article className="m-2 p-2">
@@ -237,7 +326,7 @@ export function About() {
           </ul>
         </article>
       </section>
-
+      <hr />
       <div id="siteMapGroup" className="m-1">
         <span className="fw-bold p-0 m-0">
           <u style={{ color: "green" }}>Sitemap</u>

@@ -21,6 +21,7 @@ In the Home.js there is one inline style.
 ### Shop.tsx
 
 - Get buttons working with redux state variables.
+- Make cart button that brings up items in cart.
 
 ### Contact.tsx
 
